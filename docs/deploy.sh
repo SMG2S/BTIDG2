@@ -8,6 +8,8 @@ cd $1
 
 git checkout gh-pages
 
+touch .nojekyll
+
 cp -rf $2/ .
 
 git add --all .
