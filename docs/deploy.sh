@@ -2,7 +2,7 @@
 
 rm -rf $1
 
-git clone https://github.com/SMG2S/BTIDG2.git $1
+git clone git@github.com:SMG2S/BTIDG2.git $1
 
 cd $1
 
