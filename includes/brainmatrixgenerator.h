@@ -49,6 +49,10 @@ typedef struct DebugBrainMatrixInfo DebugBrainMatrixInfo;
 --- Génération de la matrice-cerveau ---
 --------------------------------------*/
 
+/** @defgroup generation BTIDG2
+ *  This module relates to multiple implementation of SMG2S to generate a non-Symmetric/Hermitian sparse matrix with it. 
+ *  @{
+ */
 //! Generates a CSR square adjacency matrix by the brain, 2D (grid)
 /*!
    Generates a CSR square adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a two-dimensional process grid.
@@ -476,3 +480,5 @@ void generate_coo_row_transposed_adjacency_brain_matrix_for_pagerank(IntCOOMatri
         /* MatrixDebugInfo.nb_connections contient maintenant (dans tout les processus) le nombre GLOBAL de connexions faites pour chaque neurone. */
     }
 }
+
+/** @} */ // end of generation
