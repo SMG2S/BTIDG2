@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Version" href="version.html" />
+    <link rel="next" title="License" href="license.html" />
     <link rel="prev" title="BTIDG2’s Documentation" href="index.html" /> 
 </head>
 
@@ -84,11 +84,13 @@
             
               <p class="caption"><span class="caption-text">INTRODUCTION</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="version.html">Version</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-btidg2">What is BTIDG2?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contributors and Contact</a></li>
 </ul>
 <p class="caption"><span class="caption-text">USER DOCUMENTATION</span></p>
 <ul>
@@ -167,6 +169,37 @@
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-btidg2">
+<h2>What is BTIDG2?<a class="headerlink" href="#what-is-btidg2" title="Permalink to this headline">¶</a></h2>
+<p><strong>*BTIDG2*</strong>, short for Brain Topology Inspired Distributed Graph Generator, is
+able to generate very large graphs which is inspired by the topology of humain brain.
+This matrix generated is implemented based C, and parallised based on MPI.</p>
+<p>As a software, <strong>*BTIDG2*</strong> ensures that:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the generator must be able to work for large sparse matrices without any I/Os</p></li>
+<li><p>the generator must work in a distributed fashion</p></li>
+<li><p>support multiple (COO and CSR) distributed sparse data formats</p></li>
+<li><p>the generator must be as configurable as possible</p></li>
+<li><p>a <strong>*converter*</strong>, allowing to convert a data file containing the brain infor- mation as we found it on the internet into an input file for our matrix generator.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Graph data can be used to represent data from various domains: Web graphs, physical or
+biological systems, communication networks, etc. Graph data analysis can provide valuable insight on the underlying networks.
+More recently, Machine Learning techniques have also been
+applied to this type of data. However, the size of these graphs is always growing, which poses
+significant challenges to be able to apply these methods.</p>
+<p>In particular, when the researchers study the scalability of
+the PageRank algorithm on very large matrices in distributed computing environments, e.g., RIKEN’s Fugaku, one of the most powerful supercomputers
+in the world according to the latest TOP500 ranking. Evaluating algorithms like the PageRank on very large matrices is impossible to do directly
+with sequential method and it is also not possible to have an input file containing the graph.
+Indeed, with data sets this large, input-outputs would be far too costly.</p>
+<p>Evaluating those algorithms therefore requires distributed data sets and graphs that almost
+fill the very large memories available, and are generated directly in parallel without I/O.</p>
+</div>
 </div>
 
 
@@ -177,7 +210,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="version.html" class="btn btn-neutral float-right" title="Version" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="BTIDG2’s Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -190,7 +223,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright Nicolas Hochart
+        &copy; Copyright Xinzhe Wu
 
     </p>
   </div>

@@ -3,13 +3,11 @@ BTIDG2's Documentation
 **********************
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: INTRODUCTION
 
    btidg2
-   version
    license
-   reference
    contact
 
 .. toctree::
@@ -17,7 +15,6 @@ BTIDG2's Documentation
    :caption: USER DOCUMENTATION
       
    quick-start
-   build
    example
    performance
    

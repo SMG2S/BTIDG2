@@ -1,8 +1,8 @@
 API
 ================
 
-Classes
-------==
+Structs
+-----------
 
 .. doxygenstruct:: Brain
 
