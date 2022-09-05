@@ -43,7 +43,7 @@ fill the very large memories available, and are generated directly in parallel w
 Documentation
 ---------------
 
-Please find the documentation of BTIDG2 ![here](https://smg2s.github.io/BTIDG2/)
+Please find the documentation of BTIDG2 [here](https://smg2s.github.io/BTIDG2/)
 
 Main developers
 ----------------
