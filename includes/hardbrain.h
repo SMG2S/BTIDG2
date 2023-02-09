@@ -1,14 +1,25 @@
 /*Hard-coded brain, to test the generator or to apply PageRank on a matrix generated with it*/
 /*Nicolas HOCHART*/
 
-#define hardbrain
+#pragma once
 
 #ifndef brainstruct
-#include "../../BrainMatrixGenerator/brainstruct.h"
+#include "brainstruct.h"
 #endif
 
-//Hard-coded brain (number of parts = 8, equal number of neurons in each part)
-Brain get_hard_brain(long n)
+/** @defgroup hardbrain hard-coded brain 
+ * 
+ *  @brief  a hard-coded brain structure (number of parts = 8, equal number of neurons in each part) for tests
+ * 
+ *  @{
+ */
+
+//! generate the hard-code brain structure
+/*!
+   generate a brain with `n` neurons using a hard-code structure 
+ * @param[in] n : number of neuros of the brain to be generated, thus the row/column size of generated sparse matrix
+ */
+Brain generate_hard_brain(long long n)
 {
     int i,nb_part=8;
     BrainPart * brainPart = (BrainPart *)malloc(nb_part * sizeof(BrainPart));
@@ -92,3 +103,6 @@ Brain get_hard_brain(long n)
 
     return Cerveau;
 }
+
+
+/** @} */ // end of hardbrain

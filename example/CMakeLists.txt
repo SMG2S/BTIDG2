@@ -1,11 +1,15 @@
-add_executable(BTIG2_A BTIG2_adjacency.c)
-add_executable(BTIG2_A2 BTIG2_adjacency2.c)
-#Maths
-target_link_libraries(BTIG2_A PRIVATE m)
-target_link_libraries(BTIG2_A2 PRIVATE m)
+add_executable(hardBrainTest hardBrainTest.c)
+target_link_libraries(hardBrainTest PUBLIC btidg2)
 
-# MPI
-find_package(MPI REQUIRED)
-target_link_libraries(BTIG2_A PUBLIC MPI::MPI_CXX)
-target_link_libraries(BTIG2_A2 PUBLIC MPI::MPI_CXX)
+find_package(Python)
 
+if(Python_FOUND)
+   
+	execute_process(COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/translator/converter.py ${CMAKE_SOURCE_DIR}/translator/Configs/littleConfigTest.json)
+
+    add_executable(littleConfigTest littleConfigTest.c)
+    target_link_libraries(littleConfigTest PUBLIC btidg2)
+    target_include_directories(littleConfigTest PUBLIC ${CMAKE_SOURCE_DIR}/translator/Configs)
+else()
+	message("Python is required for example littleConfigTest.c")
+endif()

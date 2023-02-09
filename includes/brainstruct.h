@@ -1,10 +1,10 @@
-//! Brain structures
-/*!
+// Brain structures
+/*
   This file defines the structures and functions related to the Brains used by the brain-matrix generator
   Nicolas HOCHART
 */
 
-#define brainstruct
+#pragma once
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,49 +15,56 @@
 #include "randomforbrain.h"
 #endif
 
-/*----------------------------------------------------------------------
---- Structure contenant les informations d'un cerveau et ses parties ---
-----------------------------------------------------------------------*/
+/** @defgroup brainstruct brain structure 
+ * 
+ *  @brief  definition of brain and its parts
+ * 
+ *  @{
+ */
 
 //! Structure containing the information of a part of the brain
 /*!
-   Structure containing the information of a part of the brain. It contains :
-   The number of neuron types that can be encountered in the part, the cumulative distribution of neurons in the neuron types, and the probability of connection (for each type) to other parts of the brain.
+   It contains :
+       1. The number of neuron types that can be encountered in the part
+       2. the cumulative distribution of neurons in the neuron types
+       3. the probability of connection (for each type) to other parts of the brain.
+   
    This structure depends on the brain to which it belongs.
  */
 struct BrainPart
 {
-     int nbTypeNeuron;
-     double * repartitionNeuronCumulee; //taille nbTypeNeuron
-     double * probaConnection; //taille (ligne) nbTypeNeuron * (colonne) nb_part
+     int nbTypeNeuron; //!< \public the number of neuron types that can be encountered in the part
+     double * repartitionNeuronCumulee; //!< \public the cumulative distribution of neurons in the neuron types
+     double * probaConnection; //!< \public the probability of connection (for each type) to other parts of the brain
 };
 typedef struct BrainPart BrainPart;
 
 //! Structure containing the information of a brain
 /*!
-   Structure containing the information of a brain. It contains :
-   The total number of neurons, the number of parts in the brain, the indices (neurons) at which parts start, the brain parts (see BrainPart structure).
+   It contains :
+       1. the total number of neurons
+       2. the number of parts in the brain
+       3. the indices (neurons) at which parts start
+       4. the brain parts (see BrainPart).
  */
 struct Brain
 {
-     long long dimension; //nombre de neurones total
-     int nb_part; //nombre de parties
-     long long * parties_cerveau; //taille nb_part - indices de 0 à n (dimension de la matrice) auxquels commencent les parties du cerveau
-     BrainPart * brainPart; //taille nb_part - adresse d'un vecteur de pointeurs vers des BrainPart.
+     long long dimension; //!< \public the total number of neurons 
+     int nb_part; //!< \public the number of parts in the brain 
+     long long * parties_cerveau; //!< \public the indices (neurons) at which parts start
+     BrainPart * brainPart; //!< \public the brain parts (see BrainPart).
 };
 typedef struct Brain Brain;
 
-/*---------------------------------
---- Opérations sur les cerveaux ---
----------------------------------*/
 
 //! Function that returns the index of the part of the brain in which a neuron is located
 /*!
-   Function that returns the index of the part of the brain "brain" in which the neuron of index "ind" is located
- * @param[in] ind {long} index of the neuron
- * @param[in] brain {Brain *} pointer to a brain
- * @return i {int} index of the brain part
-   Condition : "brain" is a well formed brain and "ind" is assumed to be between 0 and brain.dimension
+   Function that returns the index of the part of the Brain in which the neuron of index `ind` is located
+ * @param[in] ind  index of the neuron
+ * @param[in] brain pointer to a brain
+ * @return i index of the brain part
+ * 
+   **Condition**: Brain is a well formed and `ind` is assumed to be between `0` and `brain.dimension`
  */
 int get_brain_part_ind(long long ind, Brain * brain)
 {
@@ -80,16 +87,15 @@ int get_brain_part_ind(long long ind, Brain * brain)
 
 //! Function that returns the number of neurons in a specific brain part
 /*!
-   Function that returns the number of neurons in the brain part if index "part", in the brain "brain"
- * @param[in] ind {long} index of the neuron
- * @param[in] brain {Brain *} pointer to a brain
- * @return {long} number of neurons in the brain part
+   Function that returns the number of neurons in the brain part if index `part`, in the Brain `brain`
+ * @param[in] ind index of the neuron
+ * @param[in] brain pointer to a brain
+ * @return  number of neurons in the brain part
  */
 int get_nb_neuron_brain_part(Brain * brain, int part)
 {
-    /*Renvoie le nombre de neurones dans la partie d'indice part*/
     long long n = (*brain).dimension;
-    long long ind_depart = (*brain).parties_cerveau[part]; //indice de depart auquel commence la partie
+    long long ind_depart = (*brain).parties_cerveau[part];
     if (part+1 == (*brain).nb_part)
     {
         return n - ind_depart;
@@ -103,18 +109,17 @@ int get_nb_neuron_brain_part(Brain * brain, int part)
 
 //! Function that returns the average percentage of connection chances for a specific neuron to the other parts
 /*!
-   Function that returns the average percentage (between 0 and 100) of connection chances for a neuron of a given type in a given part, to the other parts
- * @param[in] brain {Brain *} pointer to a brain
- * @param[in] part {int} brain part index
- * @param[in] type {int} neuron index
- * @return {double} average percentage of connection chance
+   Function that returns the average percentage (between `0` and `100`) of connection chances for a neuron of a given type in a given part, to the other parts
+ * @param[in] brain pointer to a brain
+ * @param[in] part  brain part index
+ * @param[in] type  neuron index
+ * @return average percentage of connection chance
  */
 double get_mean_connect_percentage_for_part(Brain * brain, int part, int type)
 {
-    /*Renvoie le pourcentage (entre 0 et 100) de chances de connection moyen pour un neurone de type donné dans une partie donnée, vers les autres parties*/
     long long n,i;
     int nb_part;
-    double * probCo = (*brain).brainPart[part].probaConnection; //Proba de connection vers chaque partie
+    double * probCo = (*brain).brainPart[part].probaConnection; 
     n = (*brain).dimension;
     nb_part = (*brain).nb_part;
 
@@ -129,16 +134,15 @@ double get_mean_connect_percentage_for_part(Brain * brain, int part, int type)
 //! Choose and returns the neuron type for a neuron in a specitic brain part
 /*!
    Choose and returns a neuron type for a neuron in the brain part of index "part", in the brain "brain"
- * @param[in] brain {Brain *} pointer to a brain
- * @param[in] part {int} brain part index
- * @return {int} neuron type
+ * @param[in] brain pointer to a brain
+ * @param[in] part brain part index
+ * @return neuron type
  */
 int choose_neuron_type(Brain * brain, int part)
 {
-    /*Choisi de quel type sera le neurone en fonction du cerveau et de la partie auxquels il appartient*/
     if (part >= (*brain).nb_part)
     {
-        printf("Erreur dans choose_neuron_type : numéro de partie %i supérieur au nombre de parties dans le cerveau %i.\n",part,(*brain).nb_part);
+        printf("Error in choose_neuron_type: part number %i greater than number of parts in brain %i.\n",part,(*brain).nb_part);
         exit(1);
     }
     int i=0;
@@ -154,16 +158,17 @@ int choose_neuron_type(Brain * brain, int part)
 //! Function that generates (chooses) the types of multiple neurons and writes them in "types"
 /*!
    Generates the types of neurons from index "ind_start_neuron" to "ind_start_neuron + nb_neuron" in the brain "brain", and writes them in "types"
- * @param[in] brain {Brain *} pointer to a brain
- * @param[in] part {int} brain part index
- * @return {int} neuron type
-   Condition : The memory allocation (malloc of size nb_neuron * sizeof(int)) for "types" must be done beforehand.
+ * @param[in] brain  pointer to a brain
+ * @param[in] part brain part index
+ * @return neuron type
+ * 
+   **Condition**: The memory allocation (malloc of size nb_neuron * sizeof(int)) for "types" must be done beforehand. 
  */
 void generate_neuron_types(Brain * brain, int ind_start_neuron, int nb_neuron, int * types)
 {
     /*
-     Décide des types des neurones numéro "ind_start_neuron" à "ind_start_neuron + nb_neuron" dans le cerveau "Brain", et les écrit dans "types"
-     Un malloc de taille nb_neuron * sizeof(int) doit avoir été fait au préalable pour le pointeur "types".
+      Decides the types of neurons number "ind_start_neuron" to "ind_start_neuron + nb_neuron" in the brain "Brain", and writes them in "types"
+      A malloc of size nb_neuron * sizeof(int) must have been made beforehand for the "types" pointer.
     */
     long long i;
     int ind_part;
@@ -179,15 +184,15 @@ void generate_neuron_types(Brain * brain, int ind_start_neuron, int nb_neuron, i
 //! Brain print
 /*!
    Function that displays a summary of the brain passed as a parameter (useful for debugging a brain)
- * @param[in] brain {Brain *} pointer to a brain
+ * @param[in] brain pointer to a brain
  */
 void printf_recap_brain(Brain * brain)
 {
     int i,j,k;
     /*affiche un récapitulatif du cerveau passé en paramètre.*/
-    printf("\n#############\nRecap de votre cerveau :\n");
+    printf("\n#############\nInfo of Brain :\n");
 
-    printf("Taille : %llu*%llu\nNombre de parties : %d\nIndices auxquelles commencent les parties : [",(*brain).dimension,(*brain).dimension,(*brain).nb_part);
+    printf("Size: %llu*%llu\nNumber of games: %d\nIndices at which games start: [",(*brain).dimension,(*brain).dimension,(*brain).nb_part);
     for (i=0; i<(*brain).nb_part; i++)
     {
         printf("%llu ",(*brain).parties_cerveau[i]);
@@ -196,16 +201,16 @@ void printf_recap_brain(Brain * brain)
     for (i=0; i<(*brain).nb_part; i++)
     {
         printf("\n");
-        printf("Partie %i :\n\tNombre de types de neurones : %i\n\t",i,(*brain).brainPart[i].nbTypeNeuron);
-        printf("Probabilités cumulées d'appartenir à chaque type de neurone : [");
+        printf("Part %i:\n\tNumber of neuron types: %i\n\t",i,(*brain).brainPart[i].nbTypeNeuron);
+        printf("Cumulative probabilities of belonging to each type of neuron : [");
         for (j=0;j<(*brain).brainPart[i].nbTypeNeuron;j++)
         {
             printf("%lf ",(*brain).brainPart[i].repartitionNeuronCumulee[j]);
         }
-        printf("]\n\tConnexions :\n\t");
+        printf("]\n\tConnections :\n\t");
         for (j=0;j<(*brain).brainPart[i].nbTypeNeuron;j++)
         {
-            printf("Connexions du type de neurone d'indice %i :\n\t",j);
+            printf("Indices of neuron type connections %i :\n\t",j);
             for (k=0;k<(*brain).nb_part;k++)
             {
                 printf("%i -> %i : %lf\n\t",i,k,(*brain).brainPart[i].probaConnection[j*(*brain).nb_part + k]);
@@ -218,7 +223,7 @@ void printf_recap_brain(Brain * brain)
 //! Brain destructor
 /*!
    Function that frees a brain
- * @param[in] brain {Brain *} pointer to a brain
+ * @param[in] brain pointer to a brain
  */
 void free_brain(Brain * brain)
 {
@@ -231,3 +236,5 @@ void free_brain(Brain * brain)
     free((*brain).brainPart);
     free((*brain).parties_cerveau);
 }
+
+/** @} */ // end of brainstruct

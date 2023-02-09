@@ -1,9 +1,10 @@
 import json
 import sys
+import os
 
-def writeData(out):
+def writeData(out, file):
     #Ecriture
-    f = open("param.h","w")
+    f = open(file,"w")
     f.write(out)
     f.close()
 
@@ -61,7 +62,7 @@ if __name__ == "__main__":
     #getNbPart
     out="int get_nb_part(){\n\treturn "+str(nbPart)+";\n}\n\n"
     #destructeur
-    out+="void destructeurBrain(Brain *Cerveau){\n"
+    out+="void free_brain(Brain *Cerveau){\n"
     for i in range(len(nbNeuronCumul)):
         out+="\tfree(Cerveau->brainPart["+str(i)+"].repartitionNeuronCumulee);\n"
         out+="\tfree(Cerveau->brainPart["+str(i)+"].probaConnection);\n"
@@ -94,4 +95,4 @@ if __name__ == "__main__":
     #attribution dans Cerveau
     out+="\tCerveau->dimension = *n;\n\tCerveau->nb_part = nb_part;\n\tCerveau->parties_cerveau = part_cerv;\n\tCerveau->brainPart = brainPart;\n}"
 
-    writeData(out)
+    writeData(out, os.path.splitext(sys.argv[1])[0]+".h")

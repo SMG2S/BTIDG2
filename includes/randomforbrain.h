@@ -1,7 +1,7 @@
 /* Fonctions utilisées pour faire de l'aléatoire dans la générationd de cerveau / de matrice-cerveau */
 /*Nicolas HOCHART*/
 
-#define randomforbrain
+#pragma once
 
 #include <stdlib.h>
 

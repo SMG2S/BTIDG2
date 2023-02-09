@@ -9,22 +9,10 @@
 #include <assert.h>
 
 #ifndef brainmatrixgenerator
-#include "../includes/brainmatrixgenerator.h"
+#include "brainmatrixgenerator.h"
 #endif
 
-#ifndef brainstruct
-#include "../includes/brainstruct.h"
-#endif
-
-#ifndef randomforbrain
-#include "../includes/randomforbrain.h"
-#endif
-
-#ifndef matrixstruct
-#include "../includes/matrixstruct.h"
-#endif
-
-#include "../translator/param.h"
+#include "littleConfigTest.h"
 
 int main(int argc, char **argv)
 {
@@ -56,7 +44,7 @@ int main(int argc, char **argv)
     long long n;
     int *neuron_types;
 
-    /*Fetching a raw-coded example brain coded in hardbrain.h*/
+    /*Fetching a config brain structure*/
     Brain brain;
     paramBrain(&brain, &n);
 
@@ -90,8 +78,8 @@ int main(int argc, char **argv)
         printf_recap_brain(&brain);
     }
 
-    struct MatrixBlock matrixBlock;
-    matrixBlock = setMatrixBlockInfo(my_rank, npr, npc, n);
+    struct MatrixDist matrixBlock;
+    matrixBlock = initMatrixDist(my_rank, npr, npc, n);
 
     //four memory allocations are made during generation: one for the types of neurons, and three for the matrix.
     struct csr A_CSR;

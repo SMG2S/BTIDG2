@@ -9,25 +9,12 @@
 #include <assert.h>
 
 #ifndef brainmatrixgenerator
-#include "../includes/brainmatrixgenerator.h"
-#endif
-
-#ifndef brainstruct
-#include "../includes/brainstruct.h"
-#endif
-
-#ifndef randomforbrain
-#include "../includes/randomforbrain.h"
-#endif
-
-#ifndef matrixstruct
-#include "../includes/matrixstruct.h"
+#include "brainmatrixgenerator.h"
 #endif
 
 #ifndef hardbrain
-#include "../includes/hardbrain.h"
+#include "hardbrain.h"
 #endif
-//#include "../translator/param.h"
 
 int main(int argc, char **argv)
 {
@@ -88,23 +75,23 @@ int main(int argc, char **argv)
     	exit(1);
     }	
 
-    struct MatrixBlock matrixBlock;
-    matrixBlock = setMatrixBlockInfo(my_rank, npr, npc, n);
-    if (my_rank == 0 && debug)
-    {
-        printf("----------------------\nInfo of your matrix :\n");
-        printf("Size : %li * %li = %li\n",n,n, n * n);
-        printf("%i blocks on rows (with %li lines per block) and %i blocks on columns (with %li columns per block)\n",npr,nbRow,npc,nbCol);
-    }
-
     /*Fetching a raw-coded example brain coded in hardbrain.h*/
-	Brain brain = get_hard_brain(n);
+	Brain brain = generate_hard_brain(n);
     //Brain brain;
     //paramBrain(&brain, &n);
 
     if (my_rank == 0 && debug) 
     {
     	printf_recap_brain(&brain);
+    }
+
+    struct MatrixDist MatrixDist;
+    MatrixDist = initMatrixDist(my_rank, npr, npc, n);
+    if (my_rank == 0 && debug)
+    {
+        printf("----------------------\nInfo of your matrix :\n");
+        printf("Size : %li * %li = %li\n",n,n, n * n);
+        printf("%i blocks on rows (with %li lines per block) and %i blocks on columns (with %li columns per block)\n",npr,nbRow,npc,nbCol);
     }
 
     /*------------------------------------------------------------------------------------------------------------------------------------*/
@@ -117,9 +104,9 @@ int main(int argc, char **argv)
 
     /* Step 1 : Neuron types random choice */
     //choice of neuron type for each neuron in the brain
-    if (matrixBlock.indc == 0) //choice of processes that will randomly choose the types of neurons
+    if (MatrixDist.indc == 0) //choice of processes that will randomly choose the types of neurons
     {
-    	generate_neuron_types(&brain, matrixBlock.indl*nbRow, nbRow, neuron_types + matrixBlock.indl*nbRow);
+    	generate_neuron_types(&brain, MatrixDist.indl*nbRow, nbRow, neuron_types + MatrixDist.indl*nbRow);
     }	
 
     //redistribution of selected neuron types to other processes
@@ -130,7 +117,7 @@ int main(int argc, char **argv)
 
     /* Step 2 : Matrix generation */
     struct BrainMatrixInfo MatrixDebugInfo;
-    brainAdjMatrixCSR(&A_CSR, matrixBlock, &brain, neuron_types, &MatrixDebugInfo);
+    brainAdjMatrixCSR(&A_CSR, MatrixDist, &brain, neuron_types, &MatrixDebugInfo);
 
     /*------------------------------------------------------------------------------------------------------------------------------------*/
     /*------------------------------------------- BRAIN MATRIX GENERATION ENDS -----------------------------------------------------------*/
