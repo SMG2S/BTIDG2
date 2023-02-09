@@ -23,18 +23,12 @@
 #include "matrixstruct.h"
 #endif
 
-#define NULL ((void *)0)
-
-/*----------------------------------------------------------------------------------------
---- Structure contenant les informations de débuggage pour une matrice-cerveau générée ---
-----------------------------------------------------------------------------------------*/
-
 //! Structure containing debug info for a generated matrix
 /*!
    Structure containing debugging information for a generated matrix. It contains :
    The local dimension of the matrix, the types chosen for the neurons, the number of connections (number of non-zero values) per row or column (depending on the version of the generator used), number of memory cells allocated, the total number of non-zero values ​​contained in the matrix (all processes)
  */
-struct DebugBrainMatrixInfo
+struct BrainMatrixInfo
 {
      long dim_c; //nombre de neurones "destination" local (sur les colonnes de la matrice locale)
      long dim_l; //nombre de neurones "source" local (sur les lignes de la matrice locale)
@@ -43,11 +37,7 @@ struct DebugBrainMatrixInfo
      long total_memory_allocated; //memoire totale allouée pour Row (ou pour Column, ce sont les mêmes). Cette mémoire étant allouée dynamiquement, elle peut être plus grande que cpt_values.
      long cpt_values; //nombre de connexions (de 1 dans la matrice générée globale - tout processus confondu).
 };
-typedef struct DebugBrainMatrixInfo DebugBrainMatrixInfo;
-
-/*--------------------------------------
---- Génération de la matrice-cerveau ---
---------------------------------------*/
+typedef struct BrainMatrixInfo BrainMatrixInfo;
 
 /** @defgroup generation BTIDG2
  *  This module relates to multiple implementation of SMG2S to generate a non-Symmetric/Hermitian sparse matrix with it. 
@@ -60,11 +50,11 @@ typedef struct DebugBrainMatrixInfo DebugBrainMatrixInfo;
  * @param[in] BlockInfo {matrixstruct.h : MatrixBlock} structure containing information about the local mpi process ("block")
  * @param[in] brain {brainstruct.h : Brain *} Pointer to the brain, basis for the generation of the matrix
  * @param[in] neuron_types {int * [(*brain).dimension]} vector containing the types chosen for the neurons of the brain passed as a parameter
- * @param[out] M_CSR {matrixstruct.h : IntCSRMatrix *} Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix.
- * @param[out] debugInfo {DebugBrainMatrixInfo *} OPTIONAL - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (<=> number of 1 on each row), the total number of connections, etc.
+ * @param[out] M_CSR {matrixstruct.h : csr *} Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix.
+ * @param[out] debugInfo {BrainMatrixInfo *} OPTIONAL - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (<=> number of 1 on each row), the total number of connections, etc.
    Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain)
  */
-void generate_csr_brain_adjacency_matrix_for_pagerank(IntCSRMatrix *M_CSR, MatrixBlock BlockInfo, Brain * brain, int * neuron_types, DebugBrainMatrixInfo * debugInfo)
+void brainAdjMatrixCSR(csr *M_CSR, MatrixBlock BlockInfo, Brain * brain, int * neuron_types, BrainMatrixInfo * debugInfo)
 {
     /*
     Génère aléatoirement la matrice creuse (pointeur M_CSR, format CSR), pour PageRank, correspondant à un cerveau passé en paramètre.
@@ -120,7 +110,7 @@ void generate_csr_brain_adjacency_matrix_for_pagerank(IntCSRMatrix *M_CSR, Matri
             //récupération de la probabilité de connexion source -> destination avec le type de neurone donné
             proba_connection = (*brain).brainPart[ind_part_source].probaConnection[source_type*(*brain).nb_part + ind_part_dest];
             proba_no_connection = 1 - proba_connection;
-            random = random_between_0_and_1();
+            random = rand_0_1();
             //décision aléatoire, en prenant en compte l'abscence de connexion sur la diagonale de façon brute
             if ( (BlockInfo.startRow+i)!=(BlockInfo.startColumn+j) && random > proba_no_connection) //si on est dans la proba de connexion et qu'on est pas dans la diagonale, alors on place un 1
             {
@@ -165,11 +155,11 @@ void generate_csr_brain_adjacency_matrix_for_pagerank(IntCSRMatrix *M_CSR, Matri
  * @param[in] BlockInfo {matrixstruct.h : MatrixBlock} structure containing information about the local mpi process ("block")
  * @param[in] brain {brainstruct.h : Brain *} Pointer to the brain, basis for the generation of the matrix
  * @param[in] neuron_types {int * [(*brain).dimension]} vector containing the types chosen for the neurons of the brain passed as a parameter
- * @param[out] M_CSR {matrixstruct.h : IntCSRMatrix *} Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix.
- * @param[out] debugInfo {DebugBrainMatrixInfo *} OPTIONAL - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (<=> number of 1 on each column), the total number of connections, etc.
+ * @param[out] M_CSR {matrixstruct.h : csr *} Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix.
+ * @param[out] debugInfo {BrainMatrixInfo *} OPTIONAL - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (<=> number of 1 on each column), the total number of connections, etc.
    Condition: BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain)
  */
-void generate_csr_brain_transposed_adjacency_matrix_for_pagerank(IntCSRMatrix *M_CSR, MatrixBlock BlockInfo, Brain * brain, int * neuron_types, DebugBrainMatrixInfo * debugInfo)
+void brainTransAdjMatrixCSR(csr *M_CSR, MatrixBlock BlockInfo, Brain * brain, int * neuron_types, BrainMatrixInfo * debugInfo)
 {
     /*
     Génère aléatoirement la matrice creuse (pointeur M_CSR, format CSR), pour PageRank, correspondant à un cerveau passé en paramètre.
@@ -225,7 +215,7 @@ void generate_csr_brain_transposed_adjacency_matrix_for_pagerank(IntCSRMatrix *M
             //récupération de la probabilité de connexion source -> destination avec le type de neurone donné
             proba_connection = (*brain).brainPart[ind_part_source].probaConnection[source_type*(*brain).nb_part + ind_part_dest];
             proba_no_connection = 1 - proba_connection;
-            random = random_between_0_and_1();
+            random = rand_0_1();
             //décision aléatoire, en prenant en compte l'abscence de connexion sur la diagonale de façon brute
             if ( (BlockInfo.startRow+i)!=(BlockInfo.startColumn+j) && random > proba_no_connection) //si on est dans la proba de connexion et qu'on est pas dans la diagonale, alors on place un 1
             {
@@ -272,11 +262,11 @@ void generate_csr_brain_transposed_adjacency_matrix_for_pagerank(IntCSRMatrix *M
  * @param[in] neuron_types {int * [(*brain).dimension]} vector containing the types chosen for the neurons of the brain passed as a parameter
  * @param[in] l {long} number of rows in the local (process) matrix
  * @param[in] c {long} number of column in the local (process) matrix (= global matrix dimension, because the matrix is ​​parallelized in row blocks only)
- * @param[out] M_CSR {matrixstruct.h : IntCSRMatrix *} Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix.
- * @param[out] debugInfo {DebugBrainMatrixInfo *} OPTIONAL - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (<=> number of 1 on each column), the total number of connections, etc.
+ * @param[out] M_CSR {matrixstruct.h : csr *} Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix.
+ * @param[out] debugInfo {BrainMatrixInfo *} OPTIONAL - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (<=> number of 1 on each column), the total number of connections, etc.
    Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain)
  */
-void generate_csr_row_transposed_adjacency_brain_matrix_for_pagerank(IntCSRMatrix *M_CSR, long ind_start_row, Brain * brain, int * neuron_types, long l, long c, DebugBrainMatrixInfo * debugInfo)
+void brainTransAdjMatrixCSR1D(csr *M_CSR, long ind_start_row, Brain * brain, int * neuron_types, long l, long c, BrainMatrixInfo * debugInfo)
 {
     /*
     Génère aléatoirement la matrice creuse (pointeur M_CSR, format CSR), pour PageRank, correspondant à un cerveau passé en paramètre.
@@ -334,7 +324,7 @@ void generate_csr_row_transposed_adjacency_brain_matrix_for_pagerank(IntCSRMatri
             //récupération de la probabilité de connexion source -> destination avec le type de neurone donné
             proba_connection = (*brain).brainPart[ind_part_source].probaConnection[source_type*(*brain).nb_part + ind_part_dest];
             proba_no_connection = 1 - proba_connection;
-            random = random_between_0_and_1();
+            random = rand_0_1();
             //décision aléatoire, en prenant en compte l'abscence de connexion sur la diagonale de façon brute
             if ( (ind_start_row+i)!=j && random > proba_no_connection) //si on est dans la proba de connexion et qu'on est pas dans la diagonale, alors on place un 1
             {
@@ -381,11 +371,11 @@ void generate_csr_row_transposed_adjacency_brain_matrix_for_pagerank(IntCSRMatri
  * @param[in] neuron_types {int * [(*brain).dimension]} vector containing the types chosen for the neurons of the brain passed as a parameter
  * @param[in] l {long} number of rows in the local (process) matrix
  * @param[in] c {long} number of column in the local (process) matrix (= global matrix dimension, because the matrix is ​​parallelized in row blocks only)
- * @param[out] M_CSR {matrixstruct.h : IntCSRMatrix *} Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix.
- * @param[out] debugInfo {DebugBrainMatrixInfo *} OPTIONAL - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (<=> number of 1 on each column), the total number of connections, etc.
+ * @param[out] M_CSR {matrixstruct.h : csr *} Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix.
+ * @param[out] debugInfo {BrainMatrixInfo *} OPTIONAL - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (<=> number of 1 on each column), the total number of connections, etc.
    Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain)
  */
-void generate_coo_row_transposed_adjacency_brain_matrix_for_pagerank(IntCOOMatrix *M_COO, long ind_start_row, Brain * brain, int * neuron_types, long l, long c, DebugBrainMatrixInfo * debugInfo)
+void brainTransAdjMatrixCOO1D(coo *M_COO, long ind_start_row, Brain * brain, int * neuron_types, long l, long c, BrainMatrixInfo * debugInfo)
 {
     /*
     Génère aléatoirement la matrice creuse (pointeur M_COO, format COO), pour PageRank, correspondant à un cerveau passé en paramètre.
@@ -441,7 +431,7 @@ void generate_coo_row_transposed_adjacency_brain_matrix_for_pagerank(IntCOOMatri
             //récupération de la probabilité de connexion source -> destination avec le type de neurone donné
             proba_connection = (*brain).brainPart[ind_part_source].probaConnection[source_type*(*brain).nb_part + ind_part_dest];
             proba_no_connection = 1 - proba_connection;
-            random = random_between_0_and_1();
+            random = rand_0_1();
             //décision aléatoire, en prenant en compte l'abscence de connexion sur la diagonale de façon brute
             if ( (ind_start_row+i)!=j && random > proba_no_connection) //si on est dans la proba de connexion et qu'on est pas dans la diagonale, alors on place un 1
             {

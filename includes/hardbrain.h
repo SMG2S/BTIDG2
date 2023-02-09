@@ -12,7 +12,7 @@ Brain get_hard_brain(long n)
 {
     int i,nb_part=8;
     BrainPart * brainPart = (BrainPart *)malloc(nb_part * sizeof(BrainPart));
-    long * part_cerv = (long *)malloc(nb_part * sizeof(long));
+    long long * part_cerv = (long long*)malloc(nb_part * sizeof(long long));
     long nb_neurone_par_partie = n / nb_part;
     if (nb_part * nb_neurone_par_partie != n) {printf("Veuillez entrer un n multiple de %i svp\n",nb_part); exit(1);}
     for (i=0; i<nb_part; i++)

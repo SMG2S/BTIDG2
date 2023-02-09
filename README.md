@@ -18,7 +18,7 @@ As a software, ***BTIDG2*** ensures that:
 
 	- the generator must be as configurable as possible
 
-	- a ***converter***, allowing to convert a data file containing the brain infor- mation as we found it on the internet into an input file for our matrix generator.
+	- a ***converter***, allowing to convert a data file containing the brain information as we found it on the internet into an input file for our matrix generator.
 
 
 Motivation
