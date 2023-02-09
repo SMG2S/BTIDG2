@@ -176,6 +176,7 @@
 <li><p>a C compiler</p></li>
 <li><p>CMake &gt;= 3.18.4</p></li>
 <li><p>MPI (Message Passing Interface)</p></li>
+<li><p><strong>Optional</strong>: Python 3 for example <cite>littleConfigTest.c</cite></p></li>
 </ul>
 </div></blockquote>
 </div>
@@ -184,13 +185,13 @@
 <ol class="arabic simple">
 <li><p>Get the code from github</p></li>
 </ol>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/SMG2S/BTIDG2.git</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone git@github.com:SMG2S/BTIDG2.git</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>get into the project folder</p></li>
 </ol>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd btidg2</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd BTIDG2</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -210,14 +211,14 @@
 <ol class="arabic simple" start="5">
 <li><p>in the folder <cite>example</cite>, two executable binaries are available, and the execution is:</p></li>
 </ol>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mpirun -n ${NPROCS} ./example/BTIG2_A -n ${N}</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mpirun -n ${NPROCS} ../example/hardBrainTest ${N}</span>
 </pre></div>
 </div>
 <p>and</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mpirun -n ${NPROCS} ./example/BTIG2_AT -n ${N}</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mpirun -n ${NPROCS} ./example/littleConfigTest</span>
 </pre></div>
 </div>
-<p>in which <cite>${NPROCS}</cite> is the number of <cite>MPI</cite> processes to be used, and <cite>${N}</cite> is the size of squared to be generated.</p>
+<p>in which <cite>${NPROCS}</cite> is the number of <cite>MPI</cite> processes to be used, and <cite>${N}</cite> is the size of square matrix to be generated (number of neurons in the brain).</p>
 </div>
 </div>
 

@@ -1,34 +1,86 @@
 API
 ================
 
+
+Sparse Matrix
+--------------
+
 Structs
------------
+^^^^^^^^
 
-.. doxygenstruct:: Brain
+.. doxygenstruct:: coo
 
-.. doxygenstruct:: BrainPart
+.. doxygenstruct:: csr
 
-.. doxygenstruct:: DebugBrainMatrixInfo	
-
-.. doxygenstruct:: DoubleCSRMatrix
-
-.. doxygenstruct:: IntCOOMatrix
-
-.. doxygenstruct:: IntCSRMatrix
-
-.. doxygenstruct:: MatrixBlock
+.. doxygenstruct:: MatrixDist
 
 
 Functions
-----------
+^^^^^^^^^^
 
-.. doxygenfunction:: 	generate_csr_brain_adjacency_matrix_for_pagerank
-
-
-.. doxygenfunction:: generate_csr_brain_transposed_adjacency_matrix_for_pagerank
+.. doxygenfunction:: csrGetValue
 
 
-.. doxygenfunction:: generate_csr_row_transposed_adjacency_brain_matrix_for_pagerank
+.. doxygenfunction:: csrDisplay
+
+.. doxygenfunction:: initMatrixDist
 
 
-.. doxygenfunction:: generate_coo_row_transposed_adjacency_brain_matrix_for_pagerank 
+Brain Structure
+----------------
+
+
+Structs
+^^^^^^^^
+
+.. doxygenstruct:: BrainPart
+
+.. doxygenstruct:: Brain
+
+
+Functions
+^^^^^^^^^^
+
+.. doxygenfunction:: choose_neuron_type
+
+.. doxygenfunction:: free_brain
+
+.. doxygenfunction:: generate_neuron_types
+
+.. doxygenfunction:: get_brain_part_ind
+
+.. doxygenfunction:: get_mean_connect_percentage_for_part
+
+.. doxygenfunction:: get_nb_neuron_brain_part
+
+.. doxygenfunction:: printf_recap_brain
+
+
+Hard-coded Brain
+-----------------
+
+.. doxygenfunction:: generate_hard_brain
+
+
+Brain Matrix Generation
+-------------------------
+
+Structs
+^^^^^^^^
+
+.. doxygenstruct:: BrainMatrixInfo
+
+
+Functions
+^^^^^^^^^^
+
+.. doxygenfunction:: brainAdjMatrixCSR
+
+
+.. doxygenfunction:: brainTransAdjMatrixCSR
+
+.. doxygenfunction:: brainTransAdjMatrixCSR1D
+
+.. doxygenfunction:: brainTransAdjMatrixCOO1D
+
+

@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Performance" href="performance.html" />
-    <link rel="prev" title="Build" href="build.html" /> 
+    <link rel="prev" title="Quick Start" href="quick-start.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,8 +91,24 @@
 <p class="caption"><span class="caption-text">USER DOCUMENTATION</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="build.html">Build</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Example</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hard-coded-brain">Hard-coded Brain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-the-mpi-environment">1. Initialize the MPI environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fetching-a-hard-coded-example-brain">2. Fetching a hard-coded example brain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-the-distribution-of-sparse-matrix">3. Initialize the distribution of sparse matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#neuron-types-random-choice">4. neuron types random choice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generation-of-brain-matrix">5. generation of brain matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clean-up">6. clean up</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configured-brain">Configured Brain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#json-config-file">1. JSON config file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#convert-json-file-to-c-header">2. convert JSON file to C header</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage-of-generated-header-file">3. Usage of generated header file</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="performance.html">Performance</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API</span></p>
@@ -165,6 +181,274 @@
             
   <div class="section" id="example">
 <h1>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>Two examples are provided in BTIDG2:</dt><dd><ol class="arabic simple">
+<li><p>using the hard-coded brain structure to generate a matrix of a user-defined size</p></li>
+<li><p>using the user provided brain structure confiuration file to generate a brain matrix</p></li>
+</ol>
+</dd>
+</dl>
+<div class="section" id="hard-coded-brain">
+<h2>Hard-coded Brain<a class="headerlink" href="#hard-coded-brain" title="Permalink to this headline">¶</a></h2>
+<p>The workflow of using a hard-coded brain structure is as follow:</p>
+<div class="section" id="initialize-the-mpi-environment">
+<h3>1. Initialize the MPI environment<a class="headerlink" href="#initialize-the-mpi-environment" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//Initialisation MPI</span>
+<span class="n">MPI_Init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span><span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
+<span class="n">MPI_Comm_size</span><span class="p">(</span><span class="n">MPI_COMM_WORLD</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">size</span><span class="p">);</span>
+<span class="n">MPI_Comm_rank</span><span class="p">(</span><span class="n">MPI_COMM_WORLD</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">my_rank</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="n">q</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">npr</span><span class="p">;</span> <span class="c1">//number of row in the 2D MPI grid</span>
+<span class="kt">int</span> <span class="n">npc</span><span class="p">;</span> <span class="c1">//number of column in the 2D MPI grid</span>
+<span class="n">npr</span> <span class="o">=</span> <span class="n">q</span><span class="p">;</span>
+<span class="n">npc</span> <span class="o">=</span> <span class="n">q</span><span class="p">;</span>
+
+<span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span> <span class="c1">//size of matrix to be generated</span>
+<span class="kt">long</span> <span class="n">nbRow</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="n">npr</span><span class="p">;</span>
+<span class="kt">long</span> <span class="n">nbCol</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="n">npc</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm">    for the hard-coded brain sturcture,</span>
+<span class="cm">        1. MPI 2D grid is expected to be square,</span>
+<span class="cm">        2. n is divisible by npr, and npc</span>
+<span class="cm">        3. n is divisble by 8</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fetching-a-hard-coded-example-brain">
+<h3>2. Fetching a hard-coded example brain<a class="headerlink" href="#fetching-a-hard-coded-example-brain" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Brain</span> <span class="n">brain</span> <span class="o">=</span> <span class="n">generate_hard_brain</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+
+<span class="c1">//display the brief info of generated brain structure</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">my_rank</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">debug</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf_recap_brain</span><span class="p">(</span><span class="o">&amp;</span><span class="n">brain</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initialize-the-distribution-of-sparse-matrix">
+<h3>3. Initialize the distribution of sparse matrix<a class="headerlink" href="#initialize-the-distribution-of-sparse-matrix" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">MatrixDist</span> <span class="n">MatrixDist</span><span class="p">;</span>
+<span class="n">MatrixDist</span> <span class="o">=</span> <span class="n">initMatrixDist</span><span class="p">(</span><span class="n">my_rank</span><span class="p">,</span> <span class="n">npr</span><span class="p">,</span> <span class="n">npc</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">my_rank</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">debug</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;----------------------</span><span class="se">\n</span><span class="s">Info of your matrix :</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Size : %li * %li = %li</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%i blocks on rows (with %li lines per block) and %i blocks on columns (with %li columns per block)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">npr</span><span class="p">,</span><span class="n">nbRow</span><span class="p">,</span><span class="n">npc</span><span class="p">,</span><span class="n">nbCol</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="neuron-types-random-choice">
+<h3>4. neuron types random choice<a class="headerlink" href="#neuron-types-random-choice" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">neuron_types</span><span class="p">;</span>
+<span class="n">neuron_types</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span> <span class="c1">//vector which will contain the types of all the neurons</span>
+
+<span class="c1">//choice of neuron type for each neuron in the brain</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">MatrixDist</span><span class="p">.</span><span class="n">indc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">//choice of processes that will randomly choose the types of neurons</span>
+<span class="p">{</span>
+    <span class="n">generate_neuron_types</span><span class="p">(</span><span class="o">&amp;</span><span class="n">brain</span><span class="p">,</span> <span class="n">MatrixDist</span><span class="p">.</span><span class="n">indl</span><span class="o">*</span><span class="n">nbRow</span><span class="p">,</span> <span class="n">nbRow</span><span class="p">,</span> <span class="n">neuron_types</span> <span class="o">+</span> <span class="n">MatrixDist</span><span class="p">.</span><span class="n">indl</span><span class="o">*</span><span class="n">nbRow</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">//redistribution of selected neuron types to other processes</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">npr</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">MPI_Bcast</span><span class="p">(</span><span class="n">neuron_types</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">nbRow</span><span class="p">,</span> <span class="n">nbRow</span><span class="p">,</span> <span class="n">MPI_INT</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">npc</span><span class="p">,</span> <span class="n">MPI_COMM_WORLD</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generation-of-brain-matrix">
+<h3>5. generation of brain matrix<a class="headerlink" href="#generation-of-brain-matrix" title="Permalink to this headline">¶</a></h3>
+<p>Below is the step of the generation of a brain matrix, which is stored in <cite>A_CSR</cite>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">csr</span> <span class="n">A_CSR</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="nc">BrainMatrixInfo</span> <span class="n">MatrixDebugInfo</span><span class="p">;</span>
+<span class="n">brainAdjMatrixCSR</span><span class="p">(</span><span class="o">&amp;</span><span class="n">A_CSR</span><span class="p">,</span> <span class="n">MatrixDist</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">brain</span><span class="p">,</span> <span class="n">neuron_types</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">MatrixDebugInfo</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="clean-up">
+<h3>6. clean up<a class="headerlink" href="#clean-up" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">free_brain</span><span class="p">(</span><span class="o">&amp;</span><span class="n">brain</span><span class="p">);</span>
+<span class="n">free</span><span class="p">(</span><span class="n">neuron_types</span><span class="p">);</span>
+<span class="n">free</span><span class="p">(</span><span class="n">A_CSR</span><span class="p">.</span><span class="n">Row</span><span class="p">);</span>
+<span class="n">free</span><span class="p">(</span><span class="n">A_CSR</span><span class="p">.</span><span class="n">Column</span><span class="p">);</span>
+<span class="n">free</span><span class="p">(</span><span class="n">A_CSR</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+<span class="n">free</span><span class="p">(</span><span class="n">MatrixDebugInfo</span><span class="p">.</span><span class="n">nb_connections</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="configured-brain">
+<h2>Configured Brain<a class="headerlink" href="#configured-brain" title="Permalink to this headline">¶</a></h2>
+<p>BTIDG2 provides a parser based on Python which is able to convert a formatted <cite>JSON</cite> configure file to a <cite>C</cite> header file with
+user desgined brain structure.</p>
+<div class="section" id="json-config-file">
+<h3>1. JSON config file<a class="headerlink" href="#json-config-file" title="Permalink to this headline">¶</a></h3>
+<p>Here’s an example of JSON configuration file, which determines two different connected brain parts.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+        <span class="p">{</span>
+                <span class="s">&quot;namePart&quot;</span><span class="o">:</span> <span class="s">&quot;part1&quot;</span><span class="p">,</span>
+                <span class="s">&quot;id&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s">&quot;connectionOpposite&quot;</span> <span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span>
+                <span class="s">&quot;distribution&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span>
+                <span class="s">&quot;nbTypeNeuron&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s">&quot;nbNeuron&quot;</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+                <span class="s">&quot;typeNeuron&quot;</span><span class="o">:</span><span class="p">[</span>
+                        <span class="p">{</span>
+                                <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;A&quot;</span><span class="p">,</span>
+                                <span class="s">&quot;nbNeuron&quot;</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+                                <span class="s">&quot;nbConnection&quot;</span><span class="o">:</span> <span class="mi">2</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                                <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;B&quot;</span><span class="p">,</span>
+                                <span class="s">&quot;nbNeuron&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+                                <span class="s">&quot;nbConnection&quot;</span><span class="o">:</span> <span class="mi">5</span>
+                        <span class="p">}</span>
+                <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+                <span class="s">&quot;namePart&quot;</span><span class="o">:</span> <span class="s">&quot;part2&quot;</span><span class="p">,</span>
+                <span class="s">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s">&quot;connectionOpposite&quot;</span> <span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span>
+                <span class="s">&quot;distribution&quot;</span><span class="o">:</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.75</span><span class="p">],</span>
+                <span class="s">&quot;nbTypeNeuron&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s">&quot;nbNeuron&quot;</span><span class="o">:</span><span class="mi">5</span><span class="p">,</span>
+                <span class="s">&quot;typeNeuron&quot;</span><span class="o">:</span><span class="p">[</span>
+                        <span class="p">{</span>
+                                <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;C&quot;</span><span class="p">,</span>
+                                <span class="s">&quot;nbNeuron&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+                                <span class="s">&quot;nbConnection&quot;</span><span class="o">:</span> <span class="mi">6</span>
+                        <span class="p">}</span>
+                <span class="p">]</span>
+        <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>The description of the parts are:</dt><dd><ul class="simple">
+<li><p><cite>Distribution</cite>: a table that contains the probabilities of distribution to the other parties. At index 0 connection to the part of index 0. The table contains the internal connections between the same part</p></li>
+<li><p><cite>connectionOpposite</cite>: probability of connection to the opposite side of the brain (left/right).</p></li>
+<li><p><cite>typeNeuron</cite>: a dictionary table corresponding to the neuron present in the part of the brain.</p></li>
+<li><p><cite>nbNeuron</cite>: the number of neurons.</p></li>
+<li><p><cite>nbConnection</cite>: the number of connections of a neuron.</p></li>
+<li><p><cite>id</cite>, <cite>namePart</cite>, <cite>name</cite>: fields for humans, they are only used to identify themselves.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="convert-json-file-to-c-header">
+<h3>2. convert JSON file to C header<a class="headerlink" href="#convert-json-file-to-c-header" title="Permalink to this headline">¶</a></h3>
+<p>Assume that the config file is <cite>littleConfigTest.json</cite>, a C header file <cite>littleConfigTest.h</cite> can be generated within
+the same folder through the following converter.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python ${BTIDG2_ROOT}/translator/converter.py ittleConfigTest.json</span>
+</pre></div>
+</div>
+<p>The generated header file is as below:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">get_nb_part</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">destoryBrain</span><span class="p">(</span><span class="n">Brain</span> <span class="o">*</span><span class="n">Cerveau</span><span class="p">){</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">brainPart</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">brainPart</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">brainPart</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">brainPart</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">parties_cerveau</span><span class="p">);</span>
+        <span class="n">free</span><span class="p">(</span><span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">brainPart</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">paramBrain</span><span class="p">(</span><span class="n">Brain</span> <span class="o">*</span><span class="n">Cerveau</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span> <span class="o">*</span><span class="n">n</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">nbTypeNeuronIci</span><span class="p">,</span><span class="n">nb_part</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">n</span><span class="o">=</span><span class="mi">15</span><span class="p">;</span>
+        <span class="n">BrainPart</span> <span class="o">*</span><span class="n">brainPart</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">BrainPart</span><span class="p">)</span><span class="o">*</span><span class="n">nb_part</span><span class="p">);</span>
+        <span class="kt">long</span> <span class="kt">long</span> <span class="o">*</span><span class="n">part_cerv</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="o">*</span><span class="n">nb_part</span><span class="p">);</span>
+        <span class="n">part_cerv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">part_cerv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+        <span class="n">part_cerv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+        <span class="n">part_cerv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="c1">//partie 0</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">nbTypeNeuron</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">probaConnection</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span><span class="p">);</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.08533333333333334</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.021333333333333336</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.021333333333333336</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.005333333333333334</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.21333333333333337</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.053333333333333344</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.053333333333333344</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.013333333333333336</span><span class="p">;</span>
+<span class="c1">//partie 1</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">nbTypeNeuron</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">probaConnection</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="p">);</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.08000000000000002</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.24000000000000005</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.020000000000000004</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.06000000000000001</span><span class="p">;</span>
+<span class="c1">//partie 2</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">nbTypeNeuron</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">probaConnection</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">*</span><span class="mi">8</span><span class="p">);</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.021333333333333336</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.005333333333333334</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.08533333333333334</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.021333333333333336</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.053333333333333344</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.013333333333333336</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.21333333333333337</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.053333333333333344</span><span class="p">;</span>
+<span class="c1">//partie 3</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">nbTypeNeuron</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">repartitionNeuronCumulee</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">probaConnection</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="p">);</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.020000000000000004</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.06000000000000001</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.08000000000000002</span><span class="p">;</span>
+        <span class="n">brainPart</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="n">probaConnection</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.24000000000000005</span><span class="p">;</span>
+        <span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">dimension</span> <span class="o">=</span> <span class="o">*</span><span class="n">n</span><span class="p">;</span>
+        <span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">nb_part</span> <span class="o">=</span> <span class="n">nb_part</span><span class="p">;</span>
+        <span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">parties_cerveau</span> <span class="o">=</span> <span class="n">part_cerv</span><span class="p">;</span>
+        <span class="n">Cerveau</span><span class="o">-&gt;</span><span class="n">brainPart</span> <span class="o">=</span> <span class="n">brainPart</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage-of-generated-header-file">
+<h3>3. Usage of generated header file<a class="headerlink" href="#usage-of-generated-header-file" title="Permalink to this headline">¶</a></h3>
+<p>The first step is to include the generated header file, here <cite>littleConfigTest.h</cite>, in your source code.</p>
+<p>The most steps of generation is the same as the one with hard-code examples. However, in this
+example the size of matrix to be generated should be extracted from <cite>littleConfigTest.h</cite>, rather than
+using any size defined by users.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;littleConfigTest.h&quot;</span><span class="cp"></span>
+
+<span class="p">....</span>
+
+<span class="n">Brain</span> <span class="n">brain</span><span class="p">;</span>
+<span class="c1">//construct a brain structure and get the matrix size</span>
+<span class="c1">//to be generated.</span>
+<span class="n">paramBrain</span><span class="p">(</span><span class="o">&amp;</span><span class="n">brain</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+
+<span class="p">...</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -178,7 +462,7 @@
         <a href="performance.html" class="btn btn-neutral float-right" title="Performance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="build.html" class="btn btn-neutral float-left" title="Build" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="quick-start.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
