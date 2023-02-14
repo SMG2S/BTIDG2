@@ -29,32 +29,31 @@ int main(int argc, char **argv)
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 
-    int q = sqrt(size);
     int npr; //number of row in the 2D MPI grid
     int npc; //number of column in the 2D MPI grid
-    npr = q;
-    npc = q;
 
     long n;
     int *neuron_types;
 
-    if(npr * npc != size)
-    {
-    	if(my_rank == 0){
-    		printf("Error: it supports only square 2D MPI grid. The given number of MPI processes %d is invalid\n", size);
-    	}
-    	exit(1);
-    }
-
-    if(argc < 2)
-    {	
-    	if(my_rank == 0){
-    		printf("Error: please input the size of matrix to be generated after the executable %s\n", argv[0]);
-    	}
-    	exit(1);
+    if(argc < 4)
+    {   
+        if(my_rank == 0){
+            printf("Error: please input the size of matrix to be generated after the executable %s ${n} ${npr} ${npc}\n", argv[0]);
+        }
+        exit(1);
     }
 
     n = atoll(argv[1]);
+    npr = atoi(argv[2]);
+    npc = atoi(argv[3]);
+   
+    if(npr * npc != size)
+    {
+    	if(my_rank == 0){
+    		printf("Error: npr: %d * npc: %d != size: %d\n", npr, npc, size);
+    	}
+    	exit(1);
+    }
 
     long nbRow = n/npr;
     long nbCol = n/npc;
@@ -97,6 +96,8 @@ int main(int argc, char **argv)
     /*------------------------------------------------------------------------------------------------------------------------------------*/
     /*------------------------------------------- BRAIN MATRIX GENERATION STARTS ---------------------------------------------------------*/
     /*------------------------------------------------------------------------------------------------------------------------------------*/
+    double t1, t2; 
+    t1 = MPI_Wtime(); 
 
     //four memory allocations are made during generation: one for the types of neurons, and three for the matrix.
     struct csr A_CSR;
@@ -119,6 +120,12 @@ int main(int argc, char **argv)
     struct BrainMatrixInfo MatrixDebugInfo;
     brainAdjMatrixCSR(&A_CSR, MatrixDist, &brain, neuron_types, &MatrixDebugInfo);
 
+    t2 = MPI_Wtime(); 
+
+    if (my_rank == 0) {
+        printf("\n %li, %f s\n",n, t2 - t1);
+    }
+   
     /*------------------------------------------------------------------------------------------------------------------------------------*/
     /*------------------------------------------- BRAIN MATRIX GENERATION ENDS -----------------------------------------------------------*/
     /*------------------------------------------------------------------------------------------------------------------------------------*/
@@ -128,21 +135,24 @@ int main(int argc, char **argv)
     MPI_Allreduce(MPI_IN_PLACE, &(MatrixDebugInfo.total_memory_allocated), 1, MPI_LONG, MPI_SUM, MPI_COMM_WORLD); //somme MPI_SUM de tout les total_memory_allocated_local dans MatrixDebugInfo.total_memory_allocated.
 
     //Matrix prints (only if there is less than 65 neurons)
-    if (my_rank == 0) {
+    if (my_rank == 0 && debug) {
     	printf("\n-------- Matrices:\n");
 	}
 
-    for (int k = 0;k < size; k++)
-    {
-        if (my_rank == k)
+    if(debug){
+        for (int k = 0;k < size; k++)
         {
-            printf("Process %i Matrix :\n",my_rank);
-            csrDisplay(&A_CSR, 33);
+            if (my_rank == k)
+            {
+                printf("Process %i Matrix :\n",my_rank);
+                csrDisplay(&A_CSR, 33);
+            }
         }
+
     }
 
     //Print of part, type and connection information for each neuron
-    if (n < 65) //info will be printed for all neurons if there is less than 65 neurons
+    if (n < 65 &&debug ) //info will be printed for all neurons if there is less than 65 neurons
     {
         if (my_rank==0) 
         {
@@ -151,7 +161,7 @@ int main(int argc, char **argv)
     }
     else //otherwise, only a few neurons info will be printed
     {
-        if (my_rank==0) 
+        if (my_rank==0 &&debug) 
         {
         	printf("\nInformation from a few neurons (impossible to display them all, there are too many): \n");
         }
@@ -170,7 +180,8 @@ int main(int argc, char **argv)
             if (my_rank == 0)
             {
                 nbco = MatrixDebugInfo.nb_connections[my_rank*nbRow+i];
-                printf("neuron %i, type: %i, part: %i, connections: %li, obtained connection percentage: %.2f, expected : %.2f\n",i,type,part,nbco,(double) nbco / (double) n * 100,pourcentage_espere);
+                if(debug)
+                    printf("neuron %i, type: %i, part: %i, connections: %li, obtained connection percentage: %.2f, expected : %.2f\n",i,type,part,nbco,(double) nbco / (double) n * 100,pourcentage_espere);
             }
         }
         else if (i % (nbRow / 2) == 0) //otherwise, selection of some neurons and print
@@ -178,7 +189,8 @@ int main(int argc, char **argv)
             if (my_rank == 0)
             {
                 nbco = MatrixDebugInfo.nb_connections[my_rank* nbRow +i];
-                printf("neuron %i, type: %i, part: %i, connections: %li, obtained connection percentage: %.2f, expected : %.2f\n",i,type, part,nbco,(double) nbco / (double) n * 100,pourcentage_espere);
+                if(debug)
+                    printf("neuron %i, type: %i, part: %i, connections: %li, obtained connection percentage: %.2f, expected : %.2f\n",i,type, part,nbco,(double) nbco / (double) n * 100,pourcentage_espere);
             }
         }
         sum_pourcentage_espere += pourcentage_espere;
