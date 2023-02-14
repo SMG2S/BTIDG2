@@ -8,7 +8,7 @@ if(Python_FOUND)
 	execute_process(COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/translator/converter.py ${CMAKE_SOURCE_DIR}/translator/Configs/littleConfigTest.json)
 
     add_executable(littleConfigTest littleConfigTest.c)
-    target_link_libraries(littleConfigTest PUBLIC btidg2)
+    target_link_libraries(littleConfigTest PUBLIC btidg2 m)
     target_include_directories(littleConfigTest PUBLIC ${CMAKE_SOURCE_DIR}/translator/Configs)
 else()
 	message("Python is required for example littleConfigTest.c")
