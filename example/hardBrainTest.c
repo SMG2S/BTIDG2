@@ -75,7 +75,7 @@ int main(int argc, char **argv)
     }	
 
     /*Fetching a raw-coded example brain coded in hardbrain.h*/
-	Brain brain = generate_hard_brain(n);
+	Brain brain = generate_hard_brain_3_5(n);
     //Brain brain;
     //paramBrain(&brain, &n);
 
