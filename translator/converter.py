@@ -61,12 +61,6 @@ if __name__ == "__main__":
     nbPart = len(nbNeuronCumul)
     #getNbPart
     out="int get_nb_part(){\n\treturn "+str(nbPart)+";\n}\n\n"
-    #destructeur
-    out+="void free_brain(Brain *Cerveau){\n"
-    for i in range(len(nbNeuronCumul)):
-        out+="\tfree(Cerveau->brainPart["+str(i)+"].repartitionNeuronCumulee);\n"
-        out+="\tfree(Cerveau->brainPart["+str(i)+"].probaConnection);\n"
-    out+="\tfree(Cerveau->parties_cerveau);\n\tfree(Cerveau->brainPart);\n}\n\n"
     #parametreCerveau
     #les choses intéressante commence ici
     #initialisation
