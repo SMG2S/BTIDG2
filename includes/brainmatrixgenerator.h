@@ -10,6 +10,8 @@
 #include <stdlib.h>
 #include <mpi.h>
 #include <assert.h>
+#include <omp.h>
+#include <string.h>
 
 #include "brainstruct.h"
 #include "randomforbrain.h"
@@ -56,83 +58,139 @@ typedef struct BrainMatrixInfo BrainMatrixInfo;
 
    Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain)
  */
-void brainAdjMatrixCSR(csr *M_CSR, MatrixDist BlockInfo, Brain * brain, int * neuron_types, BrainMatrixInfo * debugInfo)
+void brainAdjMatrixCSR(csr *M_CSR, MatrixDist BlockInfo, Brain *brain, int *neuron_types, BrainMatrixInfo *debugInfo)
 {
-    long i,j,cpt_values,size = BlockInfo.dim_l * BlockInfo.dim_c;
-    long * nb_connections_local_tmp; //utilisé seulement si debugInfo != NULL
-    int ind_part_source,ind_part_dest,source_type; double proba_connection,proba_no_connection,random;
-    (*M_CSR).dim_l = BlockInfo.dim_l; (*M_CSR).dim_c = BlockInfo.dim_c;
+    int my_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+
+    long dim_l = BlockInfo.dim_l;
+    long dim_c = BlockInfo.dim_c;
+    long size = dim_l * dim_c;
+
+    (*M_CSR).dim_l = dim_l;
+    (*M_CSR).dim_c = dim_c;
+
+    long *nb_connections_local_tmp = NULL; //utilisé seulement si debugInfo != NULL
+
     if (debugInfo != NULL)
     {
-        (*debugInfo).dim_l = BlockInfo.dim_l; (*debugInfo).dim_c = BlockInfo.dim_c;
+        (*debugInfo).dim_l = dim_l;
+        (*debugInfo).dim_c = dim_c;
         (*debugInfo).types = neuron_types;
-        //Attention : le malloc de (*debugInfo).nb_connections n'est pas free dans la fonction.
-        (*debugInfo).nb_connections = (long *)malloc((*brain).dimension * sizeof(long)); //contiendra le nombre de connexions faites au global (tout processus confondu)
-        nb_connections_local_tmp = (long *)malloc((*brain).dimension * sizeof(long)); //contiendra le nombre de connexions faites en local (décalage en ligne prit en compte)
-        for (i=0;i<(*brain).dimension;i++)
-        {
-            nb_connections_local_tmp[i] = 0;
-            (*debugInfo).nb_connections[i] = 0;
-        }
+        (*debugInfo).nb_connections = (long *)calloc(brain->dimension, sizeof(long));
+        nb_connections_local_tmp = (long *)calloc(brain->dimension, sizeof(long));
     }
 
-    //allocations mémoires
-    (*M_CSR).Row = (int *)malloc(((*M_CSR).dim_l+1) * sizeof(int));
-    //La mémoire allouée pour Column est à la base de 1/10 de la taille de la matrice stockée "normalement". Au besoin, on réalloue de la mémoire dans le code.
-    long basic_size = (long) size/10;
-    long total_memory_allocated = basic_size; //nombre total de cases mémoires allouées pour 1 vecteur
-    (*M_CSR).Column = (int *)malloc(total_memory_allocated * sizeof(int));
-
+    (*M_CSR).Row = (int *)malloc((dim_l + 1) * sizeof(int));
+    assert((*M_CSR).Row != NULL);
     (*M_CSR).Row[0] = 0;
-    cpt_values=0;
-    for (i=0;i<BlockInfo.dim_l;i++) //parcours des lignes
-    {
-        //récupération de l'indice de la partie (du cerveau) source
-        ind_part_source = get_brain_part_ind(BlockInfo.startRow+i, brain);
-        //récupération du type de neurone source
-        source_type = neuron_types[BlockInfo.startRow+i];
-        for (j=0;j<BlockInfo.dim_c;j++) //parcours des colonnes
-        {
-            //récupération de l'indice de la partie destination
-            ind_part_dest = get_brain_part_ind(BlockInfo.startColumn+j, brain);
-            //récupération de la probabilité de connexion source -> destination avec le type de neurone donné
-            proba_connection = (*brain).brainPart[ind_part_source].probaConnection[source_type*(*brain).nb_part + ind_part_dest];
-            proba_no_connection = 1 - proba_connection;
-            random = rand_0_1();
-            //décision aléatoire, en prenant en compte l'abscence de connexion sur la diagonale de façon brute
-            if ( (BlockInfo.startRow+i)!=(BlockInfo.startColumn+j) && random > proba_no_connection) //si on est dans la proba de connexion et qu'on est pas dans la diagonale, alors on place un 1
-            {
-                if (cpt_values >= total_memory_allocated)
-                {
-                    total_memory_allocated *= 2;
-                    (*M_CSR).Column = (int *) realloc((*M_CSR).Column, total_memory_allocated * sizeof(int));
-                    assert((*M_CSR).Column != NULL);
-                }
-                (*M_CSR).Column[cpt_values] = j;
-                if (debugInfo != NULL)
-                {
-                    nb_connections_local_tmp[i + BlockInfo.startRow] = nb_connections_local_tmp[i + BlockInfo.startRow] + 1;
-                }
-                cpt_values++;
-            }
-        }
-        (*M_CSR).Row[i+1] = cpt_values;
-    }
-    //remplissage du vecteur Value (avec précisement le nombre de 1 nécéssaire)
-    (*M_CSR).Value = (int *)malloc(cpt_values * sizeof(int));
-    (*M_CSR).nnz = cpt_values;
-    for (i=0; i<cpt_values;i++) {(*M_CSR).Value[i] = 1;}
 
-    //remplissage de la structure de débuggage
+    // --- Phase 1 : comptage des connexions par ligne ---
+    long *row_counts = (long *)calloc(dim_l, sizeof(long));
+    assert(row_counts != NULL);
+
+    double t0 = omp_get_wtime();
+
+    #pragma omp parallel
+    {
+        unsigned int seed = 12345u + 17u * omp_get_thread_num();
+
+        #pragma omp for schedule(static)
+        for (long i = 0; i < dim_l; i++)
+        {
+            int ind_part_source = get_brain_part_ind(BlockInfo.startRow + i, brain);
+            int source_type = neuron_types[BlockInfo.startRow + i];
+            long local_count = 0;
+
+            for (long j = 0; j < dim_c; j++)
+            {
+                if ((BlockInfo.startRow + i) == (BlockInfo.startColumn + j))
+                    continue; // pas de diagonale
+
+                int ind_part_dest = get_brain_part_ind(BlockInfo.startColumn + j, brain);
+                double p_conn = brain->brainPart[ind_part_source].probaConnection[
+                    source_type * brain->nb_part + ind_part_dest];
+
+                double r = (double)rand_r(&seed) / RAND_MAX;
+                if (r < p_conn)
+                {
+                    local_count++;
+
+                    if (debugInfo != NULL)
+                    {
+                        #pragma omp atomic
+                        nb_connections_local_tmp[BlockInfo.startRow + i]++;
+                    }
+                }
+            }
+            row_counts[i] = local_count;
+        }
+    }
+
+    // --- Construction de Row et calcul du nnz total ---
+    long total_nnz = 0;
+    for (long i = 0; i < dim_l; i++)
+    {
+        total_nnz += row_counts[i];
+        (*M_CSR).Row[i + 1] = total_nnz;
+    }
+
+    (*M_CSR).nnz = total_nnz;
+
+    // --- Allocation exacte de Column & Value ---
+    (*M_CSR).Column = (int *)malloc(total_nnz * sizeof(int));
+    (*M_CSR).Value  = (int *)malloc(total_nnz * sizeof(int));
+    assert((*M_CSR).Column && (*M_CSR).Value);
+
+    // --- Phase 2 : remplissage effectif des colonnes ---
+    #pragma omp parallel
+    {
+        unsigned int seed = 12345u + 17u * omp_get_thread_num();
+
+        #pragma omp for schedule(static)
+        for (long i = 0; i < dim_l; i++)
+        {
+            int ind_part_source = get_brain_part_ind(BlockInfo.startRow + i, brain);
+            int source_type = neuron_types[BlockInfo.startRow + i];
+            long pos = (*M_CSR).Row[i];
+
+            for (long j = 0; j < dim_c; j++)
+            {
+                if ((BlockInfo.startRow + i) == (BlockInfo.startColumn + j))
+                    continue;
+
+                int ind_part_dest = get_brain_part_ind(BlockInfo.startColumn + j, brain);
+                double p_conn = brain->brainPart[ind_part_source].probaConnection[
+                    source_type * brain->nb_part + ind_part_dest];
+
+                double r = (double)rand_r(&seed) / RAND_MAX;
+                if (r < p_conn)
+                {
+                    assert(pos < (*M_CSR).Row[i + 1]); // sécurité anti-dépassement
+                    (*M_CSR).Column[pos++] = j;
+                }
+            }
+
+            for (long k = (*M_CSR).Row[i]; k < (*M_CSR).Row[i + 1]; k++)
+                (*M_CSR).Value[k] = 1;
+        }
+    }
+
+    double t1 = omp_get_wtime();
+
+    if (my_rank == 0)
+        printf("OpenMP section time: %.4f s (%d threads)\n", t1 - t0, omp_get_max_threads());
+
+    free(row_counts);
+
+    // --- Phase MPI Debug ---
     if (debugInfo != NULL)
     {
-        (*debugInfo).total_memory_allocated = total_memory_allocated;
-        MPI_Allreduce(&((*M_CSR).nnz), &((*debugInfo).cpt_values), 1, MPI_LONG, MPI_SUM, MPI_COMM_WORLD); //somme MPI_SUM des nombres de valeurs dans les sous matrices dans cpt_values, nombre de valeurs non nulles global
-
-        /* nb_connections_local_tmp contient actuellement (dans chaque processus) le nombre de connexions faites LOCALEMENT par tout les neurones par colonne. */
-        MPI_Allreduce(nb_connections_local_tmp, (*debugInfo).nb_connections, (*brain).dimension, MPI_LONG, MPI_SUM, MPI_COMM_WORLD); //somme MPI_SUM de tout les nb_non_zeros_local dans (*debugInfo).nb_connections
+        (*debugInfo).total_memory_allocated = total_nnz;
+        MPI_Allreduce(&((*M_CSR).nnz), &((*debugInfo).cpt_values), 1, MPI_LONG, MPI_SUM, MPI_COMM_WORLD);
+        MPI_Allreduce(nb_connections_local_tmp, (*debugInfo).nb_connections,
+                      brain->dimension, MPI_LONG, MPI_SUM, MPI_COMM_WORLD);
         free(nb_connections_local_tmp);
-        /* MatrixDebugInfo.nb_connections contient maintenant (dans tout les processus) le nombre GLOBAL de connexions faites pour chaque neurone. */
     }
 }
 
