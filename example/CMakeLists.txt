@@ -1,5 +1,5 @@
 add_executable(hardBrainTest hardBrainTest.c)
-target_link_libraries(hardBrainTest PUBLIC btidg2)
+target_link_libraries(hardBrainTest PUBLIC btidg2 m)
 
 find_package(Python)
 
@@ -12,4 +12,9 @@ if(Python_FOUND)
     target_include_directories(littleConfigTest PUBLIC ${CMAKE_SOURCE_DIR}/translator/Configs)
 else()
 	message("Python is required for example littleConfigTest.c")
+endif()
+
+find_package(OpenMP REQUIRED)
+if(OpenMP_C_FOUND)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
 endif()
