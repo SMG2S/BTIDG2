@@ -64,4 +64,4 @@ Contact
 ---------
 
 
-  * Serge G. Petiton: SERGE DOT PETITON AT UNIV-LILLE DOT FR
+  * Serge G. Petiton: SERGE DOT PETITON AT MAILFENCE DOT COM
