@@ -1,0 +1,747 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API &mdash; BTIDG2 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Performance" href="performance.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            BTIDG2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INTRODUCTION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="btidg2.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contributors and Contact</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USER DOCUMENTATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sparse-matrix">Sparse Matrix</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#structs">Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv43coo"><code class="docutils literal notranslate"><span class="pre">coo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv43csr"><code class="docutils literal notranslate"><span class="pre">csr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv410MatrixDist"><code class="docutils literal notranslate"><span class="pre">MatrixDist</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv411csrGetValuellP3csr"><code class="docutils literal notranslate"><span class="pre">csrGetValue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv410csrDisplayP3csri"><code class="docutils literal notranslate"><span class="pre">csrDisplay()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv414initMatrixDistiiil"><code class="docutils literal notranslate"><span class="pre">initMatrixDist()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#brain-structure">Brain Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv49BrainPart"><code class="docutils literal notranslate"><span class="pre">BrainPart</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv45Brain"><code class="docutils literal notranslate"><span class="pre">Brain</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv418choose_neuron_typeP5Braini"><code class="docutils literal notranslate"><span class="pre">choose_neuron_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv410free_brainP5Brain"><code class="docutils literal notranslate"><span class="pre">free_brain()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv421generate_neuron_typesP5BrainiiPi"><code class="docutils literal notranslate"><span class="pre">generate_neuron_types()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv418get_brain_part_indxP5Brain"><code class="docutils literal notranslate"><span class="pre">get_brain_part_ind()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv436get_mean_connect_percentage_for_partP5Brainii"><code class="docutils literal notranslate"><span class="pre">get_mean_connect_percentage_for_part()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv424get_nb_neuron_brain_partP5Braini"><code class="docutils literal notranslate"><span class="pre">get_nb_neuron_brain_part()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv418printf_recap_brainP5Brain"><code class="docutils literal notranslate"><span class="pre">printf_recap_brain()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hard-coded-brain">Hard-coded Brain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419generate_hard_brainx"><code class="docutils literal notranslate"><span class="pre">generate_hard_brain()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#brain-matrix-generation">Brain Matrix Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv415BrainMatrixInfo"><code class="docutils literal notranslate"><span class="pre">BrainMatrixInfo</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv417brainAdjMatrixCSRP3csr10MatrixDistP5BrainPiP15BrainMatrixInfo"><code class="docutils literal notranslate"><span class="pre">brainAdjMatrixCSR()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv422brainTransAdjMatrixCSRP3csr10MatrixDistP5BrainPiP15BrainMatrixInfo"><code class="docutils literal notranslate"><span class="pre">brainTransAdjMatrixCSR()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv424brainTransAdjMatrixCSR1DP3csrlP5BrainPillP15BrainMatrixInfo"><code class="docutils literal notranslate"><span class="pre">brainTransAdjMatrixCSR1D()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv424brainTransAdjMatrixCOO1DP3coolP5BrainPillP15BrainMatrixInfo"><code class="docutils literal notranslate"><span class="pre">brainTransAdjMatrixCOO1D()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BTIDG2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1>API<a class="headerlink" href="#api" title="Link to this heading"></a></h1>
+<section id="sparse-matrix">
+<h2>Sparse Matrix<a class="headerlink" href="#sparse-matrix" title="Link to this heading"></a></h2>
+<section id="structs">
+<h3>Structs<a class="headerlink" href="#structs" title="Link to this heading"></a></h3>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv43coo">
+<span id="_CPPv33coo"></span><span id="_CPPv23coo"></span><span id="coo"></span><span class="target" id="structcoo"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">coo</span></span></span><a class="headerlink" href="#_CPPv43coo" title="Link to this definition"></a><br /></dt>
+<dd><p>structure of sparse matrix format: COO </p>
+<p>Structure representing a sparse matrix in <a class="reference external" href="https://en.wikipedia.org/wiki/Sparse_matrix">COO format</a>.</p>
+<p>This structure is desgined for a adjacency matrix, thus the values of all non-zero entries are of type <strong>Integer</strong>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3coo3RowE">
+<span id="_CPPv3N3coo3RowE"></span><span id="_CPPv2N3coo3RowE"></span><span id="coo::Row__iP"></span><span class="target" id="structcoo_1a0f596527a7963c1b76a49767cae92aa6"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">Row</span></span></span><a class="headerlink" href="#_CPPv4N3coo3RowE" title="Link to this definition"></a><br /></dt>
+<dd><p>a pointer storing the row indices of non-zeros elements </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3coo6ColumnE">
+<span id="_CPPv3N3coo6ColumnE"></span><span id="_CPPv2N3coo6ColumnE"></span><span id="coo::Column__iP"></span><span class="target" id="structcoo_1a996d48191462fe6891b0798c2b522d55"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">Column</span></span></span><a class="headerlink" href="#_CPPv4N3coo6ColumnE" title="Link to this definition"></a><br /></dt>
+<dd><p>a pointer storing the column indices of non-zeros elements </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3coo5ValueE">
+<span id="_CPPv3N3coo5ValueE"></span><span id="_CPPv2N3coo5ValueE"></span><span id="coo::Value__iP"></span><span class="target" id="structcoo_1a80bc67514bc56cf4e3db40c6893ab493"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">Value</span></span></span><a class="headerlink" href="#_CPPv4N3coo5ValueE" title="Link to this definition"></a><br /></dt>
+<dd><p>a pointer storing the non-zeros elements </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3coo5dim_lE">
+<span id="_CPPv3N3coo5dim_lE"></span><span id="_CPPv2N3coo5dim_lE"></span><span id="coo::dim_l__l"></span><span class="target" id="structcoo_1a271eb401f5a1bab68a3882428069f2e4"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dim_l</span></span></span><a class="headerlink" href="#_CPPv4N3coo5dim_lE" title="Link to this definition"></a><br /></dt>
+<dd><p>number of row of a sparse matrix </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3coo5dim_cE">
+<span id="_CPPv3N3coo5dim_cE"></span><span id="_CPPv2N3coo5dim_cE"></span><span id="coo::dim_c__l"></span><span class="target" id="structcoo_1a9b4350ecd41c384cfc3f880caf7aa612"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dim_c</span></span></span><a class="headerlink" href="#_CPPv4N3coo5dim_cE" title="Link to this definition"></a><br /></dt>
+<dd><p>number of column of a sparse matrix </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3coo3nnzE">
+<span id="_CPPv3N3coo3nnzE"></span><span id="_CPPv2N3coo3nnzE"></span><span id="coo::nnz__l"></span><span class="target" id="structcoo_1ac9f78b4d67516094195ec84d480cf918"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nnz</span></span></span><a class="headerlink" href="#_CPPv4N3coo3nnzE" title="Link to this definition"></a><br /></dt>
+<dd><p>number of non-zero elements in the sparse matrix </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv43csr">
+<span id="_CPPv33csr"></span><span id="_CPPv23csr"></span><span id="csr"></span><span class="target" id="structcsr"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">csr</span></span></span><a class="headerlink" href="#_CPPv43csr" title="Link to this definition"></a><br /></dt>
+<dd><p>structure of sparse matrix format: CSR </p>
+<p>Structure representing a sparse matrix in <a class="reference external" href="https://en.wikipedia.org/wiki/Sparse_matrix">CSR format</a>.</p>
+<p>This structure is desgined for a adjacency matrix, thus the values of all non-zero entries are of type <strong>Integer</strong>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3csr3RowE">
+<span id="_CPPv3N3csr3RowE"></span><span id="_CPPv2N3csr3RowE"></span><span id="csr::Row__iP"></span><span class="target" id="structcsr_1a03062175252c8ce6072db44eaf466b2a"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">Row</span></span></span><a class="headerlink" href="#_CPPv4N3csr3RowE" title="Link to this definition"></a><br /></dt>
+<dd><p>a pointer storing the offsets of pointer of each row </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3csr6ColumnE">
+<span id="_CPPv3N3csr6ColumnE"></span><span id="_CPPv2N3csr6ColumnE"></span><span id="csr::Column__iP"></span><span class="target" id="structcsr_1a086a2f7e18b5dd5893402f5e2680d54b"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">Column</span></span></span><a class="headerlink" href="#_CPPv4N3csr6ColumnE" title="Link to this definition"></a><br /></dt>
+<dd><p>a pointer storing the column indices of non-zeros elements </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3csr5ValueE">
+<span id="_CPPv3N3csr5ValueE"></span><span id="_CPPv2N3csr5ValueE"></span><span id="csr::Value__iP"></span><span class="target" id="structcsr_1acf44e63f376bccd960f78051ed8c3596"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">Value</span></span></span><a class="headerlink" href="#_CPPv4N3csr5ValueE" title="Link to this definition"></a><br /></dt>
+<dd><p>a pointer storing the non-zeros elements </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3csr5dim_lE">
+<span id="_CPPv3N3csr5dim_lE"></span><span id="_CPPv2N3csr5dim_lE"></span><span id="csr::dim_l__l"></span><span class="target" id="structcsr_1a20b5cbc814d823a68c474a0ba615b8b5"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dim_l</span></span></span><a class="headerlink" href="#_CPPv4N3csr5dim_lE" title="Link to this definition"></a><br /></dt>
+<dd><p>number of row of a sparse matrix </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3csr5dim_cE">
+<span id="_CPPv3N3csr5dim_cE"></span><span id="_CPPv2N3csr5dim_cE"></span><span id="csr::dim_c__l"></span><span class="target" id="structcsr_1ad7fc85bf2e8901dec40c5fd8ed2b3dd9"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dim_c</span></span></span><a class="headerlink" href="#_CPPv4N3csr5dim_cE" title="Link to this definition"></a><br /></dt>
+<dd><p>number of column of a sparse matrix </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3csr3nnzE">
+<span id="_CPPv3N3csr3nnzE"></span><span id="_CPPv2N3csr3nnzE"></span><span id="csr::nnz__l"></span><span class="target" id="structcsr_1a60b50a9a8f3ae484c1c0ffbbbce1eb87"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nnz</span></span></span><a class="headerlink" href="#_CPPv4N3csr3nnzE" title="Link to this definition"></a><br /></dt>
+<dd><p>number of non-zero elements in the sparse matrix </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv410MatrixDist">
+<span id="_CPPv310MatrixDist"></span><span id="_CPPv210MatrixDist"></span><span id="MatrixDist"></span><span class="target" id="structMatrixDist"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MatrixDist</span></span></span><a class="headerlink" href="#_CPPv410MatrixDist" title="Link to this definition"></a><br /></dt>
+<dd><p>Info of each local matrix within a distributed sparse matrix. </p>
+<p>For a distributed sparse matrix in 1D/2D MPI proc grid, this structure is created to store some basic distribution of a sparse matrix on each MPI proc.</p>
+<p>Contains : Basic info : Block row index, Block column index, number of lines in the block, number of columns in the block, row start index (included), column start index (included), row end index (included), column end index (included) </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10MatrixDist4indlE">
+<span id="_CPPv3N10MatrixDist4indlE"></span><span id="_CPPv2N10MatrixDist4indlE"></span><span id="MatrixDist::indl__i"></span><span class="target" id="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">indl</span></span></span><a class="headerlink" href="#_CPPv4N10MatrixDist4indlE" title="Link to this definition"></a><br /></dt>
+<dd><p>index of row of MPI proc within 2D MPI grid which this matrix is located on </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10MatrixDist4indcE">
+<span id="_CPPv3N10MatrixDist4indcE"></span><span id="_CPPv2N10MatrixDist4indcE"></span><span id="MatrixDist::indc__i"></span><span class="target" id="structMatrixDist_1a56da90a907a4bc9a38b227dd238b8059"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">indc</span></span></span><a class="headerlink" href="#_CPPv4N10MatrixDist4indcE" title="Link to this definition"></a><br /></dt>
+<dd><p>index of column of MPI proc within 2D MPI grid which this matrix is located on. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10MatrixDist5dim_lE">
+<span id="_CPPv3N10MatrixDist5dim_lE"></span><span id="_CPPv2N10MatrixDist5dim_lE"></span><span id="MatrixDist::dim_l__l"></span><span class="target" id="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dim_l</span></span></span><a class="headerlink" href="#_CPPv4N10MatrixDist5dim_lE" title="Link to this definition"></a><br /></dt>
+<dd><p>number of row of a sparse matrix located on current MPI proc </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10MatrixDist5dim_cE">
+<span id="_CPPv3N10MatrixDist5dim_cE"></span><span id="_CPPv2N10MatrixDist5dim_cE"></span><span id="MatrixDist::dim_c__l"></span><span class="target" id="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dim_c</span></span></span><a class="headerlink" href="#_CPPv4N10MatrixDist5dim_cE" title="Link to this definition"></a><br /></dt>
+<dd><p>number of column of a sparse matrix located on current MPI proc </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10MatrixDist8startRowE">
+<span id="_CPPv3N10MatrixDist8startRowE"></span><span id="_CPPv2N10MatrixDist8startRowE"></span><span id="MatrixDist::startRow__l"></span><span class="target" id="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">startRow</span></span></span><a class="headerlink" href="#_CPPv4N10MatrixDist8startRowE" title="Link to this definition"></a><br /></dt>
+<dd><p>global index of the starting row of a local matrix within the global matrix </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10MatrixDist11startColumnE">
+<span id="_CPPv3N10MatrixDist11startColumnE"></span><span id="_CPPv2N10MatrixDist11startColumnE"></span><span id="MatrixDist::startColumn__l"></span><span class="target" id="structMatrixDist_1a43546ed95683a773ca61817664f70f15"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">startColumn</span></span></span><a class="headerlink" href="#_CPPv4N10MatrixDist11startColumnE" title="Link to this definition"></a><br /></dt>
+<dd><p>global index of the starting column of a local matrix within the global matrix </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10MatrixDist6endRowE">
+<span id="_CPPv3N10MatrixDist6endRowE"></span><span id="_CPPv2N10MatrixDist6endRowE"></span><span id="MatrixDist::endRow__l"></span><span class="target" id="structMatrixDist_1a881e18e2da67bcd4a40459f09ee6594b"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">endRow</span></span></span><a class="headerlink" href="#_CPPv4N10MatrixDist6endRowE" title="Link to this definition"></a><br /></dt>
+<dd><p>global index of the ending row of a local matrix within the global matrix </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N10MatrixDist9endColumnE">
+<span id="_CPPv3N10MatrixDist9endColumnE"></span><span id="_CPPv2N10MatrixDist9endColumnE"></span><span id="MatrixDist::endColumn__l"></span><span class="target" id="structMatrixDist_1a0d332da71c326861f0ede05cd4ea67f5"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">endColumn</span></span></span><a class="headerlink" href="#_CPPv4N10MatrixDist9endColumnE" title="Link to this definition"></a><br /></dt>
+<dd><p>global index of the ending column of a local matrix within the global matrix </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411csrGetValuellP3csr">
+<span id="_CPPv311csrGetValuellP3csr"></span><span id="_CPPv211csrGetValuellP3csr"></span><span id="csrGetValue__l.l.csrP"></span><span class="target" id="group__sparseMatrix_1ga44ba06170323c0c70332d0a06ec53adf"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">csrGetValue</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">indl</span></span>, <span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">indc</span></span>, <a class="reference internal" href="#_CPPv43csr" title="csr"><span class="n"><span class="pre">csr</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">M_CSR</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411csrGetValuellP3csr" title="Link to this definition"></a><br /></dt>
+<dd><p>Returns the value of indices <code class="docutils literal notranslate"><span class="pre">[indl,indc]</span></code> of a local sparse matrix in CSR format. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>M_CSR</strong> – <strong>[in]</strong> a sparse matrix in CSR format to be displayed to be queried </p></li>
+<li><p><strong>indl</strong> – <strong>[in]</strong> row index of the value we want (must be <code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">(*M_CSR).dim_l</span></code>) </p></li>
+<li><p><strong>indc</strong> – <strong>[in]</strong> column index of the value we want (must be <code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">(*M_CSR).dim_c</span></code>) </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Matrix value at the index <code class="docutils literal notranslate"><span class="pre">[indl,indc]</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv410csrDisplayP3csri">
+<span id="_CPPv310csrDisplayP3csri"></span><span id="_CPPv210csrDisplayP3csri"></span><span id="csrDisplay__csrP.i"></span><span class="target" id="group__sparseMatrix_1gaf5fcf88f63b1f7eb56eca340e55a8c7b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">csrDisplay</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv43csr" title="csr"><span class="n"><span class="pre">csr</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">M</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">max_dim</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410csrDisplayP3csri" title="Link to this definition"></a><br /></dt>
+<dd><p>Display a local sparse matrix in CSR format. </p>
+<p>Display the local sparse matrix in CSR format as a classic matrix (also prints the 0s), if the dimension of the matrix is not too large </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>M</strong> – <strong>[in]</strong> : a sparse matrix in CSR format to be displayed </p></li>
+<li><p><strong>max_dim</strong> – <strong>[in]</strong> : max matrix dimension (if the dimension of the matrix is above this value, it is not printed) </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414initMatrixDistiiil">
+<span id="_CPPv314initMatrixDistiiil"></span><span id="_CPPv214initMatrixDistiiil"></span><span id="initMatrixDist__i.i.i.l"></span><span class="target" id="group__sparseMatrix_1gadcdd3bf965d662e97d31cf2ea0d12b84"></span><a class="reference internal" href="#_CPPv410MatrixDist" title="MatrixDist"><span class="n"><span class="pre">MatrixDist</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">initMatrixDist</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rank</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nb_blocks_row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nb_blocks_column</span></span>, <span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414initMatrixDistiiil" title="Link to this definition"></a><br /></dt>
+<dd><p>Function that initialize the basic information of each local sparse matrix based on the setup. </p>
+<p>Returns a <a class="reference internal" href="#structMatrixDist"><span class="std std-ref">MatrixDist</span></a> structure according to the parameters received. The information filled in is only the basic information </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rank</strong> – <strong>[in]</strong> : mpi process rank </p></li>
+<li><p><strong>nb_blocks_row</strong> – <strong>[in]</strong> : number of processes (blocks) on rows (in the process grid) </p></li>
+<li><p><strong>nb_blocks_column</strong> – <strong>[in]</strong> : number of processes (blocks) on columns (in the process grid) </p></li>
+<li><p><strong>n</strong> – <strong>[in]</strong> : global matrix dimension </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>MBlock: structure containing basic information of the local matrix on each proc </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="brain-structure">
+<h2>Brain Structure<a class="headerlink" href="#brain-structure" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3>Structs<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv49BrainPart">
+<span id="_CPPv39BrainPart"></span><span id="_CPPv29BrainPart"></span><span id="BrainPart"></span><span class="target" id="structBrainPart"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BrainPart</span></span></span><a class="headerlink" href="#_CPPv49BrainPart" title="Link to this definition"></a><br /></dt>
+<dd><p>Structure containing the information of a part of the brain. </p>
+<p>It contains :<ol class="loweralpha simple">
+<li><p>The number of neuron types that can be encountered in the part</p></li>
+<li><p>the cumulative distribution of neurons in the neuron types</p></li>
+<li><p>the probability of connection (for each type) to other parts of the brain.</p></li>
+</ol>
+</p>
+<p>This structure depends on the brain to which it belongs. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9BrainPart12nbTypeNeuronE">
+<span id="_CPPv3N9BrainPart12nbTypeNeuronE"></span><span id="_CPPv2N9BrainPart12nbTypeNeuronE"></span><span id="BrainPart::nbTypeNeuron__i"></span><span class="target" id="structBrainPart_1af0332d5502f752eb8859efffadd570ce"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nbTypeNeuron</span></span></span><a class="headerlink" href="#_CPPv4N9BrainPart12nbTypeNeuronE" title="Link to this definition"></a><br /></dt>
+<dd><p>the number of neuron types that can be encountered in the part </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9BrainPart24repartitionNeuronCumuleeE">
+<span id="_CPPv3N9BrainPart24repartitionNeuronCumuleeE"></span><span id="_CPPv2N9BrainPart24repartitionNeuronCumuleeE"></span><span id="BrainPart::repartitionNeuronCumulee__doubleP"></span><span class="target" id="structBrainPart_1ab5d73bdf753c53b63796625704cb6280"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">repartitionNeuronCumulee</span></span></span><a class="headerlink" href="#_CPPv4N9BrainPart24repartitionNeuronCumuleeE" title="Link to this definition"></a><br /></dt>
+<dd><p>the cumulative distribution of neurons in the neuron types </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9BrainPart15probaConnectionE">
+<span id="_CPPv3N9BrainPart15probaConnectionE"></span><span id="_CPPv2N9BrainPart15probaConnectionE"></span><span id="BrainPart::probaConnection__doubleP"></span><span class="target" id="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">probaConnection</span></span></span><a class="headerlink" href="#_CPPv4N9BrainPart15probaConnectionE" title="Link to this definition"></a><br /></dt>
+<dd><p>the probability of connection (for each type) to other parts of the brain </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv45Brain">
+<span id="_CPPv35Brain"></span><span id="_CPPv25Brain"></span><span id="Brain"></span><span class="target" id="structBrain"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Brain</span></span></span><a class="headerlink" href="#_CPPv45Brain" title="Link to this definition"></a><br /></dt>
+<dd><p>Structure containing the information of a brain. </p>
+<p>It contains :<ol class="loweralpha simple">
+<li><p>the total number of neurons</p></li>
+<li><p>the number of parts in the brain</p></li>
+<li><p>the indices (neurons) at which parts start</p></li>
+<li><p>the brain parts (see <a class="reference internal" href="#structBrainPart"><span class="std std-ref">BrainPart</span></a>). </p></li>
+</ol>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5Brain9dimensionE">
+<span id="_CPPv3N5Brain9dimensionE"></span><span id="_CPPv2N5Brain9dimensionE"></span><span id="Brain::dimension__l-l"></span><span class="target" id="structBrain_1a08d7fddbacdc1fc1c01d77b947f97434"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dimension</span></span></span><a class="headerlink" href="#_CPPv4N5Brain9dimensionE" title="Link to this definition"></a><br /></dt>
+<dd><p>the total number of neurons </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5Brain7nb_partE">
+<span id="_CPPv3N5Brain7nb_partE"></span><span id="_CPPv2N5Brain7nb_partE"></span><span id="Brain::nb_part__i"></span><span class="target" id="structBrain_1aef57b8041ed5e8a0852b013acce9763f"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nb_part</span></span></span><a class="headerlink" href="#_CPPv4N5Brain7nb_partE" title="Link to this definition"></a><br /></dt>
+<dd><p>the number of parts in the brain </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5Brain15parties_cerveauE">
+<span id="_CPPv3N5Brain15parties_cerveauE"></span><span id="_CPPv2N5Brain15parties_cerveauE"></span><span id="Brain::parties_cerveau__l-lP"></span><span class="target" id="structBrain_1aa63d41ba16f80fa8a2d80e28c1d98e48"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">parties_cerveau</span></span></span><a class="headerlink" href="#_CPPv4N5Brain15parties_cerveauE" title="Link to this definition"></a><br /></dt>
+<dd><p>the indices (neurons) at which parts start </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N5Brain9brainPartE">
+<span id="_CPPv3N5Brain9brainPartE"></span><span id="_CPPv2N5Brain9brainPartE"></span><span id="Brain::brainPart__BrainPartP"></span><span class="target" id="structBrain_1a1b0d5e568abe1ea7fea0164de3effad0"></span><a class="reference internal" href="#_CPPv49BrainPart" title="BrainPart"><span class="n"><span class="pre">BrainPart</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">brainPart</span></span></span><a class="headerlink" href="#_CPPv4N5Brain9brainPartE" title="Link to this definition"></a><br /></dt>
+<dd><p>the brain parts (see <a class="reference internal" href="#structBrainPart"><span class="std std-ref">BrainPart</span></a>). </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="id2">
+<h3>Functions<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418choose_neuron_typeP5Braini">
+<span id="_CPPv318choose_neuron_typeP5Braini"></span><span id="_CPPv218choose_neuron_typeP5Braini"></span><span id="choose_neuron_type__BrainP.i"></span><span class="target" id="group__brainstruct_1ga7cbc186e23c78a56d1d3ae430b5640ad"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">choose_neuron_type</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv45Brain" title="Brain"><span class="n"><span class="pre">Brain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">brain</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">part</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418choose_neuron_typeP5Braini" title="Link to this definition"></a><br /></dt>
+<dd><p>Choose and returns the neuron type for a neuron in a specitic brain part. </p>
+<p>Choose and returns a neuron type for a neuron in the brain part of index “part”, in the brain “brain” </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>brain</strong> – <strong>[in]</strong> pointer to a brain </p></li>
+<li><p><strong>part</strong> – <strong>[in]</strong> brain part index </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>neuron type </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv410free_brainP5Brain">
+<span id="_CPPv310free_brainP5Brain"></span><span id="_CPPv210free_brainP5Brain"></span><span id="free_brain__BrainP"></span><span class="target" id="group__brainstruct_1ga63e81fa7888f38b77ee75d798073b6f1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">free_brain</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv45Brain" title="Brain"><span class="n"><span class="pre">Brain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">brain</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410free_brainP5Brain" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#structBrain"><span class="std std-ref">Brain</span></a> destructor. </p>
+<p>Function that frees a brain </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>brain</strong> – <strong>[in]</strong> pointer to a brain </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421generate_neuron_typesP5BrainiiPi">
+<span id="_CPPv321generate_neuron_typesP5BrainiiPi"></span><span id="_CPPv221generate_neuron_typesP5BrainiiPi"></span><span id="generate_neuron_types__BrainP.i.i.iP"></span><span class="target" id="group__brainstruct_1ga18acb5db6cd09680d94abb5a72c1fb64"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">generate_neuron_types</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv45Brain" title="Brain"><span class="n"><span class="pre">Brain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">brain</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ind_start_neuron</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nb_neuron</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">types</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421generate_neuron_typesP5BrainiiPi" title="Link to this definition"></a><br /></dt>
+<dd><p>Function that generates (chooses) the types of multiple neurons and writes them in “types”. </p>
+<p><p>Generates the types of neurons from index “ind_start_neuron” to “ind_start_neuron + nb_neuron” in the brain “brain”, and writes them in “types”</p>
+<p>Condition**: The memory allocation (malloc of size nb_neuron * sizeof(int)) for “types” must be done beforehand.</p>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>brain</strong> – <strong>[in]</strong> pointer to a brain </p></li>
+<li><p><strong>part</strong> – <strong>[in]</strong> brain part index </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>neuron type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418get_brain_part_indxP5Brain">
+<span id="_CPPv318get_brain_part_indxP5Brain"></span><span id="_CPPv218get_brain_part_indxP5Brain"></span><span id="get_brain_part_ind__l-l.BrainP"></span><span class="target" id="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_brain_part_ind</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ind</span></span>, <a class="reference internal" href="#_CPPv45Brain" title="Brain"><span class="n"><span class="pre">Brain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">brain</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418get_brain_part_indxP5Brain" title="Link to this definition"></a><br /></dt>
+<dd><p>Function that returns the index of the part of the brain in which a neuron is located. </p>
+<p>Function that returns the index of the part of the <a class="reference internal" href="#structBrain"><span class="std std-ref">Brain</span></a> in which the neuron of index <code class="docutils literal notranslate"><span class="pre">ind</span></code><p>is located</p>
+<p>Condition**:</p>
+<a class="reference internal" href="#structBrain"><span class="std std-ref">Brain</span></a> is a well formed and <code class="docutils literal notranslate"><span class="pre">ind</span></code> is assumed to be between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">brain.dimension</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ind</strong> – <strong>[in]</strong> index of the neuron </p></li>
+<li><p><strong>brain</strong> – <strong>[in]</strong> pointer to a brain </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>i index of the brain part</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv436get_mean_connect_percentage_for_partP5Brainii">
+<span id="_CPPv336get_mean_connect_percentage_for_partP5Brainii"></span><span id="_CPPv236get_mean_connect_percentage_for_partP5Brainii"></span><span id="get_mean_connect_percentage_for_part__BrainP.i.i"></span><span class="target" id="group__brainstruct_1ga263e5c111c8b0f17c4606a6a93638505"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_mean_connect_percentage_for_part</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv45Brain" title="Brain"><span class="n"><span class="pre">Brain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">brain</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">part</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">type</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv436get_mean_connect_percentage_for_partP5Brainii" title="Link to this definition"></a><br /></dt>
+<dd><p>Function that returns the average percentage of connection chances for a specific neuron to the other parts. </p>
+<p>Function that returns the average percentage (between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">100</span></code>) of connection chances for a neuron of a given type in a given part, to the other parts </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>brain</strong> – <strong>[in]</strong> pointer to a brain </p></li>
+<li><p><strong>part</strong> – <strong>[in]</strong> brain part index </p></li>
+<li><p><strong>type</strong> – <strong>[in]</strong> neuron index </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>average percentage of connection chance </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424get_nb_neuron_brain_partP5Braini">
+<span id="_CPPv324get_nb_neuron_brain_partP5Braini"></span><span id="_CPPv224get_nb_neuron_brain_partP5Braini"></span><span id="get_nb_neuron_brain_part__BrainP.i"></span><span class="target" id="group__brainstruct_1ga6c3dc8a49a114ac126a68a00f3489ec2"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">get_nb_neuron_brain_part</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv45Brain" title="Brain"><span class="n"><span class="pre">Brain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">brain</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">part</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424get_nb_neuron_brain_partP5Braini" title="Link to this definition"></a><br /></dt>
+<dd><p>Function that returns the number of neurons in a specific brain part. </p>
+<p>Function that returns the number of neurons in the brain part if index <code class="docutils literal notranslate"><span class="pre">part</span></code>, in the <a class="reference internal" href="#structBrain"><span class="std std-ref">Brain</span></a> <code class="docutils literal notranslate"><span class="pre">brain</span></code> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ind</strong> – <strong>[in]</strong> index of the neuron </p></li>
+<li><p><strong>brain</strong> – <strong>[in]</strong> pointer to a brain </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>number of neurons in the brain part </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418printf_recap_brainP5Brain">
+<span id="_CPPv318printf_recap_brainP5Brain"></span><span id="_CPPv218printf_recap_brainP5Brain"></span><span id="printf_recap_brain__BrainP"></span><span class="target" id="group__brainstruct_1gad95e70ac714740ca6a3e8d1a99f4a24c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">printf_recap_brain</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv45Brain" title="Brain"><span class="n"><span class="pre">Brain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">brain</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418printf_recap_brainP5Brain" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#structBrain"><span class="std std-ref">Brain</span></a> print. </p>
+<p>Function that displays a summary of the brain passed as a parameter (useful for debugging a brain) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>brain</strong> – <strong>[in]</strong> pointer to a brain </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="hard-coded-brain">
+<h2>Hard-coded Brain<a class="headerlink" href="#hard-coded-brain" title="Link to this heading"></a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419generate_hard_brainx">
+<span id="_CPPv319generate_hard_brainx"></span><span id="_CPPv219generate_hard_brainx"></span><span id="generate_hard_brain__l-l"></span><span class="target" id="group__hardbrain_1gae1eb3b42b6244c70df50e9cd05d4224e"></span><a class="reference internal" href="#_CPPv45Brain" title="Brain"><span class="n"><span class="pre">Brain</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">generate_hard_brain</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419generate_hard_brainx" title="Link to this definition"></a><br /></dt>
+<dd><p>generate the hard-code brain structure </p>
+<p>generate a brain with <code class="docutils literal notranslate"><span class="pre">n</span></code> neurons using a hard-code structure </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> – <strong>[in]</strong> : number of neuros of the brain to be generated, thus the row/column size of generated sparse matrix </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="brain-matrix-generation">
+<h2>Brain Matrix Generation<a class="headerlink" href="#brain-matrix-generation" title="Link to this heading"></a></h2>
+<section id="id3">
+<h3>Structs<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv415BrainMatrixInfo">
+<span id="_CPPv315BrainMatrixInfo"></span><span id="_CPPv215BrainMatrixInfo"></span><span id="BrainMatrixInfo"></span><span class="target" id="structBrainMatrixInfo"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BrainMatrixInfo</span></span></span><a class="headerlink" href="#_CPPv415BrainMatrixInfo" title="Link to this definition"></a><br /></dt>
+<dd><p>Structure containing debug info for a generated matrix. </p>
+<p>It contains :<ol class="loweralpha simple">
+<li><p>the number of row of the local matrix</p></li>
+<li><p>the number of column of the local matrix </p></li>
+<li><p>the types chosen for the neurons</p></li>
+<li><p>the number of connections (number of non-zero values) per row or column (depending on the version of the generator used)</p></li>
+<li><p>number of memory cells allocated</p></li>
+<li><p>the total number of non-zero values contained in the matrix (all processes) </p></li>
+</ol>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15BrainMatrixInfo5dim_cE">
+<span id="_CPPv3N15BrainMatrixInfo5dim_cE"></span><span id="_CPPv2N15BrainMatrixInfo5dim_cE"></span><span id="BrainMatrixInfo::dim_c__l"></span><span class="target" id="structBrainMatrixInfo_1aaf4ec12ac3a59ec8206b90e97779b608"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dim_c</span></span></span><a class="headerlink" href="#_CPPv4N15BrainMatrixInfo5dim_cE" title="Link to this definition"></a><br /></dt>
+<dd><p>the number of column of the local matrix </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15BrainMatrixInfo5dim_lE">
+<span id="_CPPv3N15BrainMatrixInfo5dim_lE"></span><span id="_CPPv2N15BrainMatrixInfo5dim_lE"></span><span id="BrainMatrixInfo::dim_l__l"></span><span class="target" id="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dim_l</span></span></span><a class="headerlink" href="#_CPPv4N15BrainMatrixInfo5dim_lE" title="Link to this definition"></a><br /></dt>
+<dd><p>the number of row of the local matrix </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15BrainMatrixInfo5typesE">
+<span id="_CPPv3N15BrainMatrixInfo5typesE"></span><span id="_CPPv2N15BrainMatrixInfo5typesE"></span><span id="BrainMatrixInfo::types__iP"></span><span class="target" id="structBrainMatrixInfo_1abfff3f3d60aec9b534636a8ea5fcd761"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">types</span></span></span><a class="headerlink" href="#_CPPv4N15BrainMatrixInfo5typesE" title="Link to this definition"></a><br /></dt>
+<dd><p>the types chosen for the neurons </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15BrainMatrixInfo14nb_connectionsE">
+<span id="_CPPv3N15BrainMatrixInfo14nb_connectionsE"></span><span id="_CPPv2N15BrainMatrixInfo14nb_connectionsE"></span><span id="BrainMatrixInfo::nb_connections__lP"></span><span class="target" id="structBrainMatrixInfo_1aa33ba3414fa2adec13e7c885926362db"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nb_connections</span></span></span><a class="headerlink" href="#_CPPv4N15BrainMatrixInfo14nb_connectionsE" title="Link to this definition"></a><br /></dt>
+<dd><p>the number of connections (number of non-zero values) per row or column (depending on the version of the generator used) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15BrainMatrixInfo22total_memory_allocatedE">
+<span id="_CPPv3N15BrainMatrixInfo22total_memory_allocatedE"></span><span id="_CPPv2N15BrainMatrixInfo22total_memory_allocatedE"></span><span id="BrainMatrixInfo::total_memory_allocated__l"></span><span class="target" id="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">total_memory_allocated</span></span></span><a class="headerlink" href="#_CPPv4N15BrainMatrixInfo22total_memory_allocatedE" title="Link to this definition"></a><br /></dt>
+<dd><p>number of memory cells allocated </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N15BrainMatrixInfo10cpt_valuesE">
+<span id="_CPPv3N15BrainMatrixInfo10cpt_valuesE"></span><span id="_CPPv2N15BrainMatrixInfo10cpt_valuesE"></span><span id="BrainMatrixInfo::cpt_values__l"></span><span class="target" id="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc"></span><span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cpt_values</span></span></span><a class="headerlink" href="#_CPPv4N15BrainMatrixInfo10cpt_valuesE" title="Link to this definition"></a><br /></dt>
+<dd><p>the total number of non-zero values contained in the matrix (all processes) </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="id4">
+<h3>Functions<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417brainAdjMatrixCSRP3csr10MatrixDistP5BrainPiP15BrainMatrixInfo">
+<span id="_CPPv317brainAdjMatrixCSRP3csr10MatrixDistP5BrainPiP15BrainMatrixInfo"></span><span id="_CPPv217brainAdjMatrixCSRP3csr10MatrixDistP5BrainPiP15BrainMatrixInfo"></span><span id="brainAdjMatrixCSR__csrP.MatrixDist.BrainP.iP.BrainMatrixInfoP"></span><span class="target" id="group__generation_1ga75bf7e2ff0ac8ba292bacf3a9148c3a9"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">brainAdjMatrixCSR</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv43csr" title="csr"><span class="n"><span class="pre">csr</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">M_CSR</span></span>, <a class="reference internal" href="#_CPPv410MatrixDist" title="MatrixDist"><span class="n"><span class="pre">MatrixDist</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">BlockInfo</span></span>, <a class="reference internal" href="#_CPPv45Brain" title="Brain"><span class="n"><span class="pre">Brain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">brain</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">neuron_types</span></span>, <a class="reference internal" href="#_CPPv415BrainMatrixInfo" title="BrainMatrixInfo"><span class="n"><span class="pre">BrainMatrixInfo</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">debugInfo</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417brainAdjMatrixCSRP3csr10MatrixDistP5BrainPiP15BrainMatrixInfo" title="Link to this definition"></a><br /></dt>
+<dd><p>Generates a CSR square adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a two-dimensional process grid. A row/column of the matrix corresponding to a neuron, adjacency matrix means that it is the row-neuron that connect to the column-neuron</p>
+<p>
+Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain) </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>BlockInfo</strong> – <strong>[in]</strong> structure containing information about the local mpi process (“block”) </p></li>
+<li><p><strong>brain</strong> – <strong>[in]</strong> Pointer to the brain, basis for the generation of the matrix </p></li>
+<li><p><strong>neuron_types</strong> – <strong>[in]</strong> vector containing the types chosen for the neurons of the brain passed as a parameter </p></li>
+<li><p><strong>M_CSR</strong> – <strong>[out]</strong> Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix. </p></li>
+<li><p><strong>debugInfo</strong> – <strong>[out]</strong> <strong>OPTIONAL</strong> - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (&lt;=&gt; number of 1 on each row), the total number of connections, etc.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422brainTransAdjMatrixCSRP3csr10MatrixDistP5BrainPiP15BrainMatrixInfo">
+<span id="_CPPv322brainTransAdjMatrixCSRP3csr10MatrixDistP5BrainPiP15BrainMatrixInfo"></span><span id="_CPPv222brainTransAdjMatrixCSRP3csr10MatrixDistP5BrainPiP15BrainMatrixInfo"></span><span id="brainTransAdjMatrixCSR__csrP.MatrixDist.BrainP.iP.BrainMatrixInfoP"></span><span class="target" id="group__generation_1ga76ee551e09e7553c2b5fb354f1487cb5"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">brainTransAdjMatrixCSR</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv43csr" title="csr"><span class="n"><span class="pre">csr</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">M_CSR</span></span>, <a class="reference internal" href="#_CPPv410MatrixDist" title="MatrixDist"><span class="n"><span class="pre">MatrixDist</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">BlockInfo</span></span>, <a class="reference internal" href="#_CPPv45Brain" title="Brain"><span class="n"><span class="pre">Brain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">brain</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">neuron_types</span></span>, <a class="reference internal" href="#_CPPv415BrainMatrixInfo" title="BrainMatrixInfo"><span class="n"><span class="pre">BrainMatrixInfo</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">debugInfo</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422brainTransAdjMatrixCSRP3csr10MatrixDistP5BrainPiP15BrainMatrixInfo" title="Link to this definition"></a><br /></dt>
+<dd><p><p>Generates a CSR square transposed adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a two-dimensional process grid. A row/column of the matrix corresponding to a neuron, transposed adjacency matrix means that it is the column-neuron that connect to the row-neuron</p>
+<p>Condition: BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain)</p>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>BlockInfo</strong> – <strong>[in]</strong> structure containing information about the local mpi process (“block”) </p></li>
+<li><p><strong>brain</strong> – <strong>[in]</strong> Pointer to the brain, basis for the generation of the matrix </p></li>
+<li><p><strong>neuron_types</strong> – <strong>[in]</strong> vector containing the types chosen for the neurons of the brain passed as a parameter </p></li>
+<li><p><strong>M_CSR</strong> – <strong>[out]</strong> Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix. </p></li>
+<li><p><strong>debugInfo</strong> – <strong>[out]</strong> <strong>OPTIONAL</strong> - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (&lt;=&gt; number of 1 on each column), the total number of connections, etc.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424brainTransAdjMatrixCSR1DP3csrlP5BrainPillP15BrainMatrixInfo">
+<span id="_CPPv324brainTransAdjMatrixCSR1DP3csrlP5BrainPillP15BrainMatrixInfo"></span><span id="_CPPv224brainTransAdjMatrixCSR1DP3csrlP5BrainPillP15BrainMatrixInfo"></span><span id="brainTransAdjMatrixCSR1D__csrP.l.BrainP.iP.l.l.BrainMatrixInfoP"></span><span class="target" id="group__generation_1ga932236cbed96bf85e6505ef997521f98"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">brainTransAdjMatrixCSR1D</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv43csr" title="csr"><span class="n"><span class="pre">csr</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">M_CSR</span></span>, <span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ind_start_row</span></span>, <a class="reference internal" href="#_CPPv45Brain" title="Brain"><span class="n"><span class="pre">Brain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">brain</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">neuron_types</span></span>, <span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">l</span></span>, <span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">c</span></span>, <a class="reference internal" href="#_CPPv415BrainMatrixInfo" title="BrainMatrixInfo"><span class="n"><span class="pre">BrainMatrixInfo</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">debugInfo</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424brainTransAdjMatrixCSR1DP3csrlP5BrainPillP15BrainMatrixInfo" title="Link to this definition"></a><br /></dt>
+<dd><p><p>Generates a CSR square transposed adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a one-two-dimensional process grid (row block parallelization) A row/column of the matrix corresponding to a neuron, transposed adjacency matrix means that it is the column-neuron that connect to the row-neuron</p>
+<p>Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain)</p>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ind_start_row</strong> – <strong>[in]</strong> Row offset (in the 1D process grid), to be taken into account for the creation of connection between neurons </p></li>
+<li><p><strong>brain</strong> – <strong>[in]</strong> Pointer to the brain, basis for the generation of the matrix </p></li>
+<li><p><strong>neuron_types</strong> – <strong>[in]</strong> vector containing the types chosen for the neurons of the brain passed as a parameter </p></li>
+<li><p><strong>l</strong> – <strong>[in]</strong> number of rows in the local (process) matrix </p></li>
+<li><p><strong>c</strong> – <strong>[in]</strong> number of column in the local (process) matrix (= global matrix dimension, because the matrix is parallelized in row blocks only) </p></li>
+<li><p><strong>M_CSR</strong> – <strong>[out]</strong> Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix. </p></li>
+<li><p><strong>debugInfo</strong> – <strong>[out]</strong> <strong>OPTIONAL</strong> - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (&lt;=&gt; number of 1 on each column), the total number of connections, etc.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424brainTransAdjMatrixCOO1DP3coolP5BrainPillP15BrainMatrixInfo">
+<span id="_CPPv324brainTransAdjMatrixCOO1DP3coolP5BrainPillP15BrainMatrixInfo"></span><span id="_CPPv224brainTransAdjMatrixCOO1DP3coolP5BrainPillP15BrainMatrixInfo"></span><span id="brainTransAdjMatrixCOO1D__cooP.l.BrainP.iP.l.l.BrainMatrixInfoP"></span><span class="target" id="group__generation_1ga6854206472559afee60b7cb6b34eac3e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">brainTransAdjMatrixCOO1D</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv43coo" title="coo"><span class="n"><span class="pre">coo</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">M_COO</span></span>, <span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ind_start_row</span></span>, <a class="reference internal" href="#_CPPv45Brain" title="Brain"><span class="n"><span class="pre">Brain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">brain</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">neuron_types</span></span>, <span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">l</span></span>, <span class="kt"><span class="pre">long</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">c</span></span>, <a class="reference internal" href="#_CPPv415BrainMatrixInfo" title="BrainMatrixInfo"><span class="n"><span class="pre">BrainMatrixInfo</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">debugInfo</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424brainTransAdjMatrixCOO1DP3coolP5BrainPillP15BrainMatrixInfo" title="Link to this definition"></a><br /></dt>
+<dd><p><p>Generates a COO square transposed adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a one-two-dimensional process grid (row block parallelization) A row/column of the matrix corresponding to a neuron, transposed adjacency matrix means that it is the column-neuron that connect to the row-neuron</p>
+<p>Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain)</p>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ind_start_row</strong> – <strong>[in]</strong> Row offset (in the 1D process grid), to be taken into account for the creation of connection between neurons </p></li>
+<li><p><strong>brain</strong> – <strong>[in]</strong> Pointer to the brain, basis for the generation of the matrix </p></li>
+<li><p><strong>neuron_types</strong> – <strong>[in]</strong> vector containing the types chosen for the neurons of the brain passed as a parameter </p></li>
+<li><p><strong>l</strong> – <strong>[in]</strong> number of rows in the local (process) matrix </p></li>
+<li><p><strong>c</strong> – <strong>[in]</strong> number of column in the local (process) matrix (= global matrix dimension, because the matrix is ​​parallelized in row blocks only) </p></li>
+<li><p><strong>M_CSR</strong> – <strong>[out]</strong> Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix. </p></li>
+<li><p><strong>debugInfo</strong> – <strong>[out]</strong> <strong>OPTIONAL</strong> - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (&lt;=&gt; number of 1 on each column), the total number of connections, etc.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="performance.html" class="btn btn-neutral float-left" title="Performance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Xinzhe Wu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

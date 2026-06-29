@@ -1,0 +1,564 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="brainstruct_8h" kind="file" language="C++">
+    <compoundname>brainstruct.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">mpi.h</includes>
+    <includes local="no">assert.h</includes>
+    <includes refid="randomforbrain_8h" local="yes">randomforbrain.h</includes>
+    <includedby refid="brainmatrixgenerator_8h" local="yes">/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h</includedby>
+    <includedby refid="hardbrain_8h" local="yes">/home/wu/codes/BTIDG2/includes/hardbrain.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/wu/codes/BTIDG2/includes/brainstruct.h</label>
+        <link refid="brainstruct_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>randomforbrain.h</label>
+        <link refid="randomforbrain_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>assert.h</label>
+      </node>
+      <node id="4">
+        <label>mpi.h</label>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h</label>
+        <link refid="brainmatrixgenerator_8h_source"/>
+      </node>
+      <node id="1">
+        <label>/home/wu/codes/BTIDG2/includes/brainstruct.h</label>
+        <link refid="brainstruct_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/home/wu/codes/BTIDG2/includes/hardbrain.h</label>
+        <link refid="hardbrain_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structBrainPart" prot="public">BrainPart</innerclass>
+    <innerclass refid="structBrain" prot="public">Brain</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__brainstruct_1gaf939d4773c671ab637887d3782e8d131" prot="public" static="no">
+        <type>struct <ref refid="structBrainPart" kindref="compound">BrainPart</ref></type>
+        <definition>typedef struct BrainPart BrainPart</definition>
+        <argsstring></argsstring>
+        <name>BrainPart</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="40" column="24" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__brainstruct_1gaf621c7e3e64c04cd79cd92dd397226a0" prot="public" static="no">
+        <type>struct <ref refid="structBrain" kindref="compound">Brain</ref></type>
+        <definition>typedef struct Brain Brain</definition>
+        <argsstring></argsstring>
+        <name>Brain</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="57" column="20" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int get_brain_part_ind</definition>
+        <argsstring>(long long ind, Brain *brain)</argsstring>
+        <name>get_brain_part_ind</name>
+        <param>
+          <type>long long</type>
+          <declname>ind</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <briefdescription>
+<para>Function that returns the index of the part of the brain in which a neuron is located. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that returns the index of the part of the <ref refid="structBrain" kindref="compound">Brain</ref> in which the neuron of index <computeroutput>ind</computeroutput> is located <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>index of the neuron </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>i index of the brain part</para>
+</simplesect>
+Condition**: <ref refid="structBrain" kindref="compound">Brain</ref> is a well formed and <computeroutput>ind</computeroutput> is assumed to be between <computeroutput>0</computeroutput> and <computeroutput>brain.dimension</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="69" column="5" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="69" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="group__brainstruct_1ga6c3dc8a49a114ac126a68a00f3489ec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int get_nb_neuron_brain_part</definition>
+        <argsstring>(Brain *brain, int part)</argsstring>
+        <name>get_nb_neuron_brain_part</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>part</declname>
+        </param>
+        <briefdescription>
+<para>Function that returns the number of neurons in a specific brain part. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that returns the number of neurons in the brain part if index <computeroutput>part</computeroutput>, in the <ref refid="structBrain" kindref="compound">Brain</ref> <computeroutput>brain</computeroutput> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>index of the neuron </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>number of neurons in the brain part </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="95" column="5" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="95" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="group__brainstruct_1ga263e5c111c8b0f17c4606a6a93638505" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double get_mean_connect_percentage_for_part</definition>
+        <argsstring>(Brain *brain, int part, int type)</argsstring>
+        <name>get_mean_connect_percentage_for_part</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>part</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Function that returns the average percentage of connection chances for a specific neuron to the other parts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that returns the average percentage (between <computeroutput>0</computeroutput> and <computeroutput>100</computeroutput>) of connection chances for a neuron of a given type in a given part, to the other parts <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">part</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>brain part index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>neuron index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>average percentage of connection chance </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="118" column="8" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="118" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="group__brainstruct_1ga7cbc186e23c78a56d1d3ae430b5640ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int choose_neuron_type</definition>
+        <argsstring>(Brain *brain, int part)</argsstring>
+        <name>choose_neuron_type</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>part</declname>
+        </param>
+        <briefdescription>
+<para>Choose and returns the neuron type for a neuron in a specitic brain part. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Choose and returns a neuron type for a neuron in the brain part of index &quot;part&quot;, in the brain &quot;brain&quot; <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">part</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>brain part index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>neuron type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="141" column="5" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="141" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="group__brainstruct_1ga18acb5db6cd09680d94abb5a72c1fb64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void generate_neuron_types</definition>
+        <argsstring>(Brain *brain, int ind_start_neuron, int nb_neuron, int *types)</argsstring>
+        <name>generate_neuron_types</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ind_start_neuron</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nb_neuron</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>types</declname>
+        </param>
+        <briefdescription>
+<para>Function that generates (chooses) the types of multiple neurons and writes them in &quot;types&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates the types of neurons from index &quot;ind_start_neuron&quot; to &quot;ind_start_neuron + nb_neuron&quot; in the brain &quot;brain&quot;, and writes them in &quot;types&quot; <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">part</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>brain part index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>neuron type</para>
+</simplesect>
+Condition**: The memory allocation (malloc of size nb_neuron * sizeof(int)) for &quot;types&quot; must be done beforehand. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="167" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="167" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="group__brainstruct_1gad95e70ac714740ca6a3e8d1a99f4a24c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void printf_recap_brain</definition>
+        <argsstring>(Brain *brain)</argsstring>
+        <name>printf_recap_brain</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="structBrain" kindref="compound">Brain</ref> print. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that displays a summary of the brain passed as a parameter (useful for debugging a brain) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="189" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="189" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="group__brainstruct_1ga63e81fa7888f38b77ee75d798073b6f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void free_brain</definition>
+        <argsstring>(Brain *brain)</argsstring>
+        <name>free_brain</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="structBrain" kindref="compound">Brain</ref> destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that frees a brain <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="228" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="228" bodyend="238"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Brain<sp/>structures</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>This<sp/>file<sp/>defines<sp/>the<sp/>structures<sp/>and<sp/>functions<sp/>related<sp/>to<sp/>the<sp/>Brains<sp/>used<sp/>by<sp/>the<sp/>brain-matrix<sp/>generator</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>Nicolas<sp/>HOCHART</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mpi.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>randomforbrain</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;randomforbrain.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="structBrainPart" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structBrainPart" kindref="compound">BrainPart</ref></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36" refid="structBrainPart_1af0332d5502f752eb8859efffadd570ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structBrainPart_1af0332d5502f752eb8859efffadd570ce" kindref="member">nbTypeNeuron</ref>;<sp/></highlight></codeline>
+<codeline lineno="37" refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*<sp/><ref refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" kindref="member">repartitionNeuronCumulee</ref>;<sp/></highlight></codeline>
+<codeline lineno="38" refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*<sp/><ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>;<sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structBrainPart" kindref="compound">BrainPart</ref><sp/><ref refid="structBrainPart" kindref="compound">BrainPart</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="structBrain" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structBrain" kindref="compound">Brain</ref></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52" refid="structBrain_1a08d7fddbacdc1fc1c01d77b947f97434" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structBrain_1a08d7fddbacdc1fc1c01d77b947f97434" kindref="member">dimension</ref>;<sp/></highlight></codeline>
+<codeline lineno="53" refid="structBrain_1aef57b8041ed5e8a0852b013acce9763f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structBrain_1aef57b8041ed5e8a0852b013acce9763f" kindref="member">nb_part</ref>;<sp/></highlight></codeline>
+<codeline lineno="54" refid="structBrain_1aa63d41ba16f80fa8a2d80e28c1d98e48" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*<sp/><ref refid="structBrain_1aa63d41ba16f80fa8a2d80e28c1d98e48" kindref="member">parties_cerveau</ref>;<sp/></highlight></codeline>
+<codeline lineno="55" refid="structBrain_1a1b0d5e568abe1ea7fea0164de3effad0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="structBrainPart" kindref="compound">BrainPart</ref><sp/>*<sp/><ref refid="structBrain_1a1b0d5e568abe1ea7fea0164de3effad0" kindref="member">brainPart</ref>;<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structBrain" kindref="compound">Brain</ref><sp/><ref refid="structBrain" kindref="compound">Brain</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kindref="member">get_brain_part_ind</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>ind,<sp/><ref refid="structBrain" kindref="compound">Brain</ref><sp/>*<sp/>brain)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/>Renvoie<sp/>l&apos;indice<sp/>de<sp/>la<sp/>partie<sp/>du<sp/>cerveau<sp/>dans<sp/>laquelle<sp/>le<sp/>neurone<sp/>&quot;ind&quot;<sp/>se<sp/>situe</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/>Brain<sp/>est<sp/>supposé<sp/>être<sp/>un<sp/>cerveau<sp/>bien<sp/>formé<sp/>et<sp/>ind<sp/>est<sp/>supposé<sp/>être<sp/>entre<sp/>0<sp/>et<sp/>brain.dimension</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*<sp/>parts_cerv<sp/>=<sp/>(*brain).parties_cerveau;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ind<sp/>&gt;=<sp/>parts_cerv[(*brain).nb_part<sp/>-<sp/>1])</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*brain).nb_part<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(ind<sp/>&gt;=<sp/>parts_cerv[i+1])</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="group__brainstruct_1ga6c3dc8a49a114ac126a68a00f3489ec2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__brainstruct_1ga6c3dc8a49a114ac126a68a00f3489ec2" kindref="member">get_nb_neuron_brain_part</ref>(<ref refid="structBrain" kindref="compound">Brain</ref><sp/>*<sp/>brain,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>part)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>(*brain).dimension;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>ind_depart<sp/>=<sp/>(*brain).parties_cerveau[part];</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(part+1<sp/>==<sp/>(*brain).nb_part)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>n<sp/>-<sp/>ind_depart;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>ind_fin<sp/>=<sp/>(*brain).parties_cerveau[part+1];</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ind_fin<sp/>-<sp/>ind_depart;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="group__brainstruct_1ga263e5c111c8b0f17c4606a6a93638505" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="group__brainstruct_1ga263e5c111c8b0f17c4606a6a93638505" kindref="member">get_mean_connect_percentage_for_part</ref>(<ref refid="structBrain" kindref="compound">Brain</ref><sp/>*<sp/>brain,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>part,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>n,i;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structBrain_1aef57b8041ed5e8a0852b013acce9763f" kindref="member">nb_part</ref>;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*<sp/>probCo<sp/>=<sp/>(*brain).brainPart[part].probaConnection;<sp/></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>n<sp/>=<sp/>(*brain).dimension;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structBrain_1aef57b8041ed5e8a0852b013acce9763f" kindref="member">nb_part</ref><sp/>=<sp/>(*brain).nb_part;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sum_proba<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;<ref refid="structBrain_1aef57b8041ed5e8a0852b013acce9763f" kindref="member">nb_part</ref>;i++)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sum_proba<sp/>+=<sp/>(double)<sp/><ref refid="group__brainstruct_1ga6c3dc8a49a114ac126a68a00f3489ec2" kindref="member">get_nb_neuron_brain_part</ref>(brain,i)<sp/>*<sp/>(*brain).brainPart[part].probaConnection[type*<ref refid="structBrain_1aef57b8041ed5e8a0852b013acce9763f" kindref="member">nb_part</ref><sp/>+<sp/>i];</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sum_proba/n<sp/>*100;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="group__brainstruct_1ga7cbc186e23c78a56d1d3ae430b5640ad" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__brainstruct_1ga7cbc186e23c78a56d1d3ae430b5640ad" kindref="member">choose_neuron_type</ref>(<ref refid="structBrain" kindref="compound">Brain</ref><sp/>*<sp/>brain,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>part)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(part<sp/>&gt;=<sp/>(*brain).nb_part)</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Error<sp/>in<sp/>choose_neuron_type:<sp/>part<sp/>number<sp/>%i<sp/>greater<sp/>than<sp/>number<sp/>of<sp/>parts<sp/>in<sp/>brain<sp/>%i.\n&quot;</highlight><highlight class="normal">,part,(*brain).nb_part);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exit(1);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>*<sp/>repNCumulee<sp/>=<sp/>(*brain).brainPart[part].repartitionNeuronCumulee;<sp/></highlight><highlight class="comment">//Repartition<sp/>cumulée<sp/>des<sp/>neurones<sp/>dans<sp/>les<sp/>parties</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>decision<sp/>=<sp/>rand_0_1();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(repNCumulee[i]<sp/>&lt;<sp/>decision)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i++;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167" refid="group__brainstruct_1ga18acb5db6cd09680d94abb5a72c1fb64" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__brainstruct_1ga18acb5db6cd09680d94abb5a72c1fb64" kindref="member">generate_neuron_types</ref>(<ref refid="structBrain" kindref="compound">Brain</ref><sp/>*<sp/>brain,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind_start_neuron,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_neuron,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<sp/>types)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>Decides<sp/>the<sp/>types<sp/>of<sp/>neurons<sp/>number<sp/>&quot;ind_start_neuron&quot;<sp/>to<sp/>&quot;ind_start_neuron<sp/>+<sp/>nb_neuron&quot;<sp/>in<sp/>the<sp/>brain<sp/>&quot;Brain&quot;,<sp/>and<sp/>writes<sp/>them<sp/>in<sp/>&quot;types&quot;</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>A<sp/>malloc<sp/>of<sp/>size<sp/>nb_neuron<sp/>*<sp/>sizeof(int)<sp/>must<sp/>have<sp/>been<sp/>made<sp/>beforehand<sp/>for<sp/>the<sp/>&quot;types&quot;<sp/>pointer.</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind_part;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;nb_neuron;i++)<sp/></highlight><highlight class="comment">//parcours<sp/>des<sp/>lignes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>de<sp/>l&apos;indice<sp/>de<sp/>la<sp/>partie<sp/>source</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ind_part<sp/>=<sp/><ref refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kindref="member">get_brain_part_ind</ref>(ind_start_neuron+i,<sp/>brain);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//décision<sp/>du<sp/>type<sp/>de<sp/>neurone</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>types[i]<sp/>=<sp/><ref refid="group__brainstruct_1ga7cbc186e23c78a56d1d3ae430b5640ad" kindref="member">choose_neuron_type</ref>(brain,<sp/>ind_part);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189" refid="group__brainstruct_1gad95e70ac714740ca6a3e8d1a99f4a24c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__brainstruct_1gad95e70ac714740ca6a3e8d1a99f4a24c" kindref="member">printf_recap_brain</ref>(<ref refid="structBrain" kindref="compound">Brain</ref><sp/>*<sp/>brain)</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,j,k;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*affiche<sp/>un<sp/>récapitulatif<sp/>du<sp/>cerveau<sp/>passé<sp/>en<sp/>paramètre.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n#############\nInfo<sp/>of<sp/>Brain<sp/>:\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Size:<sp/>%llu*%llu\nNumber<sp/>of<sp/>games:<sp/>%d\nIndices<sp/>at<sp/>which<sp/>games<sp/>start:<sp/>[&quot;</highlight><highlight class="normal">,(*brain).dimension,(*brain).dimension,(*brain).nb_part);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;<sp/>i&lt;(*brain).nb_part;<sp/>i++)</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%llu<sp/>&quot;</highlight><highlight class="normal">,(*brain).parties_cerveau[i]);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;]\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;<sp/>i&lt;(*brain).nb_part;<sp/>i++)</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Part<sp/>%i:\n\tNumber<sp/>of<sp/>neuron<sp/>types:<sp/>%i\n\t&quot;</highlight><highlight class="normal">,i,(*brain).brainPart[i].nbTypeNeuron);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Cumulative<sp/>probabilities<sp/>of<sp/>belonging<sp/>to<sp/>each<sp/>type<sp/>of<sp/>neuron<sp/>:<sp/>[&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j=0;j&lt;(*brain).brainPart[i].nbTypeNeuron;j++)</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%lf<sp/>&quot;</highlight><highlight class="normal">,(*brain).brainPart[i].repartitionNeuronCumulee[j]);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;]\n\tConnections<sp/>:\n\t&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j=0;j&lt;(*brain).brainPart[i].nbTypeNeuron;j++)</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Indices<sp/>of<sp/>neuron<sp/>type<sp/>connections<sp/>%i<sp/>:\n\t&quot;</highlight><highlight class="normal">,j);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(k=0;k&lt;(*brain).nb_part;k++)</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%i<sp/>-&gt;<sp/>%i<sp/>:<sp/>%lf\n\t&quot;</highlight><highlight class="normal">,i,k,(*brain).brainPart[i].probaConnection[j*(*brain).nb_part<sp/>+<sp/>k]);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228" refid="group__brainstruct_1ga63e81fa7888f38b77ee75d798073b6f1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__brainstruct_1ga63e81fa7888f38b77ee75d798073b6f1" kindref="member">free_brain</ref>(<ref refid="structBrain" kindref="compound">Brain</ref><sp/>*<sp/>brain)</highlight></codeline>
+<codeline lineno="229"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*libère<sp/>les<sp/>ressources<sp/>allouées<sp/>dans<sp/>un<sp/>cerveau.<sp/>Ne<sp/>libère/détruit<sp/>pas<sp/>le<sp/>cerveau.*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;(*brain).nb_part;<sp/>i++)</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free((*brain).brainPart[i].repartitionNeuronCumulee);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free((*brain).brainPart[i].probaConnection);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>free((*brain).brainPart);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>free((*brain).parties_cerveau);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>end<sp/>of<sp/>brainstruct</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h"/>
+  </compounddef>
+</doxygen>

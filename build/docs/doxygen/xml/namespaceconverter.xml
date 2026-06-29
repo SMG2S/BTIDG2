@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespaceconverter" kind="namespace" language="Python">
+    <compoundname>converter</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="converter_8py_1a617aa28db32c63db1a5406afd962eb48" prot="public" static="no" mutable="no">
+        <type>def</type>
+        <definition>def converter.data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>converter.data</qualifiedname>
+        <initializer>=  loadData(sys.argv[1])</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="56" column="1" bodyfile="/home/wu/codes/BTIDG2/translator/converter.py" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="converter_8py_1af4883e1e38446e4ac384deb21a83d282" prot="public" static="no" mutable="no">
+        <type>def</type>
+        <definition>def converter.nbNeuronCumul</definition>
+        <argsstring></argsstring>
+        <name>nbNeuronCumul</name>
+        <qualifiedname>converter.nbNeuronCumul</qualifiedname>
+        <initializer>=  numberNeuronCumul(data)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="57" column="1" bodyfile="/home/wu/codes/BTIDG2/translator/converter.py" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="converter_8py_1ae6b47a6a1f13009bc7e3377e68edd423" prot="public" static="no" mutable="no">
+        <type>def</type>
+        <definition>def converter.distribNeuronCumul</definition>
+        <argsstring></argsstring>
+        <name>distribNeuronCumul</name>
+        <qualifiedname>converter.distribNeuronCumul</qualifiedname>
+        <initializer>=  distribNeuronCumul(data)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="58" column="1" bodyfile="/home/wu/codes/BTIDG2/translator/converter.py" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="converter_8py_1a814a9aa55d740f926e2b1f7e260ec032" prot="public" static="no" mutable="no">
+        <type>def</type>
+        <definition>def converter.probaConnection</definition>
+        <argsstring></argsstring>
+        <name>probaConnection</name>
+        <qualifiedname>converter.probaConnection</qualifiedname>
+        <initializer>=  probaConnection(data)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="59" column="1" bodyfile="/home/wu/codes/BTIDG2/translator/converter.py" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="converter_8py_1afca6cc837ef2fa58185b2802f7f0b4f1" prot="public" static="no" mutable="no">
+        <type>len</type>
+        <definition>len converter.nbPart</definition>
+        <argsstring></argsstring>
+        <name>nbPart</name>
+        <qualifiedname>converter.nbPart</qualifiedname>
+        <initializer>=  len(nbNeuronCumul)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="61" column="1" bodyfile="/home/wu/codes/BTIDG2/translator/converter.py" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="converter_8py_1aabb849d7b1682ed64c0035747e8f0b65" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str converter.out</definition>
+        <argsstring></argsstring>
+        <name>out</name>
+        <qualifiedname>converter.out</qualifiedname>
+        <initializer>= &quot;int get_nb_part(){\n\treturn &quot;+str(nbPart)+&quot;;\n}\n\n&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="63" column="1" bodyfile="/home/wu/codes/BTIDG2/translator/converter.py" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="converter_8py_1a487e5030dd38b36e3258c98400ccc523" prot="public" static="no" mutable="no">
+        <type>j</type>
+        <definition>j converter.ind</definition>
+        <argsstring></argsstring>
+        <name>ind</name>
+        <qualifiedname>converter.ind</qualifiedname>
+        <initializer>=  j*nbPart+k</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="87" column="1" bodyfile="/home/wu/codes/BTIDG2/translator/converter.py" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="converter_8py_1abd8c89ee9d9985705e9f6168deee56e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def converter.writeData</definition>
+        <argsstring>(out, file)</argsstring>
+        <name>writeData</name>
+        <qualifiedname>converter.writeData</qualifiedname>
+        <param>
+          <type>out</type>
+          <defname>out</defname>
+        </param>
+        <param>
+          <type>file</type>
+          <defname>file</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="5" column="1" bodyfile="/home/wu/codes/BTIDG2/translator/converter.py" bodystart="5" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="converter_8py_1a3b7eb4c506d60febf6f92a5542da2180" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def converter.loadData</definition>
+        <argsstring>(file)</argsstring>
+        <name>loadData</name>
+        <qualifiedname>converter.loadData</qualifiedname>
+        <param>
+          <type>file</type>
+          <defname>file</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="12" column="1" bodyfile="/home/wu/codes/BTIDG2/translator/converter.py" bodystart="12" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="converter_8py_1aa27870d892a591c11655b62c4817ef4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def converter.numberNeuronCumul</definition>
+        <argsstring>(data)</argsstring>
+        <name>numberNeuronCumul</name>
+        <qualifiedname>converter.numberNeuronCumul</qualifiedname>
+        <param>
+          <type>data</type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="17" column="1" bodyfile="/home/wu/codes/BTIDG2/translator/converter.py" bodystart="17" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="converter_8py_1a6e28228aa4e4dac0869dc7d7834e4dd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def converter.distribNeuronCumul</definition>
+        <argsstring>(data)</argsstring>
+        <name>distribNeuronCumul</name>
+        <qualifiedname>converter.distribNeuronCumul</qualifiedname>
+        <param>
+          <type>data</type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="26" column="1" bodyfile="/home/wu/codes/BTIDG2/translator/converter.py" bodystart="26" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="converter_8py_1a88d722574ce5b006f8309191b1580686" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def converter.probaConnection</definition>
+        <argsstring>(data)</argsstring>
+        <name>probaConnection</name>
+        <qualifiedname>converter.probaConnection</qualifiedname>
+        <param>
+          <type>data</type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="35" column="1" bodyfile="/home/wu/codes/BTIDG2/translator/converter.py" bodystart="35" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/wu/codes/BTIDG2/translator/converter.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

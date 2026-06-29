@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structBrain" kind="struct" language="C++" prot="public">
+    <compoundname>Brain</compoundname>
+    <includes refid="brainstruct_8h" local="no">brainstruct.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structBrain_1a08d7fddbacdc1fc1c01d77b947f97434" prot="public" static="no" mutable="no">
+        <type>long long</type>
+        <definition>long long Brain::dimension</definition>
+        <argsstring></argsstring>
+        <name>dimension</name>
+        <qualifiedname>Brain::dimension</qualifiedname>
+        <briefdescription>
+<para>the total number of neurons </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="52" column="16" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structBrain_1aef57b8041ed5e8a0852b013acce9763f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Brain::nb_part</definition>
+        <argsstring></argsstring>
+        <name>nb_part</name>
+        <qualifiedname>Brain::nb_part</qualifiedname>
+        <briefdescription>
+<para>the number of parts in the brain </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="53" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structBrain_1aa63d41ba16f80fa8a2d80e28c1d98e48" prot="public" static="no" mutable="no">
+        <type>long long *</type>
+        <definition>long long* Brain::parties_cerveau</definition>
+        <argsstring></argsstring>
+        <name>parties_cerveau</name>
+        <qualifiedname>Brain::parties_cerveau</qualifiedname>
+        <briefdescription>
+<para>the indices (neurons) at which parts start </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="54" column="17" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structBrain_1a1b0d5e568abe1ea7fea0164de3effad0" prot="public" static="no" mutable="no">
+        <type><ref refid="structBrainPart" kindref="compound">BrainPart</ref> *</type>
+        <definition>BrainPart* Brain::brainPart</definition>
+        <argsstring></argsstring>
+        <name>brainPart</name>
+        <qualifiedname>Brain::brainPart</qualifiedname>
+        <briefdescription>
+<para>the brain parts (see <ref refid="structBrainPart" kindref="compound">BrainPart</ref>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="55" column="17" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structure containing the information of a brain. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>It contains :<orderedlist>
+<listitem><para>the total number of neurons</para>
+</listitem><listitem><para>the number of parts in the brain</para>
+</listitem><listitem><para>the indices (neurons) at which parts start</para>
+</listitem><listitem><para>the brain parts (see <ref refid="structBrainPart" kindref="compound">BrainPart</ref>). </para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Brain</label>
+        <link refid="structBrain"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>brainPart</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BrainPart</label>
+        <link refid="structBrainPart"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="50" column="1" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="51" bodyend="56"/>
+    <listofallmembers>
+      <member refid="structBrain_1a1b0d5e568abe1ea7fea0164de3effad0" prot="public" virt="non-virtual"><scope>Brain</scope><name>brainPart</name></member>
+      <member refid="structBrain_1a08d7fddbacdc1fc1c01d77b947f97434" prot="public" virt="non-virtual"><scope>Brain</scope><name>dimension</name></member>
+      <member refid="structBrain_1aef57b8041ed5e8a0852b013acce9763f" prot="public" virt="non-virtual"><scope>Brain</scope><name>nb_part</name></member>
+      <member refid="structBrain_1aa63d41ba16f80fa8a2d80e28c1d98e48" prot="public" virt="non-virtual"><scope>Brain</scope><name>parties_cerveau</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

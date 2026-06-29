@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="matrixstruct_8h" kind="file" language="C++">
+    <compoundname>matrixstruct.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">mpi.h</includes>
+    <includes local="no">assert.h</includes>
+    <includedby refid="brainmatrixgenerator_8h" local="yes">/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/wu/codes/BTIDG2/includes/matrixstruct.h</label>
+        <link refid="matrixstruct_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>assert.h</label>
+      </node>
+      <node id="4">
+        <label>mpi.h</label>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h</label>
+        <link refid="brainmatrixgenerator_8h_source"/>
+      </node>
+      <node id="1">
+        <label>/home/wu/codes/BTIDG2/includes/matrixstruct.h</label>
+        <link refid="matrixstruct_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structcoo" prot="public">coo</innerclass>
+    <innerclass refid="structcsr" prot="public">csr</innerclass>
+    <innerclass refid="structMatrixDist" prot="public">MatrixDist</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__sparseMatrix_1gaa1e1135b7e6d4ce409bd6d6d5a5bf2e7" prot="public" static="no">
+        <type>struct <ref refid="structcoo" kindref="compound">coo</ref></type>
+        <definition>typedef struct coo coo</definition>
+        <argsstring></argsstring>
+        <name>coo</name>
+        <briefdescription>
+<para>coo type </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="39" column="18" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__sparseMatrix_1gad48a4cd0e7b82694d1f4e8e81f593b5a" prot="public" static="no">
+        <type>struct <ref refid="structcsr" kindref="compound">csr</ref></type>
+        <definition>typedef struct csr csr</definition>
+        <argsstring></argsstring>
+        <name>csr</name>
+        <briefdescription>
+<para>csr type </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="56" column="18" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__sparseMatrix_1gad03438cfcba20028c1dc1adb149ba15d" prot="public" static="no">
+        <type>struct <ref refid="structMatrixDist" kindref="compound">MatrixDist</ref></type>
+        <definition>typedef struct MatrixDist MatrixDist</definition>
+        <argsstring></argsstring>
+        <name>MatrixDist</name>
+        <briefdescription>
+<para><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref> type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="78" column="25" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__sparseMatrix_1ga44ba06170323c0c70332d0a06ec53adf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int csrGetValue</definition>
+        <argsstring>(long indl, long indc, csr *M_CSR)</argsstring>
+        <name>csrGetValue</name>
+        <param>
+          <type>long</type>
+          <declname>indl</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>indc</declname>
+        </param>
+        <param>
+          <type><ref refid="structcsr" kindref="compound">csr</ref> *</type>
+          <declname>M_CSR</declname>
+        </param>
+        <briefdescription>
+<para>Returns the value of indices <computeroutput>[indl,indc]</computeroutput> of a local sparse matrix in CSR format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">M_CSR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sparse matrix in CSR format to be displayed to be queried </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">indl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>row index of the value we want (must be <computeroutput>&lt; (*M_CSR).dim_l</computeroutput>) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">indc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>column index of the value we want (must be <computeroutput>&lt; (*M_CSR).dim_c</computeroutput>) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Matrix value at the index <computeroutput>[indl,indc]</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="87" column="7" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="87" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="group__sparseMatrix_1gaf5fcf88f63b1f7eb56eca340e55a8c7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void csrDisplay</definition>
+        <argsstring>(csr *M, int max_dim)</argsstring>
+        <name>csrDisplay</name>
+        <param>
+          <type><ref refid="structcsr" kindref="compound">csr</ref> *</type>
+          <declname>M</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>max_dim</declname>
+        </param>
+        <briefdescription>
+<para>Display a local sparse matrix in CSR format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Display the local sparse matrix in CSR format as a classic matrix (also prints the 0s), if the dimension of the matrix is not too large <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">M</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: a sparse matrix in CSR format to be displayed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">max_dim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: max matrix dimension (if the dimension of the matrix is above this value, it is not printed) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="115" column="8" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="115" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="group__sparseMatrix_1gadcdd3bf965d662e97d31cf2ea0d12b84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref></type>
+        <definition>MatrixDist initMatrixDist</definition>
+        <argsstring>(int rank, int nb_blocks_row, int nb_blocks_column, long n)</argsstring>
+        <name>initMatrixDist</name>
+        <param>
+          <type>int</type>
+          <declname>rank</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nb_blocks_row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nb_blocks_column</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Function that initialize the basic information of each local sparse matrix based on the setup. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a <ref refid="structMatrixDist" kindref="compound">MatrixDist</ref> structure according to the parameters received. The information filled in is only the basic information <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rank</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: mpi process rank </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nb_blocks_row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: number of processes (blocks) on rows (in the process grid) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nb_blocks_column</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: number of processes (blocks) on columns (in the process grid) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: global matrix dimension </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>MBlock: structure containing basic information of the local matrix on each proc </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="145" column="12" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="145" bodyend="157"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>Structures<sp/>permettant<sp/>de<sp/>stocker<sp/>les<sp/>matrices<sp/>et<sp/>les<sp/>informations<sp/>sur<sp/>les<sp/>matrices,<sp/>en<sp/>COO<sp/>et<sp/>CSR,<sp/>et<sp/>fonctions<sp/>permettant<sp/>de<sp/>faire<sp/>des<sp/>opérations<sp/>sur<sp/>les<sp/>matrices<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>à<sp/>compléter<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*Nicolas<sp/>HOCHART*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mpi.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="structcoo" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structcoo" kindref="compound">coo</ref></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32" refid="structcoo_1a0f596527a7963c1b76a49767cae92aa6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="structcoo_1a0f596527a7963c1b76a49767cae92aa6" kindref="member">Row</ref>;<sp/></highlight></codeline>
+<codeline lineno="33" refid="structcoo_1a996d48191462fe6891b0798c2b522d55" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="structcoo_1a996d48191462fe6891b0798c2b522d55" kindref="member">Column</ref>;<sp/></highlight></codeline>
+<codeline lineno="34" refid="structcoo_1a80bc67514bc56cf4e3db40c6893ab493" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<ref refid="structcoo_1a80bc67514bc56cf4e3db40c6893ab493" kindref="member">Value</ref>;<sp/></highlight></codeline>
+<codeline lineno="35" refid="structcoo_1a271eb401f5a1bab68a3882428069f2e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structcoo_1a271eb401f5a1bab68a3882428069f2e4" kindref="member">dim_l</ref>;<sp/></highlight></codeline>
+<codeline lineno="36" refid="structcoo_1a9b4350ecd41c384cfc3f880caf7aa612" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structcoo_1a9b4350ecd41c384cfc3f880caf7aa612" kindref="member">dim_c</ref>;<sp/></highlight></codeline>
+<codeline lineno="37" refid="structcoo_1ac9f78b4d67516094195ec84d480cf918" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structcoo_1ac9f78b4d67516094195ec84d480cf918" kindref="member">nnz</ref>;<sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="39" refid="group__sparseMatrix_1gaa1e1135b7e6d4ce409bd6d6d5a5bf2e7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structcoo" kindref="compound">coo</ref><sp/><ref refid="structcoo" kindref="compound">coo</ref>;<sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="structcsr" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structcsr" kindref="compound">csr</ref></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49" refid="structcsr_1a03062175252c8ce6072db44eaf466b2a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<sp/><ref refid="structcsr_1a03062175252c8ce6072db44eaf466b2a" kindref="member">Row</ref>;<sp/></highlight></codeline>
+<codeline lineno="50" refid="structcsr_1a086a2f7e18b5dd5893402f5e2680d54b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<sp/><ref refid="structcsr_1a086a2f7e18b5dd5893402f5e2680d54b" kindref="member">Column</ref>;<sp/></highlight></codeline>
+<codeline lineno="51" refid="structcsr_1acf44e63f376bccd960f78051ed8c3596" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<sp/><ref refid="structcsr_1acf44e63f376bccd960f78051ed8c3596" kindref="member">Value</ref>;<sp/></highlight></codeline>
+<codeline lineno="52" refid="structcsr_1a20b5cbc814d823a68c474a0ba615b8b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structcsr_1a20b5cbc814d823a68c474a0ba615b8b5" kindref="member">dim_l</ref>;<sp/></highlight></codeline>
+<codeline lineno="53" refid="structcsr_1ad7fc85bf2e8901dec40c5fd8ed2b3dd9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structcsr_1ad7fc85bf2e8901dec40c5fd8ed2b3dd9" kindref="member">dim_c</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="54" refid="structcsr_1a60b50a9a8f3ae484c1c0ffbbbce1eb87" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structcsr_1a60b50a9a8f3ae484c1c0ffbbbce1eb87" kindref="member">nnz</ref>;<sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="56" refid="group__sparseMatrix_1gad48a4cd0e7b82694d1f4e8e81f593b5a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structcsr" kindref="compound">csr</ref><sp/><ref refid="structcsr" kindref="compound">csr</ref>;<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="structMatrixDist" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69" refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" kindref="member">indl</ref>;<sp/></highlight></codeline>
+<codeline lineno="70" refid="structMatrixDist_1a56da90a907a4bc9a38b227dd238b8059" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structMatrixDist_1a56da90a907a4bc9a38b227dd238b8059" kindref="member">indc</ref>;<sp/></highlight></codeline>
+<codeline lineno="71" refid="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" kindref="member">dim_l</ref>;<sp/></highlight></codeline>
+<codeline lineno="72" refid="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" kindref="member">dim_c</ref>;<sp/></highlight></codeline>
+<codeline lineno="73" refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" kindref="member">startRow</ref>;<sp/></highlight></codeline>
+<codeline lineno="74" refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" kindref="member">startColumn</ref>;<sp/></highlight></codeline>
+<codeline lineno="75" refid="structMatrixDist_1a881e18e2da67bcd4a40459f09ee6594b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structMatrixDist_1a881e18e2da67bcd4a40459f09ee6594b" kindref="member">endRow</ref>;<sp/></highlight></codeline>
+<codeline lineno="76" refid="structMatrixDist_1a0d332da71c326861f0ede05cd4ea67f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structMatrixDist_1a0d332da71c326861f0ede05cd4ea67f5" kindref="member">endColumn</ref>;<sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="78" refid="group__sparseMatrix_1gad03438cfcba20028c1dc1adb149ba15d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref><sp/><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref>;<sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="group__sparseMatrix_1ga44ba06170323c0c70332d0a06ec53adf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="group__sparseMatrix_1ga44ba06170323c0c70332d0a06ec53adf" kindref="member">csrGetValue</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" kindref="member">indl</ref>,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structMatrixDist_1a56da90a907a4bc9a38b227dd238b8059" kindref="member">indc</ref>,<sp/><ref refid="structcsr" kindref="compound">csr</ref><sp/>*<sp/>M_CSR)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>Renvoie<sp/>la<sp/>valeur<sp/>[indl,indc]<sp/>de<sp/>la<sp/>matrice<sp/>M_CSR<sp/>stockée<sp/>au<sp/>format<sp/>CSR.</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>Le<sp/>vecteur<sp/>à<sp/>l&apos;adresse<sp/>(*M_CSR).Value<sp/>doit<sp/>être<sp/>un<sp/>vecteur<sp/>d&apos;entiers.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*Row,*Column,*Value;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Row<sp/>=<sp/>(*M_CSR).Row;<sp/>Column<sp/>=<sp/>(*M_CSR).Column;<sp/>Value<sp/>=<sp/>(*M_CSR).Value;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" kindref="member">indl</ref><sp/>&gt;=<sp/>(*M_CSR).dim_l<sp/>||<sp/><ref refid="structMatrixDist_1a56da90a907a4bc9a38b227dd238b8059" kindref="member">indc</ref><sp/>&gt;=<sp/>(*M_CSR).dim_c)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>perror(</highlight><highlight class="stringliteral">&quot;WARNING:<sp/>inconsistent<sp/>indices<sp/>were<sp/>provided<sp/>in<sp/>the<sp/>csrGetValue()<sp/>function\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nb_values<sp/>=<sp/>Row[<ref refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" kindref="member">indl</ref>+1]<sp/>-<sp/>Row[<ref refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" kindref="member">indl</ref>];<sp/></highlight><highlight class="comment">//nombre<sp/>de<sp/>valeurs<sp/>dans<sp/>la<sp/>ligne</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=Row[<ref refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" kindref="member">indl</ref>];i&lt;Row[<ref refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" kindref="member">indl</ref>]+nb_values;i++)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Column[i]<sp/>==<sp/><ref refid="structMatrixDist_1a56da90a907a4bc9a38b227dd238b8059" kindref="member">indc</ref>)<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Value[i];}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;<sp/></highlight><highlight class="comment">//&lt;=&gt;<sp/>on<sp/>a<sp/>parcouru<sp/>la<sp/>ligne<sp/>et<sp/>on<sp/>a<sp/>pas<sp/>trouvé<sp/>de<sp/>valeur<sp/>dans<sp/>la<sp/>colonne</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="group__sparseMatrix_1gaf5fcf88f63b1f7eb56eca340e55a8c7b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__sparseMatrix_1gaf5fcf88f63b1f7eb56eca340e55a8c7b" kindref="member">csrDisplay</ref>(<ref refid="structcsr" kindref="compound">csr</ref><sp/>*<sp/>M,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max_dim)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>i,j;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((*M).dim_l<sp/>&lt;=<sp/>max_dim<sp/>&amp;&amp;<sp/>(*M).dim_c<sp/>&lt;=max_dim)<sp/></highlight><highlight class="comment">//si<sp/>l&apos;une<sp/>des<sp/>dimensions<sp/>de<sp/>la<sp/>matrice<sp/>est<sp/>supérieure<sp/>à<sp/>max_dim,<sp/>on<sp/>n&apos;affiche<sp/>pas<sp/>la<sp/>matrice</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;(*M).dim_l;i++)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j=0;j&lt;(*M).dim_c;j++)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%i<sp/>&quot;</highlight><highlight class="normal">,<sp/><ref refid="group__sparseMatrix_1ga44ba06170323c0c70332d0a06ec53adf" kindref="member">csrGetValue</ref>(i,<sp/>j,<sp/>M));</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Matrix<sp/>too<sp/>large<sp/>for<sp/>print..\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="group__sparseMatrix_1gadcdd3bf965d662e97d31cf2ea0d12b84" refkind="member"><highlight class="normal"><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref><sp/><ref refid="group__sparseMatrix_1gadcdd3bf965d662e97d31cf2ea0d12b84" kindref="member">initMatrixDist</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rank,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_blocks_row,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_blocks_column,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>n)</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref><sp/>MBlock;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>MBlock.<ref refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" kindref="member">indl</ref><sp/>=<sp/>rank<sp/>/<sp/>nb_blocks_column;<sp/></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>MBlock.<ref refid="structMatrixDist_1a56da90a907a4bc9a38b227dd238b8059" kindref="member">indc</ref><sp/>=<sp/>rank<sp/>%<sp/>nb_blocks_column;<sp/></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>MBlock.<ref refid="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" kindref="member">dim_l</ref><sp/>=<sp/>n/nb_blocks_row;<sp/></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>MBlock.<ref refid="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" kindref="member">dim_c</ref><sp/>=<sp/>n/nb_blocks_column;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>MBlock.<ref refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" kindref="member">startRow</ref><sp/>=<sp/>MBlock.<ref refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" kindref="member">indl</ref>*MBlock.<ref refid="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" kindref="member">dim_l</ref>;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>MBlock.<ref refid="structMatrixDist_1a881e18e2da67bcd4a40459f09ee6594b" kindref="member">endRow</ref><sp/>=<sp/>(MBlock.<ref refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" kindref="member">indl</ref>+1)*MBlock.<ref refid="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" kindref="member">dim_l</ref>-1;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>MBlock.<ref refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" kindref="member">startColumn</ref><sp/>=<sp/>MBlock.<ref refid="structMatrixDist_1a56da90a907a4bc9a38b227dd238b8059" kindref="member">indc</ref>*MBlock.<ref refid="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" kindref="member">dim_c</ref>;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>MBlock.<ref refid="structMatrixDist_1a0d332da71c326861f0ede05cd4ea67f5" kindref="member">endColumn</ref><sp/>=<sp/>(MBlock.<ref refid="structMatrixDist_1a56da90a907a4bc9a38b227dd238b8059" kindref="member">indc</ref>+1)*MBlock.<ref refid="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" kindref="member">dim_c</ref>-1;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>MBlock;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>end<sp/>of<sp/>sparseMatrix</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h"/>
+  </compounddef>
+</doxygen>

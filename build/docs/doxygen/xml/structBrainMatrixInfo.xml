@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structBrainMatrixInfo" kind="struct" language="C++" prot="public">
+    <compoundname>BrainMatrixInfo</compoundname>
+    <includes refid="brainmatrixgenerator_8h" local="no">brainmatrixgenerator.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structBrainMatrixInfo_1aaf4ec12ac3a59ec8206b90e97779b608" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long BrainMatrixInfo::dim_c</definition>
+        <argsstring></argsstring>
+        <name>dim_c</name>
+        <qualifiedname>BrainMatrixInfo::dim_c</qualifiedname>
+        <briefdescription>
+<para>the number of column of the local matrix <linebreak/>
+ </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="38" column="11" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long BrainMatrixInfo::dim_l</definition>
+        <argsstring></argsstring>
+        <name>dim_l</name>
+        <qualifiedname>BrainMatrixInfo::dim_l</qualifiedname>
+        <briefdescription>
+<para>the number of row of the local matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="39" column="11" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structBrainMatrixInfo_1abfff3f3d60aec9b534636a8ea5fcd761" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* BrainMatrixInfo::types</definition>
+        <argsstring></argsstring>
+        <name>types</name>
+        <qualifiedname>BrainMatrixInfo::types</qualifiedname>
+        <briefdescription>
+<para>the types chosen for the neurons </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="40" column="11" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structBrainMatrixInfo_1aa33ba3414fa2adec13e7c885926362db" prot="public" static="no" mutable="no">
+        <type>long *</type>
+        <definition>long* BrainMatrixInfo::nb_connections</definition>
+        <argsstring></argsstring>
+        <name>nb_connections</name>
+        <qualifiedname>BrainMatrixInfo::nb_connections</qualifiedname>
+        <briefdescription>
+<para>the number of connections (number of non-zero values) per row or column (depending on the version of the generator used) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="41" column="12" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long BrainMatrixInfo::total_memory_allocated</definition>
+        <argsstring></argsstring>
+        <name>total_memory_allocated</name>
+        <qualifiedname>BrainMatrixInfo::total_memory_allocated</qualifiedname>
+        <briefdescription>
+<para>number of memory cells allocated </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="42" column="11" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long BrainMatrixInfo::cpt_values</definition>
+        <argsstring></argsstring>
+        <name>cpt_values</name>
+        <qualifiedname>BrainMatrixInfo::cpt_values</qualifiedname>
+        <briefdescription>
+<para>the total number of non-zero values contained in the matrix (all processes) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="43" column="11" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structure containing debug info for a generated matrix. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>It contains :<orderedlist>
+<listitem><para>the number of row of the local matrix</para>
+</listitem><listitem><para>the number of column of the local matrix <linebreak/>
+</para>
+</listitem><listitem><para>the types chosen for the neurons</para>
+</listitem><listitem><para>the number of connections (number of non-zero values) per row or column (depending on the version of the generator used)</para>
+</listitem><listitem><para>number of memory cells allocated</para>
+</listitem><listitem><para>the total number of non-zero values contained in the matrix (all processes) </para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+    <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="36" column="1" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="37" bodyend="44"/>
+    <listofallmembers>
+      <member refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" prot="public" virt="non-virtual"><scope>BrainMatrixInfo</scope><name>cpt_values</name></member>
+      <member refid="structBrainMatrixInfo_1aaf4ec12ac3a59ec8206b90e97779b608" prot="public" virt="non-virtual"><scope>BrainMatrixInfo</scope><name>dim_c</name></member>
+      <member refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" prot="public" virt="non-virtual"><scope>BrainMatrixInfo</scope><name>dim_l</name></member>
+      <member refid="structBrainMatrixInfo_1aa33ba3414fa2adec13e7c885926362db" prot="public" virt="non-virtual"><scope>BrainMatrixInfo</scope><name>nb_connections</name></member>
+      <member refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" prot="public" virt="non-virtual"><scope>BrainMatrixInfo</scope><name>total_memory_allocated</name></member>
+      <member refid="structBrainMatrixInfo_1abfff3f3d60aec9b534636a8ea5fcd761" prot="public" virt="non-virtual"><scope>BrainMatrixInfo</scope><name>types</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

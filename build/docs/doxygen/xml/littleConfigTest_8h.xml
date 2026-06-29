@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="littleConfigTest_8h" kind="file" language="C++">
+    <compoundname>littleConfigTest.h</compoundname>
+    <includedby refid="littleConfigTest_8c" local="yes">/home/wu/codes/BTIDG2/example/littleConfigTest.c</includedby>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="littleConfigTest_8h_1a4693773f5273b5218871328b5194ea12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int get_nb_part</definition>
+        <argsstring>()</argsstring>
+        <name>get_nb_part</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/Configs/littleConfigTest.h" line="1" column="5" bodyfile="/home/wu/codes/BTIDG2/translator/Configs/littleConfigTest.h" bodystart="1" bodyend="3"/>
+      </memberdef>
+      <memberdef kind="function" id="littleConfigTest_8h_1adcb8c5f8183c5c74b1f1050aa67620f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void paramBrain</definition>
+        <argsstring>(Brain *Cerveau, long long *n)</argsstring>
+        <name>paramBrain</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>Cerveau</declname>
+        </param>
+        <param>
+          <type>long long *</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/translator/Configs/littleConfigTest.h" line="5" column="6" bodyfile="/home/wu/codes/BTIDG2/translator/Configs/littleConfigTest.h" bodystart="5" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>get_nb_part(){</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>4;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>paramBrain(<ref refid="structBrain" kindref="compound">Brain</ref><sp/>*Cerveau,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*n){</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nbTypeNeuronIci,nb_part=4;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>*n=15;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structBrainPart" kindref="compound">BrainPart</ref><sp/>*brainPart<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structBrainPart" kindref="compound">BrainPart</ref>)*nb_part);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*part_cerv<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)*nb_part);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>part_cerv[0]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>part_cerv[1]<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>part_cerv[2]<sp/>=<sp/>7;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>part_cerv[3]<sp/>=<sp/>12;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//partie<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1af0332d5502f752eb8859efffadd570ce" kindref="member">nbTypeNeuron</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" kindref="member">repartitionNeuronCumulee</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)*2);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" kindref="member">repartitionNeuronCumulee</ref>[0]<sp/>=<sp/>0.7;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" kindref="member">repartitionNeuronCumulee</ref>[1]<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)*8);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[0]<sp/>=<sp/>0.08533333333333334;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[1]<sp/>=<sp/>0.021333333333333336;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[2]<sp/>=<sp/>0.021333333333333336;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[3]<sp/>=<sp/>0.005333333333333334;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[4]<sp/>=<sp/>0.21333333333333337;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[5]<sp/>=<sp/>0.053333333333333344;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[6]<sp/>=<sp/>0.053333333333333344;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[0].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[7]<sp/>=<sp/>0.013333333333333336;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//partie<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[1].<ref refid="structBrainPart_1af0332d5502f752eb8859efffadd570ce" kindref="member">nbTypeNeuron</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[1].<ref refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" kindref="member">repartitionNeuronCumulee</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)*1);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[1].<ref refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" kindref="member">repartitionNeuronCumulee</ref>[0]<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[1].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)*4);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[1].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[0]<sp/>=<sp/>0.08000000000000002;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[1].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[1]<sp/>=<sp/>0.24000000000000005;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[1].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[2]<sp/>=<sp/>0.020000000000000004;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[1].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[3]<sp/>=<sp/>0.06000000000000001;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//partie<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1af0332d5502f752eb8859efffadd570ce" kindref="member">nbTypeNeuron</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" kindref="member">repartitionNeuronCumulee</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)*2);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" kindref="member">repartitionNeuronCumulee</ref>[0]<sp/>=<sp/>0.7;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" kindref="member">repartitionNeuronCumulee</ref>[1]<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)*8);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[0]<sp/>=<sp/>0.021333333333333336;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[1]<sp/>=<sp/>0.005333333333333334;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[2]<sp/>=<sp/>0.08533333333333334;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[3]<sp/>=<sp/>0.021333333333333336;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[4]<sp/>=<sp/>0.053333333333333344;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[5]<sp/>=<sp/>0.013333333333333336;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[6]<sp/>=<sp/>0.21333333333333337;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[2].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[7]<sp/>=<sp/>0.053333333333333344;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//partie<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[3].<ref refid="structBrainPart_1af0332d5502f752eb8859efffadd570ce" kindref="member">nbTypeNeuron</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[3].<ref refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" kindref="member">repartitionNeuronCumulee</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)*1);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[3].<ref refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" kindref="member">repartitionNeuronCumulee</ref>[0]<sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[3].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">)*4);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[3].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[0]<sp/>=<sp/>0.020000000000000004;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[3].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[1]<sp/>=<sp/>0.06000000000000001;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[3].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[2]<sp/>=<sp/>0.08000000000000002;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>brainPart[3].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[3]<sp/>=<sp/>0.24000000000000005;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>Cerveau-&gt;<ref refid="structBrain_1a08d7fddbacdc1fc1c01d77b947f97434" kindref="member">dimension</ref><sp/>=<sp/>*n;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>Cerveau-&gt;<ref refid="structBrain_1aef57b8041ed5e8a0852b013acce9763f" kindref="member">nb_part</ref><sp/>=<sp/>nb_part;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>Cerveau-&gt;<ref refid="structBrain_1aa63d41ba16f80fa8a2d80e28c1d98e48" kindref="member">parties_cerveau</ref><sp/>=<sp/>part_cerv;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>Cerveau-&gt;<ref refid="structBrain_1a1b0d5e568abe1ea7fea0164de3effad0" kindref="member">brainPart</ref><sp/>=<sp/>brainPart;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/wu/codes/BTIDG2/translator/Configs/littleConfigTest.h"/>
+  </compounddef>
+</doxygen>

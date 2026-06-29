@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespaceconf" kind="namespace" language="Python">
+    <compoundname>conf</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="conf_8py_1a2803387c30920e3e74f46eb541db430d" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str conf.project</definition>
+        <argsstring></argsstring>
+        <name>project</name>
+        <qualifiedname>conf.project</qualifiedname>
+        <initializer>=  &apos;BTIDG2&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="18" column="1" bodyfile="/home/wu/codes/BTIDG2/build/docs/conf.py" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="conf_8py_1aa11e0a8e9c47ccc775796bd64c295d2c" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str conf.copyright</definition>
+        <argsstring></argsstring>
+        <name>copyright</name>
+        <qualifiedname>conf.copyright</qualifiedname>
+        <initializer>=  &apos;Xinzhe Wu&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="19" column="1" bodyfile="/home/wu/codes/BTIDG2/build/docs/conf.py" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="conf_8py_1a0b68e66074bc74dbb7460951f810b4c8" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str conf.author</definition>
+        <argsstring></argsstring>
+        <name>author</name>
+        <qualifiedname>conf.author</qualifiedname>
+        <initializer>=  &apos;Xinzhe Wu&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="20" column="1" bodyfile="/home/wu/codes/BTIDG2/build/docs/conf.py" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="conf_8py_1aca7e23e5f354ec5d8e18d6b5769908c9" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str conf.release</definition>
+        <argsstring></argsstring>
+        <name>release</name>
+        <qualifiedname>conf.release</qualifiedname>
+        <initializer>=  &apos;0.1&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="23" column="1" bodyfile="/home/wu/codes/BTIDG2/build/docs/conf.py" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="conf_8py_1ae475e080536acb271a0a0efe56c3ba42" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list conf.extensions</definition>
+        <argsstring></argsstring>
+        <name>extensions</name>
+        <qualifiedname>conf.extensions</qualifiedname>
+        <initializer>=  [&apos;sphinx.ext.autodoc&apos;, &apos;breathe&apos;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="31" column="1" bodyfile="/home/wu/codes/BTIDG2/build/docs/conf.py" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="conf_8py_1a15ff89fd36856d4530d4ed2083e6dfc7" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str conf.breathe_default_project</definition>
+        <argsstring></argsstring>
+        <name>breathe_default_project</name>
+        <qualifiedname>conf.breathe_default_project</qualifiedname>
+        <initializer>=  &apos;BTIDG2&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="34" column="1" bodyfile="/home/wu/codes/BTIDG2/build/docs/conf.py" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="conf_8py_1ad7fcd78de73b7505cc99717d4abf2ac1" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict conf.breathe_projects</definition>
+        <argsstring></argsstring>
+        <name>breathe_projects</name>
+        <qualifiedname>conf.breathe_projects</qualifiedname>
+        <initializer>=  { &quot;BTIDG2&quot;: &quot;/home/wu/codes/BTIDG2/build/docs/doxygen/xml/&quot; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="35" column="1" bodyfile="/home/wu/codes/BTIDG2/build/docs/conf.py" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="conf_8py_1a54585428ce84441199d9dfd7087e2243" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple conf.breathe_default_members</definition>
+        <argsstring></argsstring>
+        <name>breathe_default_members</name>
+        <qualifiedname>conf.breathe_default_members</qualifiedname>
+        <initializer>=  (&apos;members&apos;, &apos;undoc-members&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="36" column="1" bodyfile="/home/wu/codes/BTIDG2/build/docs/conf.py" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="conf_8py_1a3cb6867401ccd3f25a28d4270f4703c1" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list conf.source_suffix</definition>
+        <argsstring></argsstring>
+        <name>source_suffix</name>
+        <qualifiedname>conf.source_suffix</qualifiedname>
+        <initializer>=  [&apos;.rst&apos;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="38" column="1" bodyfile="/home/wu/codes/BTIDG2/build/docs/conf.py" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="conf_8py_1ae850ae634911b713e036b43894fdd525" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list conf.templates_path</definition>
+        <argsstring></argsstring>
+        <name>templates_path</name>
+        <qualifiedname>conf.templates_path</qualifiedname>
+        <initializer>=  [&apos;_templates&apos;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="41" column="1" bodyfile="/home/wu/codes/BTIDG2/build/docs/conf.py" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="conf_8py_1a7ad48fb6f3e9b129c02346ea0d3527c1" prot="public" static="no" mutable="no">
+        <type>list</type>
+        <definition>list conf.exclude_patterns</definition>
+        <argsstring></argsstring>
+        <name>exclude_patterns</name>
+        <qualifiedname>conf.exclude_patterns</qualifiedname>
+        <initializer>=  [&apos;_build&apos;, &apos;Thumbs.db&apos;, &apos;.DS_Store&apos;]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="46" column="1" bodyfile="/home/wu/codes/BTIDG2/build/docs/conf.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="conf_8py_1a012ba9863b958ed7baa933116f2a05b6" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str conf.html_theme</definition>
+        <argsstring></argsstring>
+        <name>html_theme</name>
+        <qualifiedname>conf.html_theme</qualifiedname>
+        <initializer>=  &apos;sphinx_rtd_theme&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="54" column="1" bodyfile="/home/wu/codes/BTIDG2/build/docs/conf.py" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/wu/codes/BTIDG2/build/docs/conf.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

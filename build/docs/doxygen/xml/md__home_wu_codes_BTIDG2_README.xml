@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="md__home_wu_codes_BTIDG2_README" kind="page">
+    <compoundname>md__home_wu_codes_BTIDG2_README</compoundname>
+    <title>BTIDG2</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="structBrain" kindref="compound">Brain</ref> Topology Inspired Distributed Graph Generator</para>
+<sect1 id="md__home_wu_codes_BTIDG2_README_1autotoc_md1">
+<title>What is BTIDG2?</title>
+<para><emphasis><bold>BTIDG2</bold></emphasis>, short for <ref refid="structBrain" kindref="compound">Brain</ref> Topology Inspired Distributed Graph Generator, is able to generate very large graphs which is inspired by the topology of humain brain. This matrix generated is implemented based C, and parallised based on MPI.</para>
+<para>As a software, <emphasis><bold>BTIDG2</bold></emphasis> ensures that: <verbatim>- the generator must be able to work for large sparse matrices without any I/Os
+
+- the generator must work in a distributed fashion
+
+- support multiple (COO and CSR) distributed sparse data formats
+
+- the generator must be as configurable as possible
+
+- a ***converter***, allowing to convert a data file containing the brain information as we found it on the internet into an input file for our matrix generator.
+</verbatim></para>
+</sect1>
+<sect1 id="md__home_wu_codes_BTIDG2_README_1autotoc_md2">
+<title>Motivation</title>
+<para>Graph data can be used to represent data from various domains: Web graphs, physical or biological systems, communication networks, etc. Graph data analysis can provide valuable insight on the underlying networks. More recently, Machine Learning techniques have also been applied to this type of data. However, the size of these graphs is always growing, which poses significant challenges to be able to apply these methods.</para>
+<para>In particular, when the researchers study the scalability of the PageRank algorithm on very large matrices in distributed computing environments, e.g., RIKEN’s Fugaku, one of the most powerful supercomputers in the world according to the latest TOP500 ranking. Evaluating algorithms like the PageRank on very large matrices is impossible to do directly with sequential method and it is also not possible to have an input file containing the graph. Indeed, with data sets this large, input-outputs would be far too costly.</para>
+<para>Evaluating those algorithms therefore requires distributed data sets and graphs that almost fill the very large memories available, and are generated directly in parallel without I/O.</para>
+</sect1>
+<sect1 id="md__home_wu_codes_BTIDG2_README_1autotoc_md3">
+<title>Documentation</title>
+<para>Please find the documentation of BTIDG2 <ulink url="https://smg2s.github.io/BTIDG2/">here</ulink></para>
+</sect1>
+<sect1 id="md__home_wu_codes_BTIDG2_README_1autotoc_md4">
+<title>Main developers</title>
+<para><itemizedlist>
+<listitem><para>Nicolas Hochart - Software desgin and parallel implementation</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__home_wu_codes_BTIDG2_README_1autotoc_md5">
+<title>Contributors</title>
+<para><itemizedlist>
+<listitem><para>Serge G. Petiton - Algorithm design and charge of project</para>
+</listitem><listitem><para>Maxence Vandromme - Benchmarks on Fuguka supercomputer</para>
+</listitem><listitem><para>Xinzhe Wu - Software re-design, documentation</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__home_wu_codes_BTIDG2_README_1autotoc_md6">
+<title>Contact</title>
+<para><itemizedlist>
+<listitem><para>Serge G. Petiton: SERGE DOT PETITON AT MAILFENCE DOT COM </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="/home/wu/codes/BTIDG2/README.md"/>
+  </compounddef>
+</doxygen>

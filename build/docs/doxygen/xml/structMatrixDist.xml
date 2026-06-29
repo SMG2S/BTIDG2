@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structMatrixDist" kind="struct" language="C++" prot="public">
+    <compoundname>MatrixDist</compoundname>
+    <includes refid="matrixstruct_8h" local="no">matrixstruct.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MatrixDist::indl</definition>
+        <argsstring></argsstring>
+        <name>indl</name>
+        <qualifiedname>MatrixDist::indl</qualifiedname>
+        <briefdescription>
+<para>index of row of MPI proc within 2D MPI grid which this matrix is located on </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="69" column="9" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMatrixDist_1a56da90a907a4bc9a38b227dd238b8059" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MatrixDist::indc</definition>
+        <argsstring></argsstring>
+        <name>indc</name>
+        <qualifiedname>MatrixDist::indc</qualifiedname>
+        <briefdescription>
+<para>index of column of MPI proc within 2D MPI grid which this matrix is located on. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="70" column="9" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long MatrixDist::dim_l</definition>
+        <argsstring></argsstring>
+        <name>dim_l</name>
+        <qualifiedname>MatrixDist::dim_l</qualifiedname>
+        <briefdescription>
+<para>number of row of a sparse matrix located on current MPI proc </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="71" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long MatrixDist::dim_c</definition>
+        <argsstring></argsstring>
+        <name>dim_c</name>
+        <qualifiedname>MatrixDist::dim_c</qualifiedname>
+        <briefdescription>
+<para>number of column of a sparse matrix located on current MPI proc </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="72" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long MatrixDist::startRow</definition>
+        <argsstring></argsstring>
+        <name>startRow</name>
+        <qualifiedname>MatrixDist::startRow</qualifiedname>
+        <briefdescription>
+<para>global index of the starting row of a local matrix within the global matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="73" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMatrixDist_1a43546ed95683a773ca61817664f70f15" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long MatrixDist::startColumn</definition>
+        <argsstring></argsstring>
+        <name>startColumn</name>
+        <qualifiedname>MatrixDist::startColumn</qualifiedname>
+        <briefdescription>
+<para>global index of the starting column of a local matrix within the global matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="74" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMatrixDist_1a881e18e2da67bcd4a40459f09ee6594b" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long MatrixDist::endRow</definition>
+        <argsstring></argsstring>
+        <name>endRow</name>
+        <qualifiedname>MatrixDist::endRow</qualifiedname>
+        <briefdescription>
+<para>global index of the ending row of a local matrix within the global matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="75" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMatrixDist_1a0d332da71c326861f0ede05cd4ea67f5" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long MatrixDist::endColumn</definition>
+        <argsstring></argsstring>
+        <name>endColumn</name>
+        <qualifiedname>MatrixDist::endColumn</qualifiedname>
+        <briefdescription>
+<para>global index of the ending column of a local matrix within the global matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="76" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Info of each local matrix within a distributed sparse matrix. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>For a distributed sparse matrix in 1D/2D MPI proc grid, this structure is created to store some basic distribution of a sparse matrix on each MPI proc.</para>
+<para>Contains : Basic info : Block row index, Block column index, number of lines in the block, number of columns in the block, row start index (included), column start index (included), row end index (included), column end index (included) </para>
+    </detaileddescription>
+    <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="67" column="1" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="68" bodyend="77"/>
+    <listofallmembers>
+      <member refid="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" prot="public" virt="non-virtual"><scope>MatrixDist</scope><name>dim_c</name></member>
+      <member refid="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" prot="public" virt="non-virtual"><scope>MatrixDist</scope><name>dim_l</name></member>
+      <member refid="structMatrixDist_1a0d332da71c326861f0ede05cd4ea67f5" prot="public" virt="non-virtual"><scope>MatrixDist</scope><name>endColumn</name></member>
+      <member refid="structMatrixDist_1a881e18e2da67bcd4a40459f09ee6594b" prot="public" virt="non-virtual"><scope>MatrixDist</scope><name>endRow</name></member>
+      <member refid="structMatrixDist_1a56da90a907a4bc9a38b227dd238b8059" prot="public" virt="non-virtual"><scope>MatrixDist</scope><name>indc</name></member>
+      <member refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" prot="public" virt="non-virtual"><scope>MatrixDist</scope><name>indl</name></member>
+      <member refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" prot="public" virt="non-virtual"><scope>MatrixDist</scope><name>startColumn</name></member>
+      <member refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" prot="public" virt="non-virtual"><scope>MatrixDist</scope><name>startRow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

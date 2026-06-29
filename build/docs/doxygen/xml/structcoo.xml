@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structcoo" kind="struct" language="C++" prot="public">
+    <compoundname>coo</compoundname>
+    <includes refid="matrixstruct_8h" local="no">matrixstruct.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcoo_1a0f596527a7963c1b76a49767cae92aa6" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* coo::Row</definition>
+        <argsstring></argsstring>
+        <name>Row</name>
+        <qualifiedname>coo::Row</qualifiedname>
+        <briefdescription>
+<para>a pointer storing the row indices of non-zeros elements </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="32" column="9" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcoo_1a996d48191462fe6891b0798c2b522d55" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* coo::Column</definition>
+        <argsstring></argsstring>
+        <name>Column</name>
+        <qualifiedname>coo::Column</qualifiedname>
+        <briefdescription>
+<para>a pointer storing the column indices of non-zeros elements </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="33" column="9" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcoo_1a80bc67514bc56cf4e3db40c6893ab493" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* coo::Value</definition>
+        <argsstring></argsstring>
+        <name>Value</name>
+        <qualifiedname>coo::Value</qualifiedname>
+        <briefdescription>
+<para>a pointer storing the non-zeros elements </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="34" column="9" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcoo_1a271eb401f5a1bab68a3882428069f2e4" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long coo::dim_l</definition>
+        <argsstring></argsstring>
+        <name>dim_l</name>
+        <qualifiedname>coo::dim_l</qualifiedname>
+        <briefdescription>
+<para>number of row of a sparse matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="35" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcoo_1a9b4350ecd41c384cfc3f880caf7aa612" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long coo::dim_c</definition>
+        <argsstring></argsstring>
+        <name>dim_c</name>
+        <qualifiedname>coo::dim_c</qualifiedname>
+        <briefdescription>
+<para>number of column of a sparse matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="36" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcoo_1ac9f78b4d67516094195ec84d480cf918" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long coo::nnz</definition>
+        <argsstring></argsstring>
+        <name>nnz</name>
+        <qualifiedname>coo::nnz</qualifiedname>
+        <briefdescription>
+<para>number of non-zero elements in the sparse matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="37" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>structure of sparse matrix format: COO </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Structure representing a sparse matrix in <ulink url="https://en.wikipedia.org/wiki/Sparse_matrix">COO format</ulink>.</para>
+<para>This structure is desgined for a adjacency matrix, thus the values of all non-zero entries are of type <bold>Integer</bold>. </para>
+    </detaileddescription>
+    <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="30" column="1" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="31" bodyend="38"/>
+    <listofallmembers>
+      <member refid="structcoo_1a996d48191462fe6891b0798c2b522d55" prot="public" virt="non-virtual"><scope>coo</scope><name>Column</name></member>
+      <member refid="structcoo_1a9b4350ecd41c384cfc3f880caf7aa612" prot="public" virt="non-virtual"><scope>coo</scope><name>dim_c</name></member>
+      <member refid="structcoo_1a271eb401f5a1bab68a3882428069f2e4" prot="public" virt="non-virtual"><scope>coo</scope><name>dim_l</name></member>
+      <member refid="structcoo_1ac9f78b4d67516094195ec84d480cf918" prot="public" virt="non-virtual"><scope>coo</scope><name>nnz</name></member>
+      <member refid="structcoo_1a0f596527a7963c1b76a49767cae92aa6" prot="public" virt="non-virtual"><scope>coo</scope><name>Row</name></member>
+      <member refid="structcoo_1a80bc67514bc56cf4e3db40c6893ab493" prot="public" virt="non-virtual"><scope>coo</scope><name>Value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

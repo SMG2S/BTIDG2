@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_c0b2abc27e504cad379d1b3dadec9c37" kind="dir">
+    <compoundname>/home/wu/codes/BTIDG2/translator</compoundname>
+    <innerdir refid="dir_188498025b4070124e81e2c8fc73b711">/home/wu/codes/BTIDG2/translator/Configs</innerdir>
+    <innerfile refid="converter_8py">converter.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/wu/codes/BTIDG2/translator/"/>
+  </compounddef>
+</doxygen>

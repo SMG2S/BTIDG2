@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_09e761304027c904456130627fd4dcf5" kind="dir">
+    <compoundname>/home/wu/codes/BTIDG2/includes</compoundname>
+    <innerfile refid="brainmatrixgenerator_8h">brainmatrixgenerator.h</innerfile>
+    <innerfile refid="brainstruct_8h">brainstruct.h</innerfile>
+    <innerfile refid="hardbrain_8h">hardbrain.h</innerfile>
+    <innerfile refid="matrixstruct_8h">matrixstruct.h</innerfile>
+    <innerfile refid="randomforbrain_8h">randomforbrain.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/wu/codes/BTIDG2/includes/"/>
+  </compounddef>
+</doxygen>

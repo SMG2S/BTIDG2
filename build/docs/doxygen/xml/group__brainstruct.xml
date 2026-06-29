@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__brainstruct" kind="group">
+    <compoundname>brainstruct</compoundname>
+    <title>brain structure</title>
+    <innerclass refid="structBrainPart" prot="public">BrainPart</innerclass>
+    <innerclass refid="structBrain" prot="public">Brain</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__brainstruct_1gaf939d4773c671ab637887d3782e8d131" prot="public" static="no">
+        <type>struct <ref refid="structBrainPart" kindref="compound">BrainPart</ref></type>
+        <definition>typedef struct BrainPart BrainPart</definition>
+        <argsstring></argsstring>
+        <name>BrainPart</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="40" column="24" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__brainstruct_1gaf621c7e3e64c04cd79cd92dd397226a0" prot="public" static="no">
+        <type>struct <ref refid="structBrain" kindref="compound">Brain</ref></type>
+        <definition>typedef struct Brain Brain</definition>
+        <argsstring></argsstring>
+        <name>Brain</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="57" column="20" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int get_brain_part_ind</definition>
+        <argsstring>(long long ind, Brain *brain)</argsstring>
+        <name>get_brain_part_ind</name>
+        <param>
+          <type>long long</type>
+          <declname>ind</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <briefdescription>
+<para>Function that returns the index of the part of the brain in which a neuron is located. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that returns the index of the part of the <ref refid="structBrain" kindref="compound">Brain</ref> in which the neuron of index <computeroutput>ind</computeroutput> is located <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>index of the neuron </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>i index of the brain part</para>
+</simplesect>
+Condition**: <ref refid="structBrain" kindref="compound">Brain</ref> is a well formed and <computeroutput>ind</computeroutput> is assumed to be between <computeroutput>0</computeroutput> and <computeroutput>brain.dimension</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="69" column="5" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="69" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="group__brainstruct_1ga6c3dc8a49a114ac126a68a00f3489ec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int get_nb_neuron_brain_part</definition>
+        <argsstring>(Brain *brain, int part)</argsstring>
+        <name>get_nb_neuron_brain_part</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>part</declname>
+        </param>
+        <briefdescription>
+<para>Function that returns the number of neurons in a specific brain part. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that returns the number of neurons in the brain part if index <computeroutput>part</computeroutput>, in the <ref refid="structBrain" kindref="compound">Brain</ref> <computeroutput>brain</computeroutput> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>index of the neuron </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>number of neurons in the brain part </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="95" column="5" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="95" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="group__brainstruct_1ga263e5c111c8b0f17c4606a6a93638505" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double get_mean_connect_percentage_for_part</definition>
+        <argsstring>(Brain *brain, int part, int type)</argsstring>
+        <name>get_mean_connect_percentage_for_part</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>part</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Function that returns the average percentage of connection chances for a specific neuron to the other parts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that returns the average percentage (between <computeroutput>0</computeroutput> and <computeroutput>100</computeroutput>) of connection chances for a neuron of a given type in a given part, to the other parts <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">part</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>brain part index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>neuron index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>average percentage of connection chance </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="118" column="8" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="118" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="group__brainstruct_1ga7cbc186e23c78a56d1d3ae430b5640ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int choose_neuron_type</definition>
+        <argsstring>(Brain *brain, int part)</argsstring>
+        <name>choose_neuron_type</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>part</declname>
+        </param>
+        <briefdescription>
+<para>Choose and returns the neuron type for a neuron in a specitic brain part. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Choose and returns a neuron type for a neuron in the brain part of index &quot;part&quot;, in the brain &quot;brain&quot; <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">part</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>brain part index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>neuron type </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="141" column="5" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="141" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="group__brainstruct_1ga18acb5db6cd09680d94abb5a72c1fb64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void generate_neuron_types</definition>
+        <argsstring>(Brain *brain, int ind_start_neuron, int nb_neuron, int *types)</argsstring>
+        <name>generate_neuron_types</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ind_start_neuron</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nb_neuron</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>types</declname>
+        </param>
+        <briefdescription>
+<para>Function that generates (chooses) the types of multiple neurons and writes them in &quot;types&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates the types of neurons from index &quot;ind_start_neuron&quot; to &quot;ind_start_neuron + nb_neuron&quot; in the brain &quot;brain&quot;, and writes them in &quot;types&quot; <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">part</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>brain part index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>neuron type</para>
+</simplesect>
+Condition**: The memory allocation (malloc of size nb_neuron * sizeof(int)) for &quot;types&quot; must be done beforehand. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="167" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="167" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="group__brainstruct_1gad95e70ac714740ca6a3e8d1a99f4a24c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void printf_recap_brain</definition>
+        <argsstring>(Brain *brain)</argsstring>
+        <name>printf_recap_brain</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="structBrain" kindref="compound">Brain</ref> print. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that displays a summary of the brain passed as a parameter (useful for debugging a brain) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="189" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="189" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="group__brainstruct_1ga63e81fa7888f38b77ee75d798073b6f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void free_brain</definition>
+        <argsstring>(Brain *brain)</argsstring>
+        <name>free_brain</name>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="structBrain" kindref="compound">Brain</ref> destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Function that frees a brain <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to a brain </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainstruct.h" line="228" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainstruct.h" bodystart="228" bodyend="238"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>definition of brain and its parts </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

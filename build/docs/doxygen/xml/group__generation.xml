@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__generation" kind="group">
+    <compoundname>generation</compoundname>
+    <title>Brain Matrix Generation</title>
+    <innerclass refid="structBrainMatrixInfo" prot="public">BrainMatrixInfo</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__generation_1ga5cf7dd3647fca6c98f0b12ec6b6f436d" prot="public" static="no">
+        <type>struct <ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref></type>
+        <definition>typedef struct BrainMatrixInfo BrainMatrixInfo</definition>
+        <argsstring></argsstring>
+        <name>BrainMatrixInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="45" column="30" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__generation_1ga75bf7e2ff0ac8ba292bacf3a9148c3a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void brainAdjMatrixCSR</definition>
+        <argsstring>(csr *M_CSR, MatrixDist BlockInfo, Brain *brain, int *neuron_types, BrainMatrixInfo *debugInfo)</argsstring>
+        <name>brainAdjMatrixCSR</name>
+        <param>
+          <type><ref refid="structcsr" kindref="compound">csr</ref> *</type>
+          <declname>M_CSR</declname>
+        </param>
+        <param>
+          <type><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref></type>
+          <declname>BlockInfo</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>neuron_types</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref> *</type>
+          <declname>debugInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates a CSR square adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a two-dimensional process grid. A row/column of the matrix corresponding to a neuron, adjacency matrix means that it is the row-neuron that connect to the column-neuron</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">BlockInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>structure containing information about the local mpi process (&quot;block&quot;) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the brain, basis for the generation of the matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">neuron_types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector containing the types chosen for the neurons of the brain passed as a parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">M_CSR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">debugInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><bold>OPTIONAL</bold> - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (&lt;=&gt; number of 1 on each row), the total number of connections, etc.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="61" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="61" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="group__generation_1ga76ee551e09e7553c2b5fb354f1487cb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void brainTransAdjMatrixCSR</definition>
+        <argsstring>(csr *M_CSR, MatrixDist BlockInfo, Brain *brain, int *neuron_types, BrainMatrixInfo *debugInfo)</argsstring>
+        <name>brainTransAdjMatrixCSR</name>
+        <param>
+          <type><ref refid="structcsr" kindref="compound">csr</ref> *</type>
+          <declname>M_CSR</declname>
+        </param>
+        <param>
+          <type><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref></type>
+          <declname>BlockInfo</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>neuron_types</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref> *</type>
+          <declname>debugInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates a CSR square transposed adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a two-dimensional process grid. A row/column of the matrix corresponding to a neuron, transposed adjacency matrix means that it is the column-neuron that connect to the row-neuron <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">BlockInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>structure containing information about the local mpi process (&quot;block&quot;) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the brain, basis for the generation of the matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">neuron_types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector containing the types chosen for the neurons of the brain passed as a parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">M_CSR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">debugInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><bold>OPTIONAL</bold> - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (&lt;=&gt; number of 1 on each column), the total number of connections, etc.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Condition: BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="209" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="209" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="group__generation_1ga932236cbed96bf85e6505ef997521f98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void brainTransAdjMatrixCSR1D</definition>
+        <argsstring>(csr *M_CSR, long ind_start_row, Brain *brain, int *neuron_types, long l, long c, BrainMatrixInfo *debugInfo)</argsstring>
+        <name>brainTransAdjMatrixCSR1D</name>
+        <param>
+          <type><ref refid="structcsr" kindref="compound">csr</ref> *</type>
+          <declname>M_CSR</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>ind_start_row</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>neuron_types</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref> *</type>
+          <declname>debugInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates a CSR square transposed adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a one-two-dimensional process grid (row block parallelization) A row/column of the matrix corresponding to a neuron, transposed adjacency matrix means that it is the column-neuron that connect to the row-neuron <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ind_start_row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Row offset (in the 1D process grid), to be taken into account for the creation of connection between neurons </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the brain, basis for the generation of the matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">neuron_types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector containing the types chosen for the neurons of the brain passed as a parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of rows in the local (process) matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of column in the local (process) matrix (= global matrix dimension, because the matrix is parallelized in row blocks only) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">M_CSR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">debugInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><bold>OPTIONAL</bold> - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (&lt;=&gt; number of 1 on each column), the total number of connections, etc.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="303" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="303" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="function" id="group__generation_1ga6854206472559afee60b7cb6b34eac3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void brainTransAdjMatrixCOO1D</definition>
+        <argsstring>(coo *M_COO, long ind_start_row, Brain *brain, int *neuron_types, long l, long c, BrainMatrixInfo *debugInfo)</argsstring>
+        <name>brainTransAdjMatrixCOO1D</name>
+        <param>
+          <type><ref refid="structcoo" kindref="compound">coo</ref> *</type>
+          <declname>M_COO</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>ind_start_row</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>neuron_types</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref> *</type>
+          <declname>debugInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates a COO square transposed adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a one-two-dimensional process grid (row block parallelization) A row/column of the matrix corresponding to a neuron, transposed adjacency matrix means that it is the column-neuron that connect to the row-neuron <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ind_start_row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Row offset (in the 1D process grid), to be taken into account for the creation of connection between neurons </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the brain, basis for the generation of the matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">neuron_types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector containing the types chosen for the neurons of the brain passed as a parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of rows in the local (process) matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of column in the local (process) matrix (= global matrix dimension, because the matrix is ​​parallelized in row blocks only) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">M_CSR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">debugInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><bold>OPTIONAL</bold> - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (&lt;=&gt; number of 1 on each column), the total number of connections, etc.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="397" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="397" bodyend="476"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Funtions of the generation of brain matrix. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

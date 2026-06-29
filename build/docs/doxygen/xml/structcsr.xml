@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structcsr" kind="struct" language="C++" prot="public">
+    <compoundname>csr</compoundname>
+    <includes refid="matrixstruct_8h" local="no">matrixstruct.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structcsr_1a03062175252c8ce6072db44eaf466b2a" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* csr::Row</definition>
+        <argsstring></argsstring>
+        <name>Row</name>
+        <qualifiedname>csr::Row</qualifiedname>
+        <briefdescription>
+<para>a pointer storing the offsets of pointer of each row </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="49" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcsr_1a086a2f7e18b5dd5893402f5e2680d54b" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* csr::Column</definition>
+        <argsstring></argsstring>
+        <name>Column</name>
+        <qualifiedname>csr::Column</qualifiedname>
+        <briefdescription>
+<para>a pointer storing the column indices of non-zeros elements </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="50" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcsr_1acf44e63f376bccd960f78051ed8c3596" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* csr::Value</definition>
+        <argsstring></argsstring>
+        <name>Value</name>
+        <qualifiedname>csr::Value</qualifiedname>
+        <briefdescription>
+<para>a pointer storing the non-zeros elements </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="51" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcsr_1a20b5cbc814d823a68c474a0ba615b8b5" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long csr::dim_l</definition>
+        <argsstring></argsstring>
+        <name>dim_l</name>
+        <qualifiedname>csr::dim_l</qualifiedname>
+        <briefdescription>
+<para>number of row of a sparse matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="52" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcsr_1ad7fc85bf2e8901dec40c5fd8ed2b3dd9" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long csr::dim_c</definition>
+        <argsstring></argsstring>
+        <name>dim_c</name>
+        <qualifiedname>csr::dim_c</qualifiedname>
+        <briefdescription>
+<para>number of column of a sparse matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="53" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structcsr_1a60b50a9a8f3ae484c1c0ffbbbce1eb87" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long csr::nnz</definition>
+        <argsstring></argsstring>
+        <name>nnz</name>
+        <qualifiedname>csr::nnz</qualifiedname>
+        <briefdescription>
+<para>number of non-zero elements in the sparse matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="54" column="10" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>structure of sparse matrix format: CSR </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Structure representing a sparse matrix in <ulink url="https://en.wikipedia.org/wiki/Sparse_matrix">CSR format</ulink>.</para>
+<para>This structure is desgined for a adjacency matrix, thus the values of all non-zero entries are of type <bold>Integer</bold>. </para>
+    </detaileddescription>
+    <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="47" column="1" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="48" bodyend="55"/>
+    <listofallmembers>
+      <member refid="structcsr_1a086a2f7e18b5dd5893402f5e2680d54b" prot="public" virt="non-virtual"><scope>csr</scope><name>Column</name></member>
+      <member refid="structcsr_1ad7fc85bf2e8901dec40c5fd8ed2b3dd9" prot="public" virt="non-virtual"><scope>csr</scope><name>dim_c</name></member>
+      <member refid="structcsr_1a20b5cbc814d823a68c474a0ba615b8b5" prot="public" virt="non-virtual"><scope>csr</scope><name>dim_l</name></member>
+      <member refid="structcsr_1a60b50a9a8f3ae484c1c0ffbbbce1eb87" prot="public" virt="non-virtual"><scope>csr</scope><name>nnz</name></member>
+      <member refid="structcsr_1a03062175252c8ce6072db44eaf466b2a" prot="public" virt="non-virtual"><scope>csr</scope><name>Row</name></member>
+      <member refid="structcsr_1acf44e63f376bccd960f78051ed8c3596" prot="public" virt="non-virtual"><scope>csr</scope><name>Value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

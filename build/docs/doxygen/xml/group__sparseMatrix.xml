@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__sparseMatrix" kind="group">
+    <compoundname>sparseMatrix</compoundname>
+    <title>sparse matrix</title>
+    <innerclass refid="structcoo" prot="public">coo</innerclass>
+    <innerclass refid="structcsr" prot="public">csr</innerclass>
+    <innerclass refid="structMatrixDist" prot="public">MatrixDist</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__sparseMatrix_1gaa1e1135b7e6d4ce409bd6d6d5a5bf2e7" prot="public" static="no">
+        <type>struct <ref refid="structcoo" kindref="compound">coo</ref></type>
+        <definition>typedef struct coo coo</definition>
+        <argsstring></argsstring>
+        <name>coo</name>
+        <briefdescription>
+<para>coo type </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="39" column="18" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__sparseMatrix_1gad48a4cd0e7b82694d1f4e8e81f593b5a" prot="public" static="no">
+        <type>struct <ref refid="structcsr" kindref="compound">csr</ref></type>
+        <definition>typedef struct csr csr</definition>
+        <argsstring></argsstring>
+        <name>csr</name>
+        <briefdescription>
+<para>csr type </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="56" column="18" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__sparseMatrix_1gad03438cfcba20028c1dc1adb149ba15d" prot="public" static="no">
+        <type>struct <ref refid="structMatrixDist" kindref="compound">MatrixDist</ref></type>
+        <definition>typedef struct MatrixDist MatrixDist</definition>
+        <argsstring></argsstring>
+        <name>MatrixDist</name>
+        <briefdescription>
+<para><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref> type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="78" column="25" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__sparseMatrix_1ga44ba06170323c0c70332d0a06ec53adf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int csrGetValue</definition>
+        <argsstring>(long indl, long indc, csr *M_CSR)</argsstring>
+        <name>csrGetValue</name>
+        <param>
+          <type>long</type>
+          <declname>indl</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>indc</declname>
+        </param>
+        <param>
+          <type><ref refid="structcsr" kindref="compound">csr</ref> *</type>
+          <declname>M_CSR</declname>
+        </param>
+        <briefdescription>
+<para>Returns the value of indices <computeroutput>[indl,indc]</computeroutput> of a local sparse matrix in CSR format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">M_CSR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a sparse matrix in CSR format to be displayed to be queried </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">indl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>row index of the value we want (must be <computeroutput>&lt; (*M_CSR).dim_l</computeroutput>) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">indc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>column index of the value we want (must be <computeroutput>&lt; (*M_CSR).dim_c</computeroutput>) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Matrix value at the index <computeroutput>[indl,indc]</computeroutput> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="87" column="7" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="87" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="group__sparseMatrix_1gaf5fcf88f63b1f7eb56eca340e55a8c7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void csrDisplay</definition>
+        <argsstring>(csr *M, int max_dim)</argsstring>
+        <name>csrDisplay</name>
+        <param>
+          <type><ref refid="structcsr" kindref="compound">csr</ref> *</type>
+          <declname>M</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>max_dim</declname>
+        </param>
+        <briefdescription>
+<para>Display a local sparse matrix in CSR format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Display the local sparse matrix in CSR format as a classic matrix (also prints the 0s), if the dimension of the matrix is not too large <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">M</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: a sparse matrix in CSR format to be displayed </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">max_dim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: max matrix dimension (if the dimension of the matrix is above this value, it is not printed) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="115" column="8" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="115" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="group__sparseMatrix_1gadcdd3bf965d662e97d31cf2ea0d12b84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref></type>
+        <definition>MatrixDist initMatrixDist</definition>
+        <argsstring>(int rank, int nb_blocks_row, int nb_blocks_column, long n)</argsstring>
+        <name>initMatrixDist</name>
+        <param>
+          <type>int</type>
+          <declname>rank</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nb_blocks_row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nb_blocks_column</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Function that initialize the basic information of each local sparse matrix based on the setup. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a <ref refid="structMatrixDist" kindref="compound">MatrixDist</ref> structure according to the parameters received. The information filled in is only the basic information <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">rank</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: mpi process rank </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nb_blocks_row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: number of processes (blocks) on rows (in the process grid) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nb_blocks_column</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: number of processes (blocks) on columns (in the process grid) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: global matrix dimension </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>MBlock: structure containing basic information of the local matrix on each proc </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/matrixstruct.h" line="145" column="12" bodyfile="/home/wu/codes/BTIDG2/includes/matrixstruct.h" bodystart="145" bodyend="157"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Utilities for sparse matrix and its distribution accross MPI procs. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This module provides<orderedlist>
+<listitem><para>a structure of sparse matrix format: COO</para>
+</listitem><listitem><para>a structure of sparse matrix format: CSR</para>
+</listitem><listitem><para>info of each local matrix within a distributed sparse matrix</para>
+</listitem><listitem><para>some functionalities </para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

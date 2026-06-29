@@ -1,0 +1,874 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="brainmatrixgenerator_8h" kind="file" language="C++">
+    <compoundname>brainmatrixgenerator.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">mpi.h</includes>
+    <includes local="no">assert.h</includes>
+    <includes local="no">omp.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="brainstruct_8h" local="yes">brainstruct.h</includes>
+    <includes refid="randomforbrain_8h" local="yes">randomforbrain.h</includes>
+    <includes refid="matrixstruct_8h" local="yes">matrixstruct.h</includes>
+    <includedby refid="hardBrainTest_8c" local="yes">/home/wu/codes/BTIDG2/example/hardBrainTest.c</includedby>
+    <includedby refid="littleConfigTest_8c" local="yes">/home/wu/codes/BTIDG2/example/littleConfigTest.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h</label>
+        <link refid="brainmatrixgenerator_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>brainstruct.h</label>
+        <link refid="brainstruct_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>matrixstruct.h</label>
+        <link refid="matrixstruct_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>randomforbrain.h</label>
+        <link refid="randomforbrain_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>assert.h</label>
+      </node>
+      <node id="4">
+        <label>mpi.h</label>
+      </node>
+      <node id="6">
+        <label>omp.h</label>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="7">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structBrainMatrixInfo" prot="public">BrainMatrixInfo</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__generation_1ga5cf7dd3647fca6c98f0b12ec6b6f436d" prot="public" static="no">
+        <type>struct <ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref></type>
+        <definition>typedef struct BrainMatrixInfo BrainMatrixInfo</definition>
+        <argsstring></argsstring>
+        <name>BrainMatrixInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="45" column="30" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__generation_1ga75bf7e2ff0ac8ba292bacf3a9148c3a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void brainAdjMatrixCSR</definition>
+        <argsstring>(csr *M_CSR, MatrixDist BlockInfo, Brain *brain, int *neuron_types, BrainMatrixInfo *debugInfo)</argsstring>
+        <name>brainAdjMatrixCSR</name>
+        <param>
+          <type><ref refid="structcsr" kindref="compound">csr</ref> *</type>
+          <declname>M_CSR</declname>
+        </param>
+        <param>
+          <type><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref></type>
+          <declname>BlockInfo</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>neuron_types</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref> *</type>
+          <declname>debugInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates a CSR square adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a two-dimensional process grid. A row/column of the matrix corresponding to a neuron, adjacency matrix means that it is the row-neuron that connect to the column-neuron</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">BlockInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>structure containing information about the local mpi process (&quot;block&quot;) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the brain, basis for the generation of the matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">neuron_types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector containing the types chosen for the neurons of the brain passed as a parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">M_CSR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">debugInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><bold>OPTIONAL</bold> - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (&lt;=&gt; number of 1 on each row), the total number of connections, etc.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="61" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="61" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="group__generation_1ga76ee551e09e7553c2b5fb354f1487cb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void brainTransAdjMatrixCSR</definition>
+        <argsstring>(csr *M_CSR, MatrixDist BlockInfo, Brain *brain, int *neuron_types, BrainMatrixInfo *debugInfo)</argsstring>
+        <name>brainTransAdjMatrixCSR</name>
+        <param>
+          <type><ref refid="structcsr" kindref="compound">csr</ref> *</type>
+          <declname>M_CSR</declname>
+        </param>
+        <param>
+          <type><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref></type>
+          <declname>BlockInfo</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>neuron_types</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref> *</type>
+          <declname>debugInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates a CSR square transposed adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a two-dimensional process grid. A row/column of the matrix corresponding to a neuron, transposed adjacency matrix means that it is the column-neuron that connect to the row-neuron <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">BlockInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>structure containing information about the local mpi process (&quot;block&quot;) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the brain, basis for the generation of the matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">neuron_types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector containing the types chosen for the neurons of the brain passed as a parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">M_CSR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">debugInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><bold>OPTIONAL</bold> - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (&lt;=&gt; number of 1 on each column), the total number of connections, etc.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Condition: BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="209" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="209" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="group__generation_1ga932236cbed96bf85e6505ef997521f98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void brainTransAdjMatrixCSR1D</definition>
+        <argsstring>(csr *M_CSR, long ind_start_row, Brain *brain, int *neuron_types, long l, long c, BrainMatrixInfo *debugInfo)</argsstring>
+        <name>brainTransAdjMatrixCSR1D</name>
+        <param>
+          <type><ref refid="structcsr" kindref="compound">csr</ref> *</type>
+          <declname>M_CSR</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>ind_start_row</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>neuron_types</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref> *</type>
+          <declname>debugInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates a CSR square transposed adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a one-two-dimensional process grid (row block parallelization) A row/column of the matrix corresponding to a neuron, transposed adjacency matrix means that it is the column-neuron that connect to the row-neuron <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ind_start_row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Row offset (in the 1D process grid), to be taken into account for the creation of connection between neurons </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the brain, basis for the generation of the matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">neuron_types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector containing the types chosen for the neurons of the brain passed as a parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of rows in the local (process) matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of column in the local (process) matrix (= global matrix dimension, because the matrix is parallelized in row blocks only) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">M_CSR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">debugInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><bold>OPTIONAL</bold> - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (&lt;=&gt; number of 1 on each column), the total number of connections, etc.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="303" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="303" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="function" id="group__generation_1ga6854206472559afee60b7cb6b34eac3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void brainTransAdjMatrixCOO1D</definition>
+        <argsstring>(coo *M_COO, long ind_start_row, Brain *brain, int *neuron_types, long l, long c, BrainMatrixInfo *debugInfo)</argsstring>
+        <name>brainTransAdjMatrixCOO1D</name>
+        <param>
+          <type><ref refid="structcoo" kindref="compound">coo</ref> *</type>
+          <declname>M_COO</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>ind_start_row</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrain" kindref="compound">Brain</ref> *</type>
+          <declname>brain</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>neuron_types</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref> *</type>
+          <declname>debugInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates a COO square transposed adjacency matrix of dimension (*brain).dimension, corresponding to the brain passed as a parameter, in a one-two-dimensional process grid (row block parallelization) A row/column of the matrix corresponding to a neuron, transposed adjacency matrix means that it is the column-neuron that connect to the row-neuron <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ind_start_row</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Row offset (in the 1D process grid), to be taken into account for the creation of connection between neurons </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">brain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the brain, basis for the generation of the matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">neuron_types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector containing the types chosen for the neurons of the brain passed as a parameter </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of rows in the local (process) matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of column in the local (process) matrix (= global matrix dimension, because the matrix is ​​parallelized in row blocks only) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">M_CSR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a structure corresponding to a CSR matrix. At the end of the generation, contains the generated matrix. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">debugInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><bold>OPTIONAL</bold> - Pointer to a debug structure or NULL. If not NULL, at the end of the generation, contains debug information such as the number of connections made per neuron (&lt;=&gt; number of 1 on each column), the total number of connections, etc.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Condition : BlockInfo must have been filled with information suitable for the brain (Otherwise, the generation will not necessarily fail, but the generated matrix will not necessarily correspond to the brain) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" line="397" column="6" bodyfile="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h" bodystart="397" bodyend="476"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Matrix<sp/>generator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/>This<sp/>file<sp/>defines<sp/>the<sp/>functions<sp/>allowing<sp/>to<sp/>generate<sp/>a<sp/>matrix<sp/>in<sp/>a<sp/>parallel<sp/>way,<sp/>taking<sp/>as<sp/>input<sp/>a<sp/>brain.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>Nicolas<sp/>HOCHART</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mpi.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;omp.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;brainstruct.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;randomforbrain.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;matrixstruct.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="structBrainMatrixInfo" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38" refid="structBrainMatrixInfo_1aaf4ec12ac3a59ec8206b90e97779b608" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structBrainMatrixInfo_1aaf4ec12ac3a59ec8206b90e97779b608" kindref="member">dim_c</ref>;<sp/></highlight></codeline>
+<codeline lineno="39" refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" kindref="member">dim_l</ref>;<sp/></highlight></codeline>
+<codeline lineno="40" refid="structBrainMatrixInfo_1abfff3f3d60aec9b534636a8ea5fcd761" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<sp/><ref refid="structBrainMatrixInfo_1abfff3f3d60aec9b534636a8ea5fcd761" kindref="member">types</ref>;<sp/></highlight></codeline>
+<codeline lineno="41" refid="structBrainMatrixInfo_1aa33ba3414fa2adec13e7c885926362db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*<sp/><ref refid="structBrainMatrixInfo_1aa33ba3414fa2adec13e7c885926362db" kindref="member">nb_connections</ref>;<sp/></highlight></codeline>
+<codeline lineno="42" refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref>;<sp/></highlight></codeline>
+<codeline lineno="43" refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>;<sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref><sp/><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="group__generation_1ga75bf7e2ff0ac8ba292bacf3a9148c3a9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__generation_1ga75bf7e2ff0ac8ba292bacf3a9148c3a9" kindref="member">brainAdjMatrixCSR</ref>(<ref refid="structcsr" kindref="compound">csr</ref><sp/>*M_CSR,<sp/><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref><sp/>BlockInfo,<sp/><ref refid="structBrain" kindref="compound">Brain</ref><sp/>*brain,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*neuron_types,<sp/><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref><sp/>*debugInfo)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>my_rank;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>MPI_Comm_rank(MPI_COMM_WORLD,<sp/>&amp;my_rank);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" kindref="member">dim_l</ref><sp/>=<sp/>BlockInfo.<ref refid="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" kindref="member">dim_l</ref>;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structBrainMatrixInfo_1aaf4ec12ac3a59ec8206b90e97779b608" kindref="member">dim_c</ref><sp/>=<sp/>BlockInfo.<ref refid="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" kindref="member">dim_c</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>size<sp/>=<sp/><ref refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" kindref="member">dim_l</ref><sp/>*<sp/><ref refid="structBrainMatrixInfo_1aaf4ec12ac3a59ec8206b90e97779b608" kindref="member">dim_c</ref>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).dim_l<sp/>=<sp/><ref refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" kindref="member">dim_l</ref>;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).dim_c<sp/>=<sp/><ref refid="structBrainMatrixInfo_1aaf4ec12ac3a59ec8206b90e97779b608" kindref="member">dim_c</ref>;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*nb_connections_local_tmp<sp/>=<sp/>NULL;<sp/></highlight><highlight class="comment">//utilisé<sp/>seulement<sp/>si<sp/>debugInfo<sp/>!=<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debugInfo<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).dim_l<sp/>=<sp/><ref refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" kindref="member">dim_l</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).dim_c<sp/>=<sp/><ref refid="structBrainMatrixInfo_1aaf4ec12ac3a59ec8206b90e97779b608" kindref="member">dim_c</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).types<sp/>=<sp/>neuron_types;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).nb_connections<sp/>=<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*)calloc(brain-&gt;<ref refid="structBrain_1a08d7fddbacdc1fc1c01d77b947f97434" kindref="member">dimension</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nb_connections_local_tmp<sp/>=<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*)calloc(brain-&gt;<ref refid="structBrain_1a08d7fddbacdc1fc1c01d77b947f97434" kindref="member">dimension</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).Row<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)malloc((<ref refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" kindref="member">dim_l</ref><sp/>+<sp/>1)<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(int));</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>assert((*M_CSR).Row<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).Row[0]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>---<sp/>Phase<sp/>1<sp/>:<sp/>comptage<sp/>des<sp/>connexions<sp/>par<sp/>ligne<sp/>---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*row_counts<sp/>=<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*)calloc(<ref refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" kindref="member">dim_l</ref>,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(row_counts<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t0<sp/>=<sp/>omp_get_wtime();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#pragma<sp/>omp<sp/>parallel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>seed<sp/>=<sp/>12345u<sp/>+<sp/>17u<sp/>*<sp/>omp_get_thread_num();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#pragma<sp/>omp<sp/>for<sp/>schedule(static)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" kindref="member">dim_l</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind_part_source<sp/>=<sp/><ref refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kindref="member">get_brain_part_ind</ref>(BlockInfo.<ref refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" kindref="member">startRow</ref><sp/>+<sp/>i,<sp/>brain);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>source_type<sp/>=<sp/>neuron_types[BlockInfo.<ref refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" kindref="member">startRow</ref><sp/>+<sp/>i];</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>local_count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/><ref refid="structBrainMatrixInfo_1aaf4ec12ac3a59ec8206b90e97779b608" kindref="member">dim_c</ref>;<sp/>j++)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((BlockInfo.<ref refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" kindref="member">startRow</ref><sp/>+<sp/>i)<sp/>==<sp/>(BlockInfo.<ref refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" kindref="member">startColumn</ref><sp/>+<sp/>j))</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>pas<sp/>de<sp/>diagonale</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind_part_dest<sp/>=<sp/><ref refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kindref="member">get_brain_part_ind</ref>(BlockInfo.<ref refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" kindref="member">startColumn</ref><sp/>+<sp/>j,<sp/>brain);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>p_conn<sp/>=<sp/>brain-&gt;<ref refid="structBrain_1a1b0d5e568abe1ea7fea0164de3effad0" kindref="member">brainPart</ref>[ind_part_source].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>source_type<sp/>*<sp/>brain-&gt;<ref refid="structBrain_1aef57b8041ed5e8a0852b013acce9763f" kindref="member">nb_part</ref><sp/>+<sp/>ind_part_dest];</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>(double)rand_r(&amp;seed)<sp/>/<sp/>RAND_MAX;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(r<sp/>&lt;<sp/>p_conn)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>local_count++;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debugInfo<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#pragma<sp/>omp<sp/>atomic</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nb_connections_local_tmp[BlockInfo.<ref refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" kindref="member">startRow</ref><sp/>+<sp/>i]++;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>row_counts[i]<sp/>=<sp/>local_count;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>---<sp/>Construction<sp/>de<sp/>Row<sp/>et<sp/>calcul<sp/>du<sp/>nnz<sp/>total<sp/>---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>total_nnz<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" kindref="member">dim_l</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>total_nnz<sp/>+=<sp/>row_counts[i];</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_CSR).Row[i<sp/>+<sp/>1]<sp/>=<sp/>total_nnz;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).nnz<sp/>=<sp/>total_nnz;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>---<sp/>Allocation<sp/>exacte<sp/>de<sp/>Column<sp/>&amp;<sp/>Value<sp/>---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).Column<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)malloc(total_nnz<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).Value<sp/><sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)malloc(total_nnz<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>assert((*M_CSR).Column<sp/>&amp;&amp;<sp/>(*M_CSR).Value);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>---<sp/>Phase<sp/>2<sp/>:<sp/>remplissage<sp/>effectif<sp/>des<sp/>colonnes<sp/>---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#pragma<sp/>omp<sp/>parallel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>seed<sp/>=<sp/>12345u<sp/>+<sp/>17u<sp/>*<sp/>omp_get_thread_num();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#pragma<sp/>omp<sp/>for<sp/>schedule(static)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" kindref="member">dim_l</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind_part_source<sp/>=<sp/><ref refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kindref="member">get_brain_part_ind</ref>(BlockInfo.<ref refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" kindref="member">startRow</ref><sp/>+<sp/>i,<sp/>brain);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>source_type<sp/>=<sp/>neuron_types[BlockInfo.<ref refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" kindref="member">startRow</ref><sp/>+<sp/>i];</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>pos<sp/>=<sp/>(*M_CSR).Row[i];</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/><ref refid="structBrainMatrixInfo_1aaf4ec12ac3a59ec8206b90e97779b608" kindref="member">dim_c</ref>;<sp/>j++)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((BlockInfo.<ref refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" kindref="member">startRow</ref><sp/>+<sp/>i)<sp/>==<sp/>(BlockInfo.<ref refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" kindref="member">startColumn</ref><sp/>+<sp/>j))</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind_part_dest<sp/>=<sp/><ref refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kindref="member">get_brain_part_ind</ref>(BlockInfo.<ref refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" kindref="member">startColumn</ref><sp/>+<sp/>j,<sp/>brain);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>p_conn<sp/>=<sp/>brain-&gt;<ref refid="structBrain_1a1b0d5e568abe1ea7fea0164de3effad0" kindref="member">brainPart</ref>[ind_part_source].<ref refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kindref="member">probaConnection</ref>[</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>source_type<sp/>*<sp/>brain-&gt;<ref refid="structBrain_1aef57b8041ed5e8a0852b013acce9763f" kindref="member">nb_part</ref><sp/>+<sp/>ind_part_dest];</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>(double)rand_r(&amp;seed)<sp/>/<sp/>RAND_MAX;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(r<sp/>&lt;<sp/>p_conn)</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert(pos<sp/>&lt;<sp/>(*M_CSR).Row[i<sp/>+<sp/>1]);<sp/></highlight><highlight class="comment">//<sp/>sécurité<sp/>anti-dépassement</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_CSR).Column[pos++]<sp/>=<sp/>j;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>k<sp/>=<sp/>(*M_CSR).Row[i];<sp/>k<sp/>&lt;<sp/>(*M_CSR).Row[i<sp/>+<sp/>1];<sp/>k++)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_CSR).Value[k]<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t1<sp/>=<sp/>omp_get_wtime();</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(my_rank<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;OpenMP<sp/>section<sp/>time:<sp/>%.4f<sp/>s<sp/>(%d<sp/>threads)\n&quot;</highlight><highlight class="normal">,<sp/>t1<sp/>-<sp/>t0,<sp/>omp_get_max_threads());</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>free(row_counts);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>---<sp/>Phase<sp/>MPI<sp/>Debug<sp/>---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debugInfo<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).total_memory_allocated<sp/>=<sp/>total_nnz;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MPI_Allreduce(&amp;((*M_CSR).nnz),<sp/>&amp;((*debugInfo).cpt_values),<sp/>1,<sp/>MPI_LONG,<sp/>MPI_SUM,<sp/>MPI_COMM_WORLD);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MPI_Allreduce(nb_connections_local_tmp,<sp/>(*debugInfo).nb_connections,</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>brain-&gt;<ref refid="structBrain_1a08d7fddbacdc1fc1c01d77b947f97434" kindref="member">dimension</ref>,<sp/>MPI_LONG,<sp/>MPI_SUM,<sp/>MPI_COMM_WORLD);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(nb_connections_local_tmp);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209" refid="group__generation_1ga76ee551e09e7553c2b5fb354f1487cb5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__generation_1ga76ee551e09e7553c2b5fb354f1487cb5" kindref="member">brainTransAdjMatrixCSR</ref>(<ref refid="structcsr" kindref="compound">csr</ref><sp/>*M_CSR,<sp/><ref refid="structMatrixDist" kindref="compound">MatrixDist</ref><sp/>BlockInfo,<sp/><ref refid="structBrain" kindref="compound">Brain</ref><sp/>*<sp/>brain,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<sp/>neuron_types,<sp/><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref><sp/>*<sp/>debugInfo)</highlight></codeline>
+<codeline lineno="210"><highlight class="normal">{<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>i,j,<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>,size<sp/>=<sp/>BlockInfo.<ref refid="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" kindref="member">dim_l</ref><sp/>*<sp/>BlockInfo.<ref refid="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" kindref="member">dim_c</ref>;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*<sp/>nb_connections_local_tmp;<sp/></highlight><highlight class="comment">//utilisé<sp/>seulement<sp/>si<sp/>debugInfo<sp/>!=<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind_part_source,ind_part_dest,source_type;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>proba_connection,proba_no_connection,random;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).dim_l<sp/>=<sp/>BlockInfo.<ref refid="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" kindref="member">dim_l</ref>;<sp/>(*M_CSR).dim_c<sp/>=<sp/>BlockInfo.<ref refid="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" kindref="member">dim_c</ref>;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debugInfo<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).dim_l<sp/>=<sp/>BlockInfo.<ref refid="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" kindref="member">dim_l</ref>;<sp/>(*debugInfo).dim_c<sp/>=<sp/>BlockInfo.<ref refid="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" kindref="member">dim_c</ref>;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).types<sp/>=<sp/>neuron_types;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Attention<sp/>:<sp/>le<sp/>malloc<sp/>de<sp/>(*debugInfo).nb_connections<sp/>n&apos;est<sp/>pas<sp/>free<sp/>dans<sp/>la<sp/>fonction.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).nb_connections<sp/>=<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*)malloc((*brain).dimension<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));<sp/></highlight><highlight class="comment">//contiendra<sp/>le<sp/>nombre<sp/>de<sp/>connexions<sp/>faites<sp/>au<sp/>global<sp/>(tout<sp/>processus<sp/>confondu)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nb_connections_local_tmp<sp/>=<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*)malloc((*brain).dimension<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));<sp/></highlight><highlight class="comment">//contiendra<sp/>le<sp/>nombre<sp/>de<sp/>connexions<sp/>faites<sp/>en<sp/>local<sp/>(décalage<sp/>en<sp/>ligne<sp/>prit<sp/>en<sp/>compte)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;(*brain).dimension;i++)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nb_connections_local_tmp[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).nb_connections[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//allocations<sp/>mémoires</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).Row<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)malloc(((*M_CSR).dim_l+1)<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(int));</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//La<sp/>mémoire<sp/>allouée<sp/>pour<sp/>Column<sp/>est<sp/>à<sp/>la<sp/>base<sp/>de<sp/>1/10<sp/>de<sp/>la<sp/>taille<sp/>de<sp/>la<sp/>matrice<sp/>stockée<sp/>&quot;normalement&quot;.<sp/>Au<sp/>besoin,<sp/>on<sp/>réalloue<sp/>de<sp/>la<sp/>mémoire<sp/>dans<sp/>le<sp/>code.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>basic_size<sp/>=<sp/>(long)<sp/>size/10;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>=<sp/>basic_size;<sp/></highlight><highlight class="comment">//nombre<sp/>total<sp/>de<sp/>cases<sp/>mémoires<sp/>allouées<sp/>pour<sp/>1<sp/>vecteur</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).Column<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)malloc(<ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).Row[0]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>=0;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;BlockInfo.<ref refid="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" kindref="member">dim_l</ref>;i++)<sp/></highlight><highlight class="comment">//parcours<sp/>des<sp/>lignes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>de<sp/>l&apos;indice<sp/>de<sp/>la<sp/>partie<sp/>(du<sp/>cerveau)<sp/>destination</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ind_part_dest<sp/>=<sp/><ref refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kindref="member">get_brain_part_ind</ref>(BlockInfo.<ref refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" kindref="member">startRow</ref>+i,<sp/>brain);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j=0;j&lt;BlockInfo.<ref refid="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" kindref="member">dim_c</ref>;j++)<sp/></highlight><highlight class="comment">//parcours<sp/>des<sp/>colonnes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>de<sp/>l&apos;indice<sp/>de<sp/>la<sp/>partie<sp/>source</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ind_part_source<sp/>=<sp/><ref refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kindref="member">get_brain_part_ind</ref>(BlockInfo.<ref refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" kindref="member">startColumn</ref>+j,<sp/>brain);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>du<sp/>type<sp/>de<sp/>neurone</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>source_type<sp/>=<sp/>neuron_types[BlockInfo.<ref refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" kindref="member">startColumn</ref>+j];</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>de<sp/>la<sp/>probabilité<sp/>de<sp/>connexion<sp/>source<sp/>-&gt;<sp/>destination<sp/>avec<sp/>le<sp/>type<sp/>de<sp/>neurone<sp/>donné</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>proba_connection<sp/>=<sp/>(*brain).brainPart[ind_part_source].probaConnection[source_type*(*brain).nb_part<sp/>+<sp/>ind_part_dest];</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>proba_no_connection<sp/>=<sp/>1<sp/>-<sp/>proba_connection;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>random<sp/>=<sp/>rand_0_1();</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//décision<sp/>aléatoire,<sp/>en<sp/>prenant<sp/>en<sp/>compte<sp/>l&apos;abscence<sp/>de<sp/>connexion<sp/>sur<sp/>la<sp/>diagonale<sp/>de<sp/>façon<sp/>brute</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(BlockInfo.<ref refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" kindref="member">startRow</ref>+i)!=(BlockInfo.<ref refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" kindref="member">startColumn</ref>+j)<sp/>&amp;&amp;<sp/>random<sp/>&gt;<sp/>proba_no_connection)<sp/></highlight><highlight class="comment">//si<sp/>on<sp/>est<sp/>dans<sp/>la<sp/>proba<sp/>de<sp/>connexion<sp/>et<sp/>qu&apos;on<sp/>est<sp/>pas<sp/>dans<sp/>la<sp/>diagonale,<sp/>alors<sp/>on<sp/>place<sp/>un<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref><sp/>&gt;=<sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref>)</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>*=<sp/>2;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_CSR).Column<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)<sp/>realloc((*M_CSR).Column,<sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert((*M_CSR).Column<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_CSR).Column[<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>]<sp/>=<sp/>j;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debugInfo<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nb_connections_local_tmp[j<sp/>+<sp/>BlockInfo.<ref refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" kindref="member">startColumn</ref>]<sp/>=<sp/>nb_connections_local_tmp[j<sp/>+<sp/>BlockInfo.<ref refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" kindref="member">startColumn</ref>]<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>++;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_CSR).Row[i+1]<sp/>=<sp/><ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//remplissage<sp/>du<sp/>vecteur<sp/>Value<sp/>(avec<sp/>précisement<sp/>le<sp/>nombre<sp/>de<sp/>1<sp/>nécéssaire)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).Value<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)malloc(<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).nnz<sp/>=<sp/><ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;<sp/>i&lt;<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>;i++)<sp/>{(*M_CSR).Value[i]<sp/>=<sp/>1;}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//remplissage<sp/>de<sp/>la<sp/>structure<sp/>de<sp/>débuggage</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debugInfo<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).total_memory_allocated<sp/>=<sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref>;</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MPI_Allreduce(&amp;((*M_CSR).nnz),<sp/>&amp;((*debugInfo).cpt_values),<sp/>1,<sp/>MPI_LONG,<sp/>MPI_SUM,<sp/>MPI_COMM_WORLD);<sp/></highlight><highlight class="comment">//somme<sp/>MPI_SUM<sp/>des<sp/>nombres<sp/>de<sp/>valeurs<sp/>dans<sp/>les<sp/>sous<sp/>matrices<sp/>dans<sp/>cpt_values,<sp/>nombre<sp/>de<sp/>valeurs<sp/>non<sp/>nulles<sp/>global</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>MatrixDebugInfo.nb_connections<sp/>contient<sp/>actuellement<sp/>(dans<sp/>chaque<sp/>processus)<sp/>le<sp/>nombre<sp/>de<sp/>connexions<sp/>faites<sp/>LOCALEMENT<sp/>par<sp/>tout<sp/>les<sp/>neurones<sp/>par<sp/>colonne.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MPI_Allreduce(nb_connections_local_tmp,<sp/>(*debugInfo).nb_connections,<sp/>(*brain).dimension,<sp/>MPI_LONG,<sp/>MPI_SUM,<sp/>MPI_COMM_WORLD);<sp/></highlight><highlight class="comment">//somme<sp/>MPI_SUM<sp/>de<sp/>tout<sp/>les<sp/>nb_non_zeros_local<sp/>dans<sp/>(*debugInfo).nb_connections</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(nb_connections_local_tmp);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>MatrixDebugInfo.nb_connections<sp/>contient<sp/>maintenant<sp/>(dans<sp/>tout<sp/>les<sp/>processus)<sp/>le<sp/>nombre<sp/>GLOBAL<sp/>de<sp/>connexions<sp/>faites<sp/>pour<sp/>chaque<sp/>neurone.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303" refid="group__generation_1ga932236cbed96bf85e6505ef997521f98" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__generation_1ga932236cbed96bf85e6505ef997521f98" kindref="member">brainTransAdjMatrixCSR1D</ref>(<ref refid="structcsr" kindref="compound">csr</ref><sp/>*M_CSR,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>ind_start_row,<sp/><ref refid="structBrain" kindref="compound">Brain</ref><sp/>*<sp/>brain,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<sp/>neuron_types,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>c,<sp/><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref><sp/>*<sp/>debugInfo)</highlight></codeline>
+<codeline lineno="304"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>i,j,<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>,size=l*c;</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*<sp/>nb_connections_local_tmp;<sp/></highlight><highlight class="comment">//utilisé<sp/>seulement<sp/>si<sp/>debugInfo<sp/>!=<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind_part_source,ind_part_dest,source_type;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>proba_connection,proba_no_connection,random;</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).dim_l<sp/>=<sp/>l;<sp/>(*M_CSR).dim_c<sp/>=<sp/>c;</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debugInfo<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).dim_l<sp/>=<sp/>l;<sp/>(*debugInfo).dim_c<sp/>=<sp/>c;</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).types<sp/>=<sp/>neuron_types;</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Attention<sp/>:<sp/>le<sp/>malloc<sp/>de<sp/>(*debugInfo).nb_connections<sp/>n&apos;est<sp/>pas<sp/>free<sp/>dans<sp/>la<sp/>fonction.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).nb_connections<sp/>=<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*)malloc((*debugInfo).dim_c<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nb_connections_local_tmp<sp/>=<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*)malloc((*debugInfo).dim_c<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;(*debugInfo).dim_c;i++)</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nb_connections_local_tmp[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).nb_connections[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//allocations<sp/>mémoires</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).Row<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)malloc(((*M_CSR).dim_l+1)<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(int));</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//La<sp/>mémoire<sp/>allouée<sp/>pour<sp/>Column<sp/>est<sp/>à<sp/>la<sp/>base<sp/>de<sp/>1/10<sp/>de<sp/>la<sp/>taille<sp/>de<sp/>la<sp/>matrice<sp/>stockée<sp/>&quot;normalement&quot;.<sp/>Au<sp/>besoin,<sp/>on<sp/>réalloue<sp/>de<sp/>la<sp/>mémoire<sp/>dans<sp/>le<sp/>code.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>basic_size<sp/>=<sp/>(long)<sp/>size/10;</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>=<sp/>basic_size;<sp/></highlight><highlight class="comment">//nombre<sp/>total<sp/>de<sp/>cases<sp/>mémoires<sp/>allouées<sp/>pour<sp/>1<sp/>vecteur</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).Column<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)malloc(<ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).Row[0]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>=0;</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;l;i++)<sp/></highlight><highlight class="comment">//parcours<sp/>des<sp/>lignes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>de<sp/>l&apos;indice<sp/>de<sp/>la<sp/>partie<sp/>(du<sp/>cerveau)<sp/>destination</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ind_part_dest<sp/>=<sp/><ref refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kindref="member">get_brain_part_ind</ref>(ind_start_row+i,<sp/>brain);</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j=0;j&lt;c;j++)<sp/></highlight><highlight class="comment">//parcours<sp/>des<sp/>colonnes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>de<sp/>l&apos;indice<sp/>de<sp/>la<sp/>partie<sp/>source</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ind_part_source<sp/>=<sp/><ref refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kindref="member">get_brain_part_ind</ref>(j,<sp/>brain);</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>du<sp/>type<sp/>de<sp/>neurone</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>source_type<sp/>=<sp/>neuron_types[j];</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>de<sp/>la<sp/>probabilité<sp/>de<sp/>connexion<sp/>source<sp/>-&gt;<sp/>destination<sp/>avec<sp/>le<sp/>type<sp/>de<sp/>neurone<sp/>donné</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>proba_connection<sp/>=<sp/>(*brain).brainPart[ind_part_source].probaConnection[source_type*(*brain).nb_part<sp/>+<sp/>ind_part_dest];</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>proba_no_connection<sp/>=<sp/>1<sp/>-<sp/>proba_connection;</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>random<sp/>=<sp/>rand_0_1();</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//décision<sp/>aléatoire,<sp/>en<sp/>prenant<sp/>en<sp/>compte<sp/>l&apos;abscence<sp/>de<sp/>connexion<sp/>sur<sp/>la<sp/>diagonale<sp/>de<sp/>façon<sp/>brute</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(ind_start_row+i)!=j<sp/>&amp;&amp;<sp/>random<sp/>&gt;<sp/>proba_no_connection)<sp/></highlight><highlight class="comment">//si<sp/>on<sp/>est<sp/>dans<sp/>la<sp/>proba<sp/>de<sp/>connexion<sp/>et<sp/>qu&apos;on<sp/>est<sp/>pas<sp/>dans<sp/>la<sp/>diagonale,<sp/>alors<sp/>on<sp/>place<sp/>un<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref><sp/>&gt;=<sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref>)</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>*=<sp/>2;</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_CSR).Column<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)<sp/>realloc((*M_CSR).Column,<sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert((*M_CSR).Column<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_CSR).Column[<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>]<sp/>=<sp/>j;</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debugInfo<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nb_connections_local_tmp[j]<sp/>=<sp/>nb_connections_local_tmp[j]<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>++;</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_CSR).Row[i+1]<sp/>=<sp/><ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>;</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//remplissage<sp/>du<sp/>vecteur<sp/>Value<sp/>(avec<sp/>précisement<sp/>le<sp/>nombre<sp/>de<sp/>1<sp/>nécéssaire)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).Value<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)malloc(<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_CSR).nnz<sp/>=<sp/><ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>;</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;<sp/>i&lt;<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>;i++)<sp/>{(*M_CSR).Value[i]<sp/>=<sp/>1;}</highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//remplissage<sp/>de<sp/>la<sp/>structure<sp/>de<sp/>débuggage</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debugInfo<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).total_memory_allocated<sp/>=<sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref>;</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MPI_Allreduce(&amp;((*M_CSR).nnz),<sp/>&amp;((*debugInfo).cpt_values),<sp/>1,<sp/>MPI_LONG,<sp/>MPI_SUM,<sp/>MPI_COMM_WORLD);<sp/></highlight><highlight class="comment">//somme<sp/>MPI_SUM<sp/>des<sp/>nombres<sp/>de<sp/>valeurs<sp/>dans<sp/>les<sp/>sous<sp/>matrices<sp/>dans<sp/>cpt_values,<sp/>nombre<sp/>de<sp/>valeurs<sp/>non<sp/>nulles<sp/>global</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>MatrixDebugInfo.nb_connections<sp/>contient<sp/>actuellement<sp/>(dans<sp/>chaque<sp/>processus)<sp/>le<sp/>nombre<sp/>de<sp/>connexions<sp/>faites<sp/>LOCALEMENT<sp/>par<sp/>tout<sp/>les<sp/>neurones<sp/>par<sp/>colonne.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MPI_Allreduce(nb_connections_local_tmp,<sp/>(*debugInfo).nb_connections,<sp/>(*brain).dimension,<sp/>MPI_LONG,<sp/>MPI_SUM,<sp/>MPI_COMM_WORLD);<sp/></highlight><highlight class="comment">//somme<sp/>MPI_SUM<sp/>de<sp/>tout<sp/>les<sp/>nb_non_zeros_local<sp/>dans<sp/>(*debugInfo).nb_connections</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(nb_connections_local_tmp);</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>MatrixDebugInfo.nb_connections<sp/>contient<sp/>maintenant<sp/>(dans<sp/>tout<sp/>les<sp/>processus)<sp/>le<sp/>nombre<sp/>GLOBAL<sp/>de<sp/>connexions<sp/>faites<sp/>pour<sp/>chaque<sp/>neurone.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="381"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"></highlight></codeline>
+<codeline lineno="397" refid="group__generation_1ga6854206472559afee60b7cb6b34eac3e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="group__generation_1ga6854206472559afee60b7cb6b34eac3e" kindref="member">brainTransAdjMatrixCOO1D</ref>(<ref refid="structcoo" kindref="compound">coo</ref><sp/>*M_COO,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>ind_start_row,<sp/><ref refid="structBrain" kindref="compound">Brain</ref><sp/>*<sp/>brain,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*<sp/>neuron_types,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>l,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>c,<sp/><ref refid="structBrainMatrixInfo" kindref="compound">BrainMatrixInfo</ref><sp/>*<sp/>debugInfo)</highlight></codeline>
+<codeline lineno="398"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"></highlight></codeline>
+<codeline lineno="400"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>i,j,<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>,size=l*c;</highlight></codeline>
+<codeline lineno="401"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*<sp/>nb_connections_local_tmp;<sp/></highlight><highlight class="comment">//utilisé<sp/>seulement<sp/>si<sp/>debugInfo<sp/>!=<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="402"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ind_part_source,ind_part_dest,source_type;<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>proba_connection,proba_no_connection,random;</highlight></codeline>
+<codeline lineno="403"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_COO).dim_l<sp/>=<sp/>l;<sp/>(*M_COO).dim_c<sp/>=<sp/>c;</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debugInfo<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).dim_l<sp/>=<sp/>l;<sp/>(*debugInfo).dim_c<sp/>=<sp/>c;</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).types<sp/>=<sp/>neuron_types;</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Attention<sp/>:<sp/>le<sp/>malloc<sp/>de<sp/>(*debugInfo).nb_connections<sp/>n&apos;est<sp/>pas<sp/>free<sp/>dans<sp/>la<sp/>fonction.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).nb_connections<sp/>=<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*)malloc((*debugInfo).dim_c<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nb_connections_local_tmp<sp/>=<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>*)malloc((*debugInfo).dim_c<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;(*debugInfo).dim_c;i++)</highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="413"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nb_connections_local_tmp[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).nb_connections[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="415"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="417"><highlight class="normal"></highlight></codeline>
+<codeline lineno="418"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//La<sp/>mémoire<sp/>allouée<sp/>est<sp/>à<sp/>la<sp/>base<sp/>de<sp/>1/10<sp/>de<sp/>la<sp/>taille<sp/>de<sp/>la<sp/>matrice<sp/>stockée<sp/>&quot;normalement&quot;.<sp/>Au<sp/>besoin,<sp/>on<sp/>réalloue<sp/>de<sp/>la<sp/>mémoire<sp/>dans<sp/>le<sp/>code.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="419"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>basic_size<sp/>=<sp/>(long)<sp/>size/10;</highlight></codeline>
+<codeline lineno="420"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>=<sp/>basic_size;<sp/></highlight><highlight class="comment">//nombre<sp/>total<sp/>de<sp/>cases<sp/>mémoires<sp/>allouées<sp/>pour<sp/>1<sp/>vecteur</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="421"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_COO).Row<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)malloc(<ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="422"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_COO).Column<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)malloc(<ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="423"><highlight class="normal"></highlight></codeline>
+<codeline lineno="424"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>=0;</highlight></codeline>
+<codeline lineno="425"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;l;i++)<sp/></highlight><highlight class="comment">//parcours<sp/>des<sp/>lignes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="426"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>de<sp/>l&apos;indice<sp/>de<sp/>la<sp/>partie<sp/>(du<sp/>cerveau)<sp/>destination</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="428"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ind_part_dest<sp/>=<sp/><ref refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kindref="member">get_brain_part_ind</ref>(ind_start_row+i,<sp/>brain);</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j=0;j&lt;c;j++)<sp/></highlight><highlight class="comment">//parcours<sp/>des<sp/>colonnes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="431"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>de<sp/>l&apos;indice<sp/>de<sp/>la<sp/>partie<sp/>source</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ind_part_source<sp/>=<sp/><ref refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kindref="member">get_brain_part_ind</ref>(j,<sp/>brain);</highlight></codeline>
+<codeline lineno="433"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>du<sp/>type<sp/>de<sp/>neurone</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>source_type<sp/>=<sp/>neuron_types[j];</highlight></codeline>
+<codeline lineno="435"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//récupération<sp/>de<sp/>la<sp/>probabilité<sp/>de<sp/>connexion<sp/>source<sp/>-&gt;<sp/>destination<sp/>avec<sp/>le<sp/>type<sp/>de<sp/>neurone<sp/>donné</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="436"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>proba_connection<sp/>=<sp/>(*brain).brainPart[ind_part_source].probaConnection[source_type*(*brain).nb_part<sp/>+<sp/>ind_part_dest];</highlight></codeline>
+<codeline lineno="437"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>proba_no_connection<sp/>=<sp/>1<sp/>-<sp/>proba_connection;</highlight></codeline>
+<codeline lineno="438"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>random<sp/>=<sp/>rand_0_1();</highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//décision<sp/>aléatoire,<sp/>en<sp/>prenant<sp/>en<sp/>compte<sp/>l&apos;abscence<sp/>de<sp/>connexion<sp/>sur<sp/>la<sp/>diagonale<sp/>de<sp/>façon<sp/>brute</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(ind_start_row+i)!=j<sp/>&amp;&amp;<sp/>random<sp/>&gt;<sp/>proba_no_connection)<sp/></highlight><highlight class="comment">//si<sp/>on<sp/>est<sp/>dans<sp/>la<sp/>proba<sp/>de<sp/>connexion<sp/>et<sp/>qu&apos;on<sp/>est<sp/>pas<sp/>dans<sp/>la<sp/>diagonale,<sp/>alors<sp/>on<sp/>place<sp/>un<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref><sp/>&gt;=<sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref>)</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>*=<sp/>2;</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_COO).Row<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)<sp/>realloc((*M_COO).Row,<sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_COO).Column<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)<sp/>realloc((*M_COO).Column,<sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert((*M_COO).Row<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="448"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>assert((*M_COO).Column<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="449"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_COO).Row[<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>]<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="451"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*M_COO).Column[<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>]<sp/>=<sp/>j;</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debugInfo<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="453"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="454"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nb_connections_local_tmp[j]<sp/>=<sp/>nb_connections_local_tmp[j]<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="455"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="456"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>++;</highlight></codeline>
+<codeline lineno="457"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="458"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="459"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="460"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//remplissage<sp/>du<sp/>vecteur<sp/>Value<sp/>(avec<sp/>précisement<sp/>le<sp/>nombre<sp/>de<sp/>1<sp/>nécéssaire)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="461"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_COO).Value<sp/>=<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*)malloc(<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref><sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="462"><highlight class="normal"><sp/><sp/><sp/><sp/>(*M_COO).nnz<sp/>=<sp/><ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>;</highlight></codeline>
+<codeline lineno="463"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;<sp/>i&lt;<ref refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kindref="member">cpt_values</ref>;i++)<sp/>{(*M_COO).Value[i]<sp/>=<sp/>1;}</highlight></codeline>
+<codeline lineno="464"><highlight class="normal"></highlight></codeline>
+<codeline lineno="465"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//remplissage<sp/>de<sp/>la<sp/>structure<sp/>de<sp/>débuggage</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="466"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(debugInfo<sp/>!=<sp/>NULL)</highlight></codeline>
+<codeline lineno="467"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="468"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*debugInfo).total_memory_allocated<sp/>=<sp/><ref refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kindref="member">total_memory_allocated</ref>;</highlight></codeline>
+<codeline lineno="469"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MPI_Allreduce(&amp;((*M_COO).nnz),<sp/>&amp;((*debugInfo).cpt_values),<sp/>1,<sp/>MPI_LONG,<sp/>MPI_SUM,<sp/>MPI_COMM_WORLD);<sp/></highlight><highlight class="comment">//somme<sp/>MPI_SUM<sp/>des<sp/>nombres<sp/>de<sp/>valeurs<sp/>dans<sp/>les<sp/>sous<sp/>matrices<sp/>dans<sp/>cpt_values,<sp/>nombre<sp/>de<sp/>valeurs<sp/>non<sp/>nulles<sp/>global</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="470"><highlight class="normal"></highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>MatrixDebugInfo.nb_connections<sp/>contient<sp/>actuellement<sp/>(dans<sp/>chaque<sp/>processus)<sp/>le<sp/>nombre<sp/>de<sp/>connexions<sp/>faites<sp/>LOCALEMENT<sp/>par<sp/>tout<sp/>les<sp/>neurones<sp/>par<sp/>colonne.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MPI_Allreduce(nb_connections_local_tmp,<sp/>(*debugInfo).nb_connections,<sp/>(*brain).dimension,<sp/>MPI_LONG,<sp/>MPI_SUM,<sp/>MPI_COMM_WORLD);<sp/></highlight><highlight class="comment">//somme<sp/>MPI_SUM<sp/>de<sp/>tout<sp/>les<sp/>nb_non_zeros_local<sp/>dans<sp/>(*debugInfo).nb_connections</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="473"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>free(nb_connections_local_tmp);</highlight></codeline>
+<codeline lineno="474"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>MatrixDebugInfo.nb_connections<sp/>contient<sp/>maintenant<sp/>(dans<sp/>tout<sp/>les<sp/>processus)<sp/>le<sp/>nombre<sp/>GLOBAL<sp/>de<sp/>connexions<sp/>faites<sp/>pour<sp/>chaque<sp/>neurone.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="475"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="476"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="477"><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>end<sp/>of<sp/>generation</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="randomforbrain_8h" kind="file" language="C++">
+    <compoundname>randomforbrain.h</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includedby refid="brainmatrixgenerator_8h" local="yes">/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h</includedby>
+    <includedby refid="brainstruct_8h" local="yes">/home/wu/codes/BTIDG2/includes/brainstruct.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/wu/codes/BTIDG2/includes/randomforbrain.h</label>
+        <link refid="randomforbrain_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdlib.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/wu/codes/BTIDG2/includes/brainmatrixgenerator.h</label>
+        <link refid="brainmatrixgenerator_8h_source"/>
+      </node>
+      <node id="3">
+        <label>/home/wu/codes/BTIDG2/includes/brainstruct.h</label>
+        <link refid="brainstruct_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/home/wu/codes/BTIDG2/includes/hardbrain.h</label>
+        <link refid="hardbrain_8h_source"/>
+      </node>
+      <node id="1">
+        <label>/home/wu/codes/BTIDG2/includes/randomforbrain.h</label>
+        <link refid="randomforbrain_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="randomforbrain_8h_1a625692e695f126833dfcb4f12ee62a89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float rand_0_1</definition>
+        <argsstring>()</argsstring>
+        <name>rand_0_1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/wu/codes/BTIDG2/includes/randomforbrain.h" line="12" column="7" bodyfile="/home/wu/codes/BTIDG2/includes/randomforbrain.h" bodystart="12" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>Fonctions<sp/>utilisées<sp/>pour<sp/>faire<sp/>de<sp/>l&apos;aléatoire<sp/>dans<sp/>la<sp/>générationd<sp/>de<sp/>cerveau<sp/>/<sp/>de<sp/>matrice-cerveau<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*Nicolas<sp/>HOCHART*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*--------------------------</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">---<sp/>Décision<sp/>&quot;aléatoire&quot;<sp/>---</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">--------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>rand_0_1()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*Renvoie<sp/>un<sp/>nombre<sp/>aléatoire<sp/>entre<sp/>0<sp/>et<sp/>1.<sp/>Permet<sp/>de<sp/>faire<sp/>une<sp/>décision<sp/>aléatoire*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)<sp/>rand()<sp/>/<sp/>(float)<sp/>RAND_MAX;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/wu/codes/BTIDG2/includes/randomforbrain.h"/>
+  </compounddef>
+</doxygen>

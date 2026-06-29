@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="README_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>BTIDG2</highlight></codeline>
+<codeline><highlight class="normal">Brain<sp/>Topology<sp/>Inspired<sp/>Distributed<sp/>Graph<sp/>Generator</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">What<sp/>is<sp/>BTIDG2?</highlight></codeline>
+<codeline><highlight class="normal">----------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">***BTIDG2***,<sp/>short<sp/>for<sp/>Brain<sp/>Topology<sp/>Inspired<sp/>Distributed<sp/>Graph<sp/>Generator,<sp/>is<sp/></highlight></codeline>
+<codeline><highlight class="normal">able<sp/>to<sp/>generate<sp/>very<sp/>large<sp/>graphs<sp/>which<sp/>is<sp/>inspired<sp/>by<sp/>the<sp/>topology<sp/>of<sp/>humain<sp/>brain.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>matrix<sp/>generated<sp/>is<sp/>implemented<sp/>based<sp/>C,<sp/>and<sp/>parallised<sp/>based<sp/>on<sp/>MPI.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">As<sp/>a<sp/>software,<sp/>***BTIDG2***<sp/>ensures<sp/>that:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>the<sp/>generator<sp/>must<sp/>be<sp/>able<sp/>to<sp/>work<sp/>for<sp/>large<sp/>sparse<sp/>matrices<sp/>without<sp/>any<sp/>I/Os</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>the<sp/>generator<sp/>must<sp/>work<sp/>in<sp/>a<sp/>distributed<sp/>fashion</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>support<sp/>multiple<sp/>(COO<sp/>and<sp/>CSR)<sp/>distributed<sp/>sparse<sp/>data<sp/>formats</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>the<sp/>generator<sp/>must<sp/>be<sp/>as<sp/>configurable<sp/>as<sp/>possible</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>a<sp/>***converter***,<sp/>allowing<sp/>to<sp/>convert<sp/>a<sp/>data<sp/>file<sp/>containing<sp/>the<sp/>brain<sp/>information<sp/>as<sp/>we<sp/>found<sp/>it<sp/>on<sp/>the<sp/>internet<sp/>into<sp/>an<sp/>input<sp/>file<sp/>for<sp/>our<sp/>matrix<sp/>generator.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Motivation</highlight></codeline>
+<codeline><highlight class="normal">------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Graph<sp/>data<sp/>can<sp/>be<sp/>used<sp/>to<sp/>represent<sp/>data<sp/>from<sp/>various<sp/>domains:<sp/>Web<sp/>graphs,<sp/>physical<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">biological<sp/>systems,<sp/>communication<sp/>networks,<sp/>etc.<sp/>Graph<sp/>data<sp/>analysis<sp/>can<sp/>provide<sp/>valuable<sp/>insight<sp/>on<sp/>the<sp/>underlying<sp/>networks.<sp/></highlight></codeline>
+<codeline><highlight class="normal">More<sp/>recently,<sp/>Machine<sp/>Learning<sp/>techniques<sp/>have<sp/>also<sp/>been</highlight></codeline>
+<codeline><highlight class="normal">applied<sp/>to<sp/>this<sp/>type<sp/>of<sp/>data.<sp/>However,<sp/>the<sp/>size<sp/>of<sp/>these<sp/>graphs<sp/>is<sp/>always<sp/>growing,<sp/>which<sp/>poses</highlight></codeline>
+<codeline><highlight class="normal">significant<sp/>challenges<sp/>to<sp/>be<sp/>able<sp/>to<sp/>apply<sp/>these<sp/>methods.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>particular,<sp/>when<sp/>the<sp/>researchers<sp/>study<sp/>the<sp/>scalability<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>PageRank<sp/>algorithm<sp/>on<sp/>very<sp/>large<sp/>matrices<sp/>in<sp/>distributed<sp/>computing<sp/>environments,<sp/>e.g.,<sp/>RIKEN’s<sp/>Fugaku,<sp/>one<sp/>of<sp/>the<sp/>most<sp/>powerful<sp/>supercomputers</highlight></codeline>
+<codeline><highlight class="normal">in<sp/>the<sp/>world<sp/>according<sp/>to<sp/>the<sp/>latest<sp/>TOP500<sp/>ranking.<sp/>Evaluating<sp/>algorithms<sp/>like<sp/>the<sp/>PageRank<sp/>on<sp/>very<sp/>large<sp/>matrices<sp/>is<sp/>impossible<sp/>to<sp/>do<sp/>directly</highlight></codeline>
+<codeline><highlight class="normal">with<sp/>sequential<sp/>method<sp/>and<sp/>it<sp/>is<sp/>also<sp/>not<sp/>possible<sp/>to<sp/>have<sp/>an<sp/>input<sp/>file<sp/>containing<sp/>the<sp/>graph.</highlight></codeline>
+<codeline><highlight class="normal">Indeed,<sp/>with<sp/>data<sp/>sets<sp/>this<sp/>large,<sp/>input-outputs<sp/>would<sp/>be<sp/>far<sp/>too<sp/>costly.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Evaluating<sp/>those<sp/>algorithms<sp/>therefore<sp/>requires<sp/>distributed<sp/>data<sp/>sets<sp/>and<sp/>graphs<sp/>that<sp/>almost</highlight></codeline>
+<codeline><highlight class="normal">fill<sp/>the<sp/>very<sp/>large<sp/>memories<sp/>available,<sp/>and<sp/>are<sp/>generated<sp/>directly<sp/>in<sp/>parallel<sp/>without<sp/>I/O.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Documentation</highlight></codeline>
+<codeline><highlight class="normal">---------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Please<sp/>find<sp/>the<sp/>documentation<sp/>of<sp/>BTIDG2<sp/>[here](https://smg2s.github.io/BTIDG2/)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Main<sp/>developers</highlight></codeline>
+<codeline><highlight class="normal">----------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Nicolas<sp/>Hochart<sp/>-<sp/>Software<sp/>desgin<sp/>and<sp/>parallel<sp/>implementation</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Contributors</highlight></codeline>
+<codeline><highlight class="normal">-------------<sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Serge<sp/>G.<sp/>Petiton<sp/>-<sp/>Algorithm<sp/>design<sp/>and<sp/>charge<sp/>of<sp/>project</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Maxence<sp/>Vandromme<sp/>-<sp/>Benchmarks<sp/>on<sp/>Fuguka<sp/>supercomputer</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Xinzhe<sp/>Wu<sp/>-<sp/>Software<sp/>re-design,<sp/>documentation</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Contact</highlight></codeline>
+<codeline><highlight class="normal">---------</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Serge<sp/>G.<sp/>Petiton:<sp/>SERGE<sp/>DOT<sp/>PETITON<sp/>AT<sp/>MAILFENCE<sp/>DOT<sp/>COM</highlight></codeline>
+    </programlisting>
+    <location file="/home/wu/codes/BTIDG2/README.md"/>
+  </compounddef>
+</doxygen>

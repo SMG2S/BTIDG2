@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.6" xml:lang="en-US">
+  <compound refid="structBrain" kind="struct"><name>Brain</name>
+    <member refid="structBrain_1a08d7fddbacdc1fc1c01d77b947f97434" kind="variable"><name>dimension</name></member>
+    <member refid="structBrain_1aef57b8041ed5e8a0852b013acce9763f" kind="variable"><name>nb_part</name></member>
+    <member refid="structBrain_1aa63d41ba16f80fa8a2d80e28c1d98e48" kind="variable"><name>parties_cerveau</name></member>
+    <member refid="structBrain_1a1b0d5e568abe1ea7fea0164de3effad0" kind="variable"><name>brainPart</name></member>
+  </compound>
+  <compound refid="structBrainMatrixInfo" kind="struct"><name>BrainMatrixInfo</name>
+    <member refid="structBrainMatrixInfo_1aaf4ec12ac3a59ec8206b90e97779b608" kind="variable"><name>dim_c</name></member>
+    <member refid="structBrainMatrixInfo_1a977bffa974fa4dfa57b98ee872c1bdf5" kind="variable"><name>dim_l</name></member>
+    <member refid="structBrainMatrixInfo_1abfff3f3d60aec9b534636a8ea5fcd761" kind="variable"><name>types</name></member>
+    <member refid="structBrainMatrixInfo_1aa33ba3414fa2adec13e7c885926362db" kind="variable"><name>nb_connections</name></member>
+    <member refid="structBrainMatrixInfo_1a38a0f8d719ee9dfb3bc342f493cc9735" kind="variable"><name>total_memory_allocated</name></member>
+    <member refid="structBrainMatrixInfo_1af8427058189e34bd6fedbc465dc83abc" kind="variable"><name>cpt_values</name></member>
+  </compound>
+  <compound refid="structBrainPart" kind="struct"><name>BrainPart</name>
+    <member refid="structBrainPart_1af0332d5502f752eb8859efffadd570ce" kind="variable"><name>nbTypeNeuron</name></member>
+    <member refid="structBrainPart_1ab5d73bdf753c53b63796625704cb6280" kind="variable"><name>repartitionNeuronCumulee</name></member>
+    <member refid="structBrainPart_1aa8cb29eaf0e1af5056aedc26c582616e" kind="variable"><name>probaConnection</name></member>
+  </compound>
+  <compound refid="structcoo" kind="struct"><name>coo</name>
+    <member refid="structcoo_1a0f596527a7963c1b76a49767cae92aa6" kind="variable"><name>Row</name></member>
+    <member refid="structcoo_1a996d48191462fe6891b0798c2b522d55" kind="variable"><name>Column</name></member>
+    <member refid="structcoo_1a80bc67514bc56cf4e3db40c6893ab493" kind="variable"><name>Value</name></member>
+    <member refid="structcoo_1a271eb401f5a1bab68a3882428069f2e4" kind="variable"><name>dim_l</name></member>
+    <member refid="structcoo_1a9b4350ecd41c384cfc3f880caf7aa612" kind="variable"><name>dim_c</name></member>
+    <member refid="structcoo_1ac9f78b4d67516094195ec84d480cf918" kind="variable"><name>nnz</name></member>
+  </compound>
+  <compound refid="structcsr" kind="struct"><name>csr</name>
+    <member refid="structcsr_1a03062175252c8ce6072db44eaf466b2a" kind="variable"><name>Row</name></member>
+    <member refid="structcsr_1a086a2f7e18b5dd5893402f5e2680d54b" kind="variable"><name>Column</name></member>
+    <member refid="structcsr_1acf44e63f376bccd960f78051ed8c3596" kind="variable"><name>Value</name></member>
+    <member refid="structcsr_1a20b5cbc814d823a68c474a0ba615b8b5" kind="variable"><name>dim_l</name></member>
+    <member refid="structcsr_1ad7fc85bf2e8901dec40c5fd8ed2b3dd9" kind="variable"><name>dim_c</name></member>
+    <member refid="structcsr_1a60b50a9a8f3ae484c1c0ffbbbce1eb87" kind="variable"><name>nnz</name></member>
+  </compound>
+  <compound refid="structMatrixDist" kind="struct"><name>MatrixDist</name>
+    <member refid="structMatrixDist_1a62e8b04484317f2761ab22c8105167e2" kind="variable"><name>indl</name></member>
+    <member refid="structMatrixDist_1a56da90a907a4bc9a38b227dd238b8059" kind="variable"><name>indc</name></member>
+    <member refid="structMatrixDist_1ac109a761ecd28c44be12a07a62c762f8" kind="variable"><name>dim_l</name></member>
+    <member refid="structMatrixDist_1a9a2e5c445e284b914be386542eedc2c4" kind="variable"><name>dim_c</name></member>
+    <member refid="structMatrixDist_1ac345497b5d53223bc0ba1321bbda610f" kind="variable"><name>startRow</name></member>
+    <member refid="structMatrixDist_1a43546ed95683a773ca61817664f70f15" kind="variable"><name>startColumn</name></member>
+    <member refid="structMatrixDist_1a881e18e2da67bcd4a40459f09ee6594b" kind="variable"><name>endRow</name></member>
+    <member refid="structMatrixDist_1a0d332da71c326861f0ede05cd4ea67f5" kind="variable"><name>endColumn</name></member>
+  </compound>
+  <compound refid="namespaceconf" kind="namespace"><name>conf</name>
+    <member refid="conf_8py_1a2803387c30920e3e74f46eb541db430d" kind="variable"><name>project</name></member>
+    <member refid="conf_8py_1aa11e0a8e9c47ccc775796bd64c295d2c" kind="variable"><name>copyright</name></member>
+    <member refid="conf_8py_1a0b68e66074bc74dbb7460951f810b4c8" kind="variable"><name>author</name></member>
+    <member refid="conf_8py_1aca7e23e5f354ec5d8e18d6b5769908c9" kind="variable"><name>release</name></member>
+    <member refid="conf_8py_1ae475e080536acb271a0a0efe56c3ba42" kind="variable"><name>extensions</name></member>
+    <member refid="conf_8py_1a15ff89fd36856d4530d4ed2083e6dfc7" kind="variable"><name>breathe_default_project</name></member>
+    <member refid="conf_8py_1ad7fcd78de73b7505cc99717d4abf2ac1" kind="variable"><name>breathe_projects</name></member>
+    <member refid="conf_8py_1a54585428ce84441199d9dfd7087e2243" kind="variable"><name>breathe_default_members</name></member>
+    <member refid="conf_8py_1a3cb6867401ccd3f25a28d4270f4703c1" kind="variable"><name>source_suffix</name></member>
+    <member refid="conf_8py_1ae850ae634911b713e036b43894fdd525" kind="variable"><name>templates_path</name></member>
+    <member refid="conf_8py_1a7ad48fb6f3e9b129c02346ea0d3527c1" kind="variable"><name>exclude_patterns</name></member>
+    <member refid="conf_8py_1a012ba9863b958ed7baa933116f2a05b6" kind="variable"><name>html_theme</name></member>
+  </compound>
+  <compound refid="namespaceconverter" kind="namespace"><name>converter</name>
+    <member refid="converter_8py_1a617aa28db32c63db1a5406afd962eb48" kind="variable"><name>data</name></member>
+    <member refid="converter_8py_1af4883e1e38446e4ac384deb21a83d282" kind="variable"><name>nbNeuronCumul</name></member>
+    <member refid="converter_8py_1ae6b47a6a1f13009bc7e3377e68edd423" kind="variable"><name>distribNeuronCumul</name></member>
+    <member refid="converter_8py_1a814a9aa55d740f926e2b1f7e260ec032" kind="variable"><name>probaConnection</name></member>
+    <member refid="converter_8py_1afca6cc837ef2fa58185b2802f7f0b4f1" kind="variable"><name>nbPart</name></member>
+    <member refid="converter_8py_1aabb849d7b1682ed64c0035747e8f0b65" kind="variable"><name>out</name></member>
+    <member refid="converter_8py_1a487e5030dd38b36e3258c98400ccc523" kind="variable"><name>ind</name></member>
+    <member refid="converter_8py_1abd8c89ee9d9985705e9f6168deee56e2" kind="function"><name>writeData</name></member>
+    <member refid="converter_8py_1a3b7eb4c506d60febf6f92a5542da2180" kind="function"><name>loadData</name></member>
+    <member refid="converter_8py_1aa27870d892a591c11655b62c4817ef4a" kind="function"><name>numberNeuronCumul</name></member>
+    <member refid="converter_8py_1a6e28228aa4e4dac0869dc7d7834e4dd7" kind="function"><name>distribNeuronCumul</name></member>
+    <member refid="converter_8py_1a88d722574ce5b006f8309191b1580686" kind="function"><name>probaConnection</name></member>
+  </compound>
+  <compound refid="conf_8py" kind="file"><name>conf.py</name>
+  </compound>
+  <compound refid="hardBrainTest_8c" kind="file"><name>hardBrainTest.c</name>
+    <member refid="hardBrainTest_8c_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="littleConfigTest_8c" kind="file"><name>littleConfigTest.c</name>
+    <member refid="littleConfigTest_8c_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="brainmatrixgenerator_8h" kind="file"><name>brainmatrixgenerator.h</name>
+    <member refid="group__generation_1ga5cf7dd3647fca6c98f0b12ec6b6f436d" kind="typedef"><name>BrainMatrixInfo</name></member>
+    <member refid="group__generation_1ga75bf7e2ff0ac8ba292bacf3a9148c3a9" kind="function"><name>brainAdjMatrixCSR</name></member>
+    <member refid="group__generation_1ga76ee551e09e7553c2b5fb354f1487cb5" kind="function"><name>brainTransAdjMatrixCSR</name></member>
+    <member refid="group__generation_1ga932236cbed96bf85e6505ef997521f98" kind="function"><name>brainTransAdjMatrixCSR1D</name></member>
+    <member refid="group__generation_1ga6854206472559afee60b7cb6b34eac3e" kind="function"><name>brainTransAdjMatrixCOO1D</name></member>
+  </compound>
+  <compound refid="brainstruct_8h" kind="file"><name>brainstruct.h</name>
+    <member refid="group__brainstruct_1gaf939d4773c671ab637887d3782e8d131" kind="typedef"><name>BrainPart</name></member>
+    <member refid="group__brainstruct_1gaf621c7e3e64c04cd79cd92dd397226a0" kind="typedef"><name>Brain</name></member>
+    <member refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kind="function"><name>get_brain_part_ind</name></member>
+    <member refid="group__brainstruct_1ga6c3dc8a49a114ac126a68a00f3489ec2" kind="function"><name>get_nb_neuron_brain_part</name></member>
+    <member refid="group__brainstruct_1ga263e5c111c8b0f17c4606a6a93638505" kind="function"><name>get_mean_connect_percentage_for_part</name></member>
+    <member refid="group__brainstruct_1ga7cbc186e23c78a56d1d3ae430b5640ad" kind="function"><name>choose_neuron_type</name></member>
+    <member refid="group__brainstruct_1ga18acb5db6cd09680d94abb5a72c1fb64" kind="function"><name>generate_neuron_types</name></member>
+    <member refid="group__brainstruct_1gad95e70ac714740ca6a3e8d1a99f4a24c" kind="function"><name>printf_recap_brain</name></member>
+    <member refid="group__brainstruct_1ga63e81fa7888f38b77ee75d798073b6f1" kind="function"><name>free_brain</name></member>
+  </compound>
+  <compound refid="hardbrain_8h" kind="file"><name>hardbrain.h</name>
+    <member refid="group__hardbrain_1gae1eb3b42b6244c70df50e9cd05d4224e" kind="function"><name>generate_hard_brain</name></member>
+  </compound>
+  <compound refid="matrixstruct_8h" kind="file"><name>matrixstruct.h</name>
+    <member refid="group__sparseMatrix_1gaa1e1135b7e6d4ce409bd6d6d5a5bf2e7" kind="typedef"><name>coo</name></member>
+    <member refid="group__sparseMatrix_1gad48a4cd0e7b82694d1f4e8e81f593b5a" kind="typedef"><name>csr</name></member>
+    <member refid="group__sparseMatrix_1gad03438cfcba20028c1dc1adb149ba15d" kind="typedef"><name>MatrixDist</name></member>
+    <member refid="group__sparseMatrix_1ga44ba06170323c0c70332d0a06ec53adf" kind="function"><name>csrGetValue</name></member>
+    <member refid="group__sparseMatrix_1gaf5fcf88f63b1f7eb56eca340e55a8c7b" kind="function"><name>csrDisplay</name></member>
+    <member refid="group__sparseMatrix_1gadcdd3bf965d662e97d31cf2ea0d12b84" kind="function"><name>initMatrixDist</name></member>
+  </compound>
+  <compound refid="randomforbrain_8h" kind="file"><name>randomforbrain.h</name>
+    <member refid="randomforbrain_8h_1a625692e695f126833dfcb4f12ee62a89" kind="function"><name>rand_0_1</name></member>
+  </compound>
+  <compound refid="README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="littleConfigTest_8h" kind="file"><name>littleConfigTest.h</name>
+    <member refid="littleConfigTest_8h_1a4693773f5273b5218871328b5194ea12" kind="function"><name>get_nb_part</name></member>
+    <member refid="littleConfigTest_8h_1adcb8c5f8183c5c74b1f1050aa67620f4" kind="function"><name>paramBrain</name></member>
+  </compound>
+  <compound refid="converter_8py" kind="file"><name>converter.py</name>
+  </compound>
+  <compound refid="group__generation" kind="group"><name>generation</name>
+    <member refid="group__generation_1ga5cf7dd3647fca6c98f0b12ec6b6f436d" kind="typedef"><name>BrainMatrixInfo</name></member>
+    <member refid="group__generation_1ga75bf7e2ff0ac8ba292bacf3a9148c3a9" kind="function"><name>brainAdjMatrixCSR</name></member>
+    <member refid="group__generation_1ga76ee551e09e7553c2b5fb354f1487cb5" kind="function"><name>brainTransAdjMatrixCSR</name></member>
+    <member refid="group__generation_1ga932236cbed96bf85e6505ef997521f98" kind="function"><name>brainTransAdjMatrixCSR1D</name></member>
+    <member refid="group__generation_1ga6854206472559afee60b7cb6b34eac3e" kind="function"><name>brainTransAdjMatrixCOO1D</name></member>
+  </compound>
+  <compound refid="group__brainstruct" kind="group"><name>brainstruct</name>
+    <member refid="group__brainstruct_1gaf939d4773c671ab637887d3782e8d131" kind="typedef"><name>BrainPart</name></member>
+    <member refid="group__brainstruct_1gaf621c7e3e64c04cd79cd92dd397226a0" kind="typedef"><name>Brain</name></member>
+    <member refid="group__brainstruct_1gac0f304501358e97fa1d72c5e0b127384" kind="function"><name>get_brain_part_ind</name></member>
+    <member refid="group__brainstruct_1ga6c3dc8a49a114ac126a68a00f3489ec2" kind="function"><name>get_nb_neuron_brain_part</name></member>
+    <member refid="group__brainstruct_1ga263e5c111c8b0f17c4606a6a93638505" kind="function"><name>get_mean_connect_percentage_for_part</name></member>
+    <member refid="group__brainstruct_1ga7cbc186e23c78a56d1d3ae430b5640ad" kind="function"><name>choose_neuron_type</name></member>
+    <member refid="group__brainstruct_1ga18acb5db6cd09680d94abb5a72c1fb64" kind="function"><name>generate_neuron_types</name></member>
+    <member refid="group__brainstruct_1gad95e70ac714740ca6a3e8d1a99f4a24c" kind="function"><name>printf_recap_brain</name></member>
+    <member refid="group__brainstruct_1ga63e81fa7888f38b77ee75d798073b6f1" kind="function"><name>free_brain</name></member>
+  </compound>
+  <compound refid="group__hardbrain" kind="group"><name>hardbrain</name>
+    <member refid="group__hardbrain_1gae1eb3b42b6244c70df50e9cd05d4224e" kind="function"><name>generate_hard_brain</name></member>
+  </compound>
+  <compound refid="group__sparseMatrix" kind="group"><name>sparseMatrix</name>
+    <member refid="group__sparseMatrix_1gaa1e1135b7e6d4ce409bd6d6d5a5bf2e7" kind="typedef"><name>coo</name></member>
+    <member refid="group__sparseMatrix_1gad48a4cd0e7b82694d1f4e8e81f593b5a" kind="typedef"><name>csr</name></member>
+    <member refid="group__sparseMatrix_1gad03438cfcba20028c1dc1adb149ba15d" kind="typedef"><name>MatrixDist</name></member>
+    <member refid="group__sparseMatrix_1ga44ba06170323c0c70332d0a06ec53adf" kind="function"><name>csrGetValue</name></member>
+    <member refid="group__sparseMatrix_1gaf5fcf88f63b1f7eb56eca340e55a8c7b" kind="function"><name>csrDisplay</name></member>
+    <member refid="group__sparseMatrix_1gadcdd3bf965d662e97d31cf2ea0d12b84" kind="function"><name>initMatrixDist</name></member>
+  </compound>
+  <compound refid="md__home_wu_codes_BTIDG2_README" kind="page"><name>md__home_wu_codes_BTIDG2_README</name>
+  </compound>
+  <compound refid="dir_4fef79e7177ba769987a8da36c892c5f" kind="dir"><name>/home/wu/codes/BTIDG2/build</name>
+  </compound>
+  <compound refid="dir_188498025b4070124e81e2c8fc73b711" kind="dir"><name>/home/wu/codes/BTIDG2/translator/Configs</name>
+  </compound>
+  <compound refid="dir_e2cf8ecc49c41cbc53d71e2f6f58b926" kind="dir"><name>/home/wu/codes/BTIDG2/build/docs</name>
+  </compound>
+  <compound refid="dir_cfafba98a580ce4b62f8a6fa96d7cbb0" kind="dir"><name>/home/wu/codes/BTIDG2/example</name>
+  </compound>
+  <compound refid="dir_09e761304027c904456130627fd4dcf5" kind="dir"><name>/home/wu/codes/BTIDG2/includes</name>
+  </compound>
+  <compound refid="dir_c0b2abc27e504cad379d1b3dadec9c37" kind="dir"><name>/home/wu/codes/BTIDG2/translator</name>
+  </compound>
+</doxygenindex>
